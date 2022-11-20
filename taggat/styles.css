@@ -1,8 +1,5 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+   v2.0 | 20110126 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -46,15 +43,118 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* END OF RESET */
 
+/*------------------------------------------------------------------------------------------------------------------------------*/
 
+/* UPLOAD DA FONT, EM DOIS WEIGHTS DIFERENTES */
+@font-face {
+    font-family: Alliance;
+    src: url(fonts/AllianceNo.2-Regular.otf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Alliance;
+    src: url(fonts/AllianceNo.2-SemiBold.otf);
+    font-weight: 700;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+
+/* BODY */
+* {
+    background: #F0F0F0;
+}
+
+/* LOGO DO NIT NO HEADER */
 header>img {
     width: 4em;
     height: auto;
+    position: relative;
+    left: 3vw;
 }
 
+/* NAVEGADOR HAMBURGER */
 nav {
+    font-size: 1.7em;
     position: fixed;
-    top: 3%;
-    right: 2vw;
+    top: 1vw;
+    right: 4vw;
 }
+
+section {
+    padding: 4vh 0;
+}
+
+/* H1 > ELEMENTO HTML FIXO */
+h1.PagFixa {
+    font-family: Alliance, sans-serif;
+    font-weight: 700;
+
+    font-size: 8.64321608040201vw;
+    line-height: 17.94425087108014vw;
+    width: 66%;
+
+    position: relative;
+    left: 33%;
+}
+
+/* P > ELEMENTO HTML FIXO */
+p.PagFixa {
+    font-family: Alliance, sans-serif;
+    font-weight: 300;
+
+    font-size: 2.41vw;
+    line-height: 3.27vw;
+    width: 60%;
+
+    position: relative;
+    left: 33%;
+}
+
+/* BOTÕES > ELEMENTO HTML FIXO */
+button {
+    font-family: Alliance, sans-serif;
+    font-weight: 700;
+
+    position: absolute;
+    bottom: 60px;
+
+    padding: .5em 0;
+    margin: 0 4vw;
+
+    border-radius: 111px;
+    border: 1px solid #000000;
+    background: #D9D9D9;
+}
+
+/* SETA PARA BAIXO > CÍRCULO > ELEMENTO HTML FIXO */
+.ArrowDown {
+    background: #D9D9D9;
+    margin: 0 1.2em;
+    
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+  }
+
+/* SETA PARA BAIXO > SETA > ELEMENTO HTML FIXO */
+.ArrowDown:after {
+    content: '';
+
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin-bottom: .4em;
+
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+
+    -moz-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }

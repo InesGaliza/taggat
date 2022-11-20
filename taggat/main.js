@@ -1,17 +1,17 @@
-// use DOM load event listener to wait for content on page
+//CORRE A FUNÇÃO (O QUE O JS ESTÁ A FAZER), DEPOIS DO CONTEÚDO SER CARREGADO > EVENT LISTENER "LOAD"
 addEventListener("load", init);
 let urlBase;
 
 function init() {
-  console.log("ready when you are!");
+  console.log("está pronto!");
   vaiBuscar();
 }
 
 function vaiBuscar() {
-    //declarar o URL > Wordpress
+    //DECLARAR O URL DO WORDPRESS
     urlBase = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?categories=13";
 
-    //1ª ronda de Fetch
+    //1ª RONDA DE FETCH
     fetch(urlBase)
     .then(function (resposta) {
       return resposta.json();
@@ -67,7 +67,7 @@ function buildPost(_post) {
   
     // place the new element on the page
     document.querySelector("#posts").appendChild(el);
-    //console.log("built article", el);
+    //console.log("o Artigo está constrído!", el);
   }
 
   function fetchCategory(_cat_num) {
