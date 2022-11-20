@@ -16,10 +16,10 @@ function vaiBuscar() {
     .then(function (resposta) {
       return resposta.json();
     })
+
     .then(function (dados) {
     console.log(dados);
     
-
     for (let post of dados) {
         buildPost(post);
     }
@@ -67,11 +67,11 @@ function buildPost(_post) {
   
     // place the new element on the page
     document.querySelector("#posts").appendChild(el);
-    console.log("built article", el);
+    //console.log("built article", el);
   }
 
   function fetchCategory(_cat_num) {
-    console.log("fetching categories names");
+    //console.log("fetching categories names");
   
     // this will be the text string name to insert in the HTML span element(s)
     let category_name = "";
