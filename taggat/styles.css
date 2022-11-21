@@ -83,7 +83,8 @@ nav {
     right: 4vw;
 }
 
-section {
+/* SECÇÃO FIXA */
+section.PagFixa {
     padding: 4vh 0;
 }
 
