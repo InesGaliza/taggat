@@ -1,1 +1,81 @@
-este e o article
+<!DOCTYPE html>
+<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <style>
+        .separator {
+          height: 5px;
+          margin-top: 612px;
+        }
+
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 48%;
+          padding: 10px;
+          height: 174px;
+
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+          border-color:#000000;
+          border: 10px;
+        }
+
+        .datalocal {
+          font-family: "Alliance No.2";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 36px;
+          line-height: 43px;
+          display: flex;
+          align-items: center;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+
+          color: #000000;
+        }
+      </style>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title></title>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <link rel="stylesheet" href="styles.css" />
+      <script src="main.js"></script>
+    </head>
+    <body>
+      <header>
+        <img
+          src="logótipos/NIT-Logo-Temp.svg"
+          alt="O Logótipo do NIT (Núcleo de Investigação Tipográfica"
+        />
+        <nav>
+          <i class="fa fa-bars"></i>
+        </nav>
+        <hr />
+      </header>
+
+      <hr class="separator" />
+
+      <div class="row">
+        <div class="column" >
+          <p class="datalocal">[Data]</p>
+        </div>
+        <div class="column" >
+          <p class="datalocal">[Local]</p>
+        </div>
+      </div>
+
+      <hr />
+    </body>
+  </html>
+</html>
