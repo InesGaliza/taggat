@@ -111,3 +111,37 @@ function fetchCategoria(_cat_num) {
         console.log(error);
       });
   }
+
+
+  /*------------------------------------------------------------------------------------------------------------------------------*/
+
+  //PÁGINA SOBRE
+
+  function criaracaixa (){
+
+  let criarCaixaTAGGAT = document.createElement("div");
+  let titulo = document.querySelector("h2");
+  let CaixaTAGGATTAGLINE = document.querySelector("#CaixaTAGGATTAGLINE");
+
+  titulo.addEventListener("click", function (){
+
+    console.log("I have been clicked");
+    
+    criarCaixaTAGGAT.innerHTML = `
+    <p class="PagFixa AlinhamentoEsq">O projeto TAGGAT visa explorar, mapear, 
+    projetar e disseminar o legado da atividade criativa e industrial das 
+    artes gráficas na Área Metropolitana do Porto (AMP), através da criação 
+    de uma plataforma online, de acesso livre e público, que será gerida e 
+    ampliada por um grupo de administradores de conteúdos do NIT (Porto), 
+    extensível a outras áreas geográficas, de modo a exponenciar a investigação 
+    e o desenvolvimento de atividades científicas e profissionais, contribuindo, 
+    assim, para promover uma sociedade de conhecimento mais inclusiva, 
+    colaborativa, multidisciplinar e sustentável.
+    </p>`;
+
+    TAGGATtitulo.classList.add("TAGGATCaixaPreto")
+
+    // COLOCAR O OBJETO CRIADO NA DIV CRIADA
+    CaixaTAGGATTAGLINE.append(criarCaixaTAGGAT);
+    });
+  }
