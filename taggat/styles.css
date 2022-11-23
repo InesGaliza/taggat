@@ -264,6 +264,7 @@ button {
 
   .TAGGATCaixaPreto{
     background-color: black;
+    border-style: none;
   }
 
   h2.TAGGATCaixaPreto{
@@ -294,7 +295,7 @@ button {
     margin: 0;
   }
 
-  br {
+  br{
     content: "A";
     display: block;
     margin-bottom: 6.63129973474801vh;

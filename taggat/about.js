@@ -2,7 +2,7 @@ addEventListener("load", inicio);
 
 
 function inicio() {
-  console.log("está pronto!");
+  /*console.log("está pronto!");
 
     let TAGGATMostraCaixa = document.querySelector('#TAGGATMostraCaixa');
     let TAGLINEMostraCaixa = document.querySelector('#TAGLINEMostraCaixa');
@@ -32,7 +32,23 @@ function inicio() {
                 TAGLINEMostraCaixa.style.display = "block"; 
               } 
     
-              TAGLINEMostraCaixa.classList.toggle("TAGGATCaixaPreto");
+              TAGLINECaixa.classList.toggle("TAGGATCaixaPreto");
               CaixaTAGGATTAGLINE.classList.toggle("TAGGATCaixaPreto");
-            });
+            });*/
+
+    let CaixaTAGGATTAGLINE = document.querySelector('#CaixaTAGGATTAGLINE');
+    let TAGGATCaixa = document.querySelector('#TAGGATCaixa');
+    let TAGLINECaixa = document.querySelector('#TAGLINECaixa');
+    let TAGGATMostraCaixa = document.querySelector('#TAGGATMostraCaixa');
+    let TAGLINEMostraCaixa = document.querySelector('#TAGLINEMostraCaixa');
+
+    TAGGATCaixa.appendChild(TAGGATMostraCaixa);
+    TAGLINECaixa.appendChild(TAGLINEMostraCaixa);
+
+    function show(event) {
+      event.target.style.display = 'block';
+      console.log(event.target);
+    }
+
+    TAGGATCaixa.addEventListener('click', show, false);
     };
