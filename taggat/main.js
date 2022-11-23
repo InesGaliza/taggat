@@ -33,6 +33,8 @@ function vaiBuscar() {
     }
     })
 
+    // 
+
     .catch(function (error) {
         console.log(error);
     })
@@ -67,7 +69,7 @@ function construirArtigo(_post) {
                               <span class="categoria c${_post.categories[0]}">duh… what num?</span>
                           </div>
   
-                          <p>${_post.content.rendered}</p>`;
+                          <!-- <p>${_post.content.rendered}</p> -->`;
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
     document.querySelector("#posts").appendChild(el);
