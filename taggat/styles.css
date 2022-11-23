@@ -67,6 +67,11 @@ table {
     background: #F0F0F0;
 }
 
+div#fixa {
+  width: 100vw;
+  height: 100vh;
+}
+
 /* LOGO DO NIT NO HEADER */
 header>img {
     width: 4em;
@@ -89,8 +94,9 @@ section.PagFixa {
 }
 
 /* SECÇÃO FETCH */
-section.NovoPost {
-  padding: 4vh 0;
+section#NovoPost {
+ margin: 0;
+ padding: 0;
 }
 
 /* H1 > ELEMENTO HTML FIXO */
@@ -131,7 +137,6 @@ p.PagFixa {
 }
 
 p.AlinhamentoEsq {
-    
     font-size: 1.605351170568562vw;
     line-height: 2.0735785953177257vw;
 
@@ -289,7 +294,7 @@ button {
     margin: 0;
   }
 
-  br{
+  br {
     content: "A";
     display: block;
     margin-bottom: 6.63129973474801vh;
