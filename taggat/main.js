@@ -117,7 +117,7 @@ function fetchCategoria(_cat_num) {
 
   //PÁGINA SOBRE
 
-  function criaracaixa (){
+  /*function criaracaixa (){
 
   let criarCaixaTAGGAT = document.createElement("div");
   let titulo = document.querySelector("h2");
@@ -144,4 +144,5 @@ function fetchCategoria(_cat_num) {
     // COLOCAR O OBJETO CRIADO NA DIV CRIADA
     CaixaTAGGATTAGLINE.append(criarCaixaTAGGAT);
     });
-  }
+  }*/
+ 

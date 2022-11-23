@@ -188,9 +188,12 @@ button {
   /* CAIXA COM AMBOS OS TÍTULOS TAGGAT E TAGLINE */
   #CaixaTAGGATTAGLINE {
     border: solid 1pt black;
+    background-color: #F0F0F0;
 
     margin-top: 16.915119363395226vh;
     left: 3vw;
+
+    user-select: none;
   }
 
   /* TÍTULOS TAGGAT E TAGLINE */
@@ -249,5 +252,39 @@ button {
   }
 
   .TAGGATCaixaPreto{
+    background-color: black;
+  }
+
+  h2.TAGGATCaixaPreto{
     color: #D9D9D9;
+  }
+
+  #TAGGATMostraCaixa, #TAGLINEMostraCaixa{
+    display: none;
+    background-color: black;
+
+    padding: 16.915119363395226vh 0;
+  }
+
+  #TAGGATMostraCaixa > p, #TAGLINEMostraCaixa > p{
+    background-color: black;
+
+    font-family: Alliance, sans-serif;
+    font-weight: 300;
+    font-size: 1.605351170568562vw;
+    line-height: 2.07358vw;
+    color: #D9D9D9;
+
+    width: 60%;
+    left: 3vw;
+  }
+
+  section {
+    margin: 0;
+  }
+
+  br{
+    content: "A";
+    display: block;
+    margin-bottom: 6.63129973474801vh;
   }
