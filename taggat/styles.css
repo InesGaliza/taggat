@@ -101,10 +101,21 @@ h1.PagFixa {
     left: 33%;
 }
 
+h1.AlinhamentoEsq {
+    font-size: 5.752508361204013vw;
+    line-height: 6.688963210702341vw;
+
+    padding-top: 12.312997347480106vh;
+    padding-bottom: 5.150501672240803vw;
+    left: 3vw;
+    width: 30%;
+}
+
 /* P > ELEMENTO HTML FIXO */
 p.PagFixa {
     font-family: Alliance, sans-serif;
     font-weight: 300;
+    color: black;
 
     font-size: 2.41vw;
     line-height: 3.27vw;
@@ -112,6 +123,14 @@ p.PagFixa {
 
     position: relative;
     left: 33%;
+}
+
+p.AlinhamentoEsq {
+    
+    font-size: 1.605351170568562vw;
+    line-height: 2.0735785953177257vw;
+
+    left: 38.12709030100334vw;
 }
 
 /* BOTÕES > ELEMENTO HTML FIXO */
@@ -158,4 +177,77 @@ button {
     -moz-transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
+  }
+
+  /*------------------------------------------------------------------------------------------------------------------------------*/
+
+  /* PÁGINA SOBRE */
+
+  /* BODY */
+    
+  /* CAIXA COM AMBOS OS TÍTULOS TAGGAT E TAGLINE */
+  #CaixaTAGGATTAGLINE {
+    border: solid 1pt black;
+
+    margin-top: 16.915119363395226vh;
+    left: 3vw;
+  }
+
+  /* TÍTULOS TAGGAT E TAGLINE */
+  .TitulosPagSobre {
+    display: inline-block;
+    cursor: pointer;
+
+    font-family: Alliance, sans-serif;
+    font-weight: 700;
+
+    font-size: 2.6755852842809364vw;
+    line-height: 3.27vw;
+
+    padding: 3.9787798408488064vh 6vw 3.9787798408488064vh 3vw;
+  }
+
+  /* BORDA DA CAIXA DO LADO ESQUERDO */
+  #TAGLINECaixa {
+    border-left: solid 1pt black;
+  }
+
+  /* BORDA DA CAIXA DE BAIXO */
+  #SOBRENITCaixa{
+    border-bottom: solid 1pt black;
+    padding-bottom: 16.915119363395226vh;
+  }
+
+  /* LINKS VISITADOS */
+  a:visited {
+    color: black;
+  }
+
+  /* FOOTER */
+
+  footer div{
+    display: inline-block;
+    padding-left: 33%;
+  }
+
+  .FooterClass {
+    padding: 16.915119363395226vh 3vw 16.915119363395226vh 0;
+    font-size: 1.0702341137123745vw;
+    line-height: 1.605351170568562vw;
+
+    width: 45%;
+  }
+
+  .FooterClass p{
+    font-family: Alliance, sans-serif;
+    padding-bottom: 4.5092838196286475vh;
+  }
+
+  /* STRONG */
+  strong{
+    font-weight: 700;
+  }
+
+  .TAGGATCaixaPreto{
+    color: #D9D9D9;
   }
