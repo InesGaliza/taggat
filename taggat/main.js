@@ -4,7 +4,12 @@ addEventListener("load", inicio);
 
 function inicio() {
   console.log("está pronto!");
+
+  // FUNÇÃO PARA FAZER O FETCH
   vaiBuscar();
+
+  // BOTÃO > TOGGLE CLASS / HOVER / AMINAÇÃO
+  botaoHover();
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -141,9 +146,22 @@ async function fetchImagens(_id, _media) {
   const dados = await resposta.json();
 
   mySrc = dados.media_details.sizes.thumbnail.source_url;
-  console.log("featured media scr url", mySrc);
+  //console.log("featured media scr url", mySrc);
 
   let myID = "#id-" + _id;
   let myEl = document.querySelector(myID);
   myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
 }
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------*/
+
+// BOTÃO > TOGGLE CLASS / HOVER / AMINAÇÃO
+function botaoHover() {
+$("button").hover(function() {
+  //console.log("hovering!");
+  $("button, #arrowDown").toggleClass("btnHover");
+  $("#arrowDown").toggleClass("btnHover:after");
+})
+}
+

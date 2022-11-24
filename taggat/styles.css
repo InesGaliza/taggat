@@ -64,7 +64,7 @@ table {
 
 /* BODY */
 * {
-    background: #F0F0F0;
+    background-color: #F0F0F0;
 }
 
 div#fixa {
@@ -86,6 +86,7 @@ nav {
     position: fixed;
     top: 1vw;
     right: 4vw;
+    z-index: 1;
 }
 
 /* SECÇÃO FIXA */
@@ -112,6 +113,7 @@ h1.PagFixa {
     left: 33%;
 }
 
+/* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
 h1.AlinhamentoEsq {
     font-size: 5.752508361204013vw;
     line-height: 6.688963210702341vw;
@@ -136,6 +138,7 @@ p.PagFixa {
     left: 33%;
 }
 
+/* P > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
 p.AlinhamentoEsq {
     font-size: 1.605351170568562vw;
     line-height: 2.0735785953177257vw;
@@ -157,12 +160,23 @@ button {
 
     border-radius: 111px;
     border: 1px solid #000000;
-    background: #D9D9D9;
+    background-color: #D9D9D9;
+}
+
+/* BOTÕES > TOGGLECLASS JS */
+.btnHover {
+  background-color: #000000;
+  border-color: #D9D9D9;
+
+  color: #D9D9D9;
+}
+.btnHover:after {
+  border-color: #D9D9D9;
 }
 
 /* SETA PARA BAIXO > CÍRCULO > ELEMENTO HTML FIXO */
-.ArrowDown {
-    background: #D9D9D9;
+#arrowDown {
+    background-color: #D9D9D9;
     margin: 0 1.2em;
     
     display: inline-block;
@@ -174,7 +188,7 @@ button {
   }
 
 /* SETA PARA BAIXO > SETA > ELEMENTO HTML FIXO */
-.ArrowDown:after {
+#arrowDown:after {
     content: '';
 
     display: inline-block;
@@ -193,8 +207,6 @@ button {
   /*------------------------------------------------------------------------------------------------------------------------------*/
 
   /* PÁGINA SOBRE */
-
-  /* BODY */
     
   /* CAIXA COM AMBOS OS TÍTULOS TAGGAT E TAGLINE */
   #CaixaTAGGATTAGLINE {
