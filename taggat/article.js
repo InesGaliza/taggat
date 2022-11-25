@@ -14,25 +14,25 @@ function getSome() {
   //console.log("getting json");
 
   // JSON url endpoint (wordpress timeline category = 13)
-  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts";
+  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?categories=13";
 
   // see the files from class 6 for fetch operations
   fetch(url)
     .then(function (resposta) {
       return resposta.json();
     })
-    .then(function (dados) {
+    .then(function (titulodados) {
       //console.log(dados);
 
       // dados = array of 9 or more posts
       // for each post call a new function with the post content
-      for (let post of dados) {
-        buildPost(post);
+      for (let post of titulodados) {
+        buildTitle(post);
       }
       // run a second loop to change the posts' category names
-     
+
       // and run a third loop to change the posts' images
-   
+
     })
     .catch(function (error) {
       console.log(error);
@@ -52,7 +52,7 @@ function getSome() {
 // when calling the function we pass the specific "_post" as an argument
 // the function receives the "_post" and…
 
-function buildPost(_post) {
+function buildTitle(_post) {
   // create a new element
   let el = document.createElement("article");
   let myID = "id-" + _post.id;
@@ -60,49 +60,34 @@ function buildPost(_post) {
 
 
 
-  
+
 
   el.setAttribute("id", myID);
 
-  // use string/template literals to build the HTML object the title
+  // titulo insert
   el.innerHTML = `
+               
+  
 
                         <!-- inspect the JSON object in the browser to find out the necessary data -->
                         <h1>${_post.title.rendered}</h1>
 
-                    </div>
+                        <span class="data">${_post.acf.data}</span>
+                        <span class="local">${_post.acf.local}</span>
 
 
                        `;
+
+
 
   // place the new element on the page
   document.querySelector("#titulo").appendChild(el);
   console.log("built article", el);
+
 }
 
 
 
-function buildDate(_post) {
-  // create a new element
-  let el = document.createElement("article");
-  let myID2 = "id-" + _post.date;
 
 
 
-
-  
-
-  el2.setAttribute("id", myID2);
-
-  // use string/template literals to build the HTML object the title
-  el2.innerHTML = `
-
-                        <!-- inspect the JSON object in the browser to find out the necessary data -->
-                        <h1>${_post.acf.data}</h1>
-
-                       `;
-
-  // place the new element on the page
-  document.querySelector("#data").appendChild(el);
-  console.log("built date", el2);
-}
