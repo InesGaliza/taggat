@@ -36,7 +36,7 @@ function inicio() {
               CaixaTAGGATTAGLINE.classList.toggle("TAGGATCaixaPreto");
             });*/
 
-    let CaixaTAGGATTAGLINE = document.querySelector('#CaixaTAGGATTAGLINE');
+    /*let CaixaTAGGATTAGLINE = document.querySelector('#CaixaTAGGATTAGLINE');
     let TAGGATCaixa = document.querySelector('#TAGGATCaixa');
     let TAGLINECaixa = document.querySelector('#TAGLINECaixa');
     let TAGGATMostraCaixa = document.querySelector('#TAGGATMostraCaixa');
@@ -51,4 +51,24 @@ function inicio() {
     }
 
     TAGGATCaixa.addEventListener('click', show, false);
+    */
+
+    let TAGGATMostraCaixa = document.querySelector('#TAGGATMostraCaixa');
+    let TAGLINEMostraCaixa = document.querySelector('#TAGLINEMostraCaixa');
+    let TAGGATCaixa = document.querySelector('#TAGGATCaixa');
+    let TAGLINECaixa = document.querySelector('#TAGLINECaixa');
+    let CaixaTAGGATTAGLINE = document.querySelector("#CaixaTAGGATTAGLINE");
+
+    TAGGATCaixa.appendChild(TAGGATMostraCaixa);
+    TAGLINECaixa.appendChild(TAGLINEMostraCaixa);
+
+    function handler(event) {
+      var target = $( event.target );
+      if (target.is(TAGGATCaixa)) {
+        target.children().toggle();
+      }
+    }
+    
+    $(TAGGATCaixa).click(handler).find(TAGGATCaixa).hide();
+
     };
