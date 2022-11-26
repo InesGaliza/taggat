@@ -159,9 +159,8 @@ async function fetchImagens(_id, _media) {
 // BOTÃO > TOGGLE CLASS / HOVER / AMINAÇÃO
 function botaoHover() {
 $("button").hover(function() {
-  //console.log("hovering!");
+  console.log("hovering!");
   $("button, #arrowDown").toggleClass("btnHover");
   $("#arrowDown").toggleClass("btnHover:after");
 })
 }
-
