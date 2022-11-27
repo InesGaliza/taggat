@@ -14,7 +14,7 @@ function getSome() {
   //console.log("getting json");
 
   // JSON url endpoint (wordpress timeline category = 13)
-  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?categories=13";
+  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=403";
 
   // see the files from class 6 for fetch operations
   fetch(url)
@@ -28,6 +28,7 @@ function getSome() {
       // for each post call a new function with the post content
       for (let post of titulodados) {
         buildTitle(post);
+        buildDate(post);
       }
       // run a second loop to change the posts' category names
 
@@ -72,8 +73,7 @@ function buildTitle(_post) {
                         <!-- inspect the JSON object in the browser to find out the necessary data -->
                         <h1>${_post.title.rendered}</h1>
 
-                        <span class="data">${_post.acf.data}</span>
-                        <span class="local">${_post.acf.local}</span>
+                
 
 
                        `;
@@ -86,6 +86,42 @@ function buildTitle(_post) {
 
 }
 
+
+
+
+
+function buildDate(_post) {
+  // create a new element
+  let elDate = document.createElement("article");
+ 
+
+
+
+
+
+
+  elDate.setAttribute("id", myID);
+
+  // titulo insert
+  elDate.innerHTML = `
+               
+  
+
+                        <!-- inspect the JSON object in the browser to find out the necessary data -->
+                        <p>${_post.acf.data}</p>
+
+                
+
+
+                       `;
+
+
+
+  // place the new element on the page
+  document.querySelector("#data").appendChild(elData);
+  console.log("built article", elData);
+
+}
 
 
 
