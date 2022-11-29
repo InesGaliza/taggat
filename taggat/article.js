@@ -29,8 +29,14 @@ function getSome() {
         buildTitle(post);
 
       }
-      // run a second loop to change the posts' category names
 
+      //data
+
+      for (let post of titulodados) {
+        buildTitle(post);
+
+      }
+    
       // and run a third loop to change the posts' images
 
     })
