@@ -76,7 +76,7 @@ function construirArtigo(_post) {
                           <!-- <p>${_post.content.rendered}</p> -->`;
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
-    document.querySelector("#List").appendChild(el);
+    document.querySelector("#list").appendChild(el);
     //console.log("o Artigo está constrído!", el);
   }
 
