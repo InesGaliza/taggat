@@ -54,11 +54,11 @@ function construirArtigo(_post) {
 
     // UTLIZAR STRING / TEMPLATE LITERALS PARA CONSTRUIR O OBJETO HTML
     el.innerHTML = `<figure >
-                          <a href="single.html?post=${_post.id}"><img src=""></a>
+                          <img src="">
                     </figure>
   
                           <!-- PARA ENCONTRAR OS DADOS NECESSÁRIOS, É NECESSÁRIO INSPECIONAR O OBJETO JSON NO BROWSER -->
-                          <h1>${_post.title.rendered}</h1>
+                          <a href="article.htm?post=${_post.id}"><h1>${_post.title.rendered}</h1></a>
   
                           <div class="meta">
                               <span class="data">${_post.acf.data}</span>

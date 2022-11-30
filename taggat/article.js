@@ -13,7 +13,7 @@ const post = urlParams.get("post");
 
 
 // Fetch de um post (construir a edenreço do JSON com o parâmetro da URL )
-let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=403";
+let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=" + post;
 
 
 // fetch

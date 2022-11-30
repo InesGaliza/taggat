@@ -61,7 +61,7 @@ function construirArtigo(_post) {
                     </figure>
   
                           <!-- PARA ENCONTRAR OS DADOS NECESSÁRIOS, É NECESSÁRIO INSPECIONAR O OBJETO JSON NO BROWSER -->
-                          <h1>${_post.title.rendered}</h1>
+                          <a href="article.htm?post=${_post.id}"><h1>${_post.title.rendered}</h1></a>
   
                           <div class="meta">
                               <span class="data">${_post.acf.data}</span>
@@ -76,7 +76,7 @@ function construirArtigo(_post) {
                           <!-- <p>${_post.content.rendered}</p> -->`;
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
-    document.querySelector("#List").appendChild(el);
+    document.querySelector("#list").appendChild(el);
     //console.log("o Artigo está constrído!", el);
   }
 
