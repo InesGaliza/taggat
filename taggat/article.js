@@ -4,7 +4,7 @@ addEventListener("load", init);
 
 function init() {
   console.log("ready when you are!");
-  // ehn page ready get the JSON content (timeline posts)
+  
   getSome();
 }
 
@@ -14,9 +14,9 @@ function getSome() {
   //console.log("getting json");
 
   // JSON url endpoint (wordpress timeline category = 13)
-  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?categories=13";
+  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=403";
 
-  // see the files from class 6 for fetch operations
+
   fetch(url)
     .then(function (resposta) {
       return resposta.json();
@@ -24,13 +24,19 @@ function getSome() {
     .then(function (titulodados) {
       //console.log(dados);
 
-      // dados = array of 9 or more posts
       // for each post call a new function with the post content
       for (let post of titulodados) {
         buildTitle(post);
-      }
-      // run a second loop to change the posts' category names
 
+      }
+
+      //data
+
+      for (let post of titulodados) {
+        buildTitle(post);
+
+      }
+    
       // and run a third loop to change the posts' images
 
     })
@@ -61,7 +67,6 @@ function buildTitle(_post) {
 
 
 
-
   el.setAttribute("id", myID);
 
   // titulo insert
@@ -72,8 +77,7 @@ function buildTitle(_post) {
                         <!-- inspect the JSON object in the browser to find out the necessary data -->
                         <h1>${_post.title.rendered}</h1>
 
-                        <span class="data">${_post.acf.data}</span>
-                        <span class="local">${_post.acf.local}</span>
+                
 
 
                        `;
@@ -85,6 +89,7 @@ function buildTitle(_post) {
   console.log("built article", el);
 
 }
+
 
 
 
