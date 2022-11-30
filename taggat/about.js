@@ -168,4 +168,6 @@ function inicio() {
       TextoTAGLINE.style.display = "none";
       TítuloTAGLINE.classList.remove('TAGGATCaixaPreto');
   }});
+
+  
     };
