@@ -249,11 +249,6 @@
     padding: 3.9787798408488064vh 6vw 3.9787798408488064vh 3vw;
   }
 
-  /* BORDA DA CAIXA DO LADO ESQUERDO */
-  #TAGLINECaixa {
-    border-left: solid 1pt black;
-  }
-
   /* BORDA DA CAIXA DE BAIXO */
   #SOBRENITCaixa{
     border-bottom: solid 1pt black;
@@ -278,6 +273,8 @@
 
   #ConteúdoTAGGATTAGLINE {
     display: none;
+
+    background-color: black;
   }
 
   .TextoTAGGATTAGLINE{
@@ -290,6 +287,17 @@
 
   #TextoTAGGAT, #TextoTAGLINE{
     display: none;
+    background-color: black;
+
+    font-family: Alliance, sans-serif;
+    font-weight: 300;
+    font-size: 1.605351170568562vw;
+    line-height: 2.07358vw;
+    color: #D9D9D9;
+
+    padding: 5% 0 5% 0;
+    width: 60%;
+    left: 3vw;
   }
 
   /* LINKS VISITADOS */
@@ -336,19 +344,6 @@
     background-color: black;
 
     padding: 16.915119363395226vh 0;
-  }
-
-  #TAGGATMostraCaixa > p, #TAGLINEMostraCaixa > p{
-    background-color: black;
-
-    font-family: Alliance, sans-serif;
-    font-weight: 300;
-    font-size: 1.605351170568562vw;
-    line-height: 2.07358vw;
-    color: #D9D9D9;
-
-    width: 60%;
-    left: 3vw;
   }
 
   section {
