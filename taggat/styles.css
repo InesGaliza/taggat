@@ -1,222 +1,222 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126 */
-   html, body, div, span, applet, object, iframe,
-   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-   a, abbr, acronym, address, big, cite, code,
-   del, dfn, em, img, ins, kbd, q, s, samp,
-   small, strike, strong, sub, sup, tt, var,
-   b, u, i, center,
-   dl, dt, dd, ol, ul, li,
-   fieldset, form, label, legend,
-   table, caption, tbody, tfoot, thead, tr, th, td,
-   article, aside, canvas, details, embed, 
-   figure, figcaption, footer, header, hgroup, 
-   menu, nav, output, ruby, section, summary,
-   time, mark, audio, video {
-     margin: 0;
-     padding: 0;
-     border: 0;
-     font-size: 100%;
-     font: inherit;
-     vertical-align: baseline;
-   }
-   /* HTML5 display-role reset for older browsers */
-   article, aside, details, figcaption, figure, 
-   footer, header, hgroup, menu, nav, section {
-     display: block;
-   }
-   body {
-     line-height: 1;
-   }
-   ol, ul {
-     list-style: none;
-   }
-   blockquote, q {
-     quotes: none;
-   }
-   blockquote:before, blockquote:after,
-   q:before, q:after {
-     content: '';
-     content: none;
-   }
-   table {
-     border-collapse: collapse;
-     border-spacing: 0;
-   }
-   /* END OF RESET */
-   
-   /*------------------------------------------------------------------------------------------------------------------------------*/
-   
-   /* UPLOAD DA FONT, EM DOIS WEIGHTS DIFERENTES */
-   @font-face {
-       font-family: Alliance;
-       src: url(fonts/AllianceNo.2-Regular.otf);
-       font-weight: 300;
-   }
-   
-   @font-face {
-       font-family: Alliance;
-       src: url(fonts/AllianceNo.2-SemiBold.otf);
-       font-weight: 700;
-   }
-   
-   /*------------------------------------------------------------------------------------------------------------------------------*/
-   
-   :root {
-     --black: #000000;
-     --white: #F0F0F0;
-     --antwhite: #D9D9D9;
-   }
-   
-   /*------------------------------------------------------------------------------------------------------------------------------*/
-   /* INDEX */
-   /* BODY */
-   * {
-       background-color: var(--white);
-   }
-   
-   /*------------------------------------------------------------------------------------------------------------------------------*/
-   /* INDEX > TIMELINE PARTE FIXA*/
-   /* PARA QUALQUER VH... DIV FIXA */
-   div#fixa {
-       width: 98vw;
-       height: 100vh;
-   }
-   
-   /* LOGO DO NIT NO HEADER */
-   header>img {
-       width: 4em;
-       height: auto;
-       position: relative;
-       left: 3vw;
-   }
-   
-   /* NAVEGADOR HAMBURGER */
-   nav {
-       font-size: 1.7em;
-       position: fixed;
-       top: 1vw;
-       right: 4vw;
-       z-index: 1;
-   }
-   
-   /* SECÇÃO FIXA */
-   section.PagFixa {
-       padding: 4vh 0;
-   }
-   
-   /* SECÇÃO FETCH */
-   section#NovoPost {
-       margin: 0;
-       padding: 0;
-   }
-   
-   /* H1 > ELEMENTO HTML FIXO */
-   h1.PagFixa {
-       font-family: Alliance, sans-serif;
-       font-weight: 700;
-   
-       font-size: 8.64321608040201vw;
-       line-height: 17.94425087108014vw;
-       width: 66%;
-   
-       position: relative;
-       left: 33%;
-   }
-   
-   /* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
-   h1.AlinhamentoEsq {
-       font-size: 5.752508361204013vw;
-       line-height: 6.688963210702341vw;
-   
-       padding-top: 12.312997347480106vh;
-       padding-bottom: 5.150501672240803vw;
-       left: 3vw;
-       width: 30%;
-   }
-   
-   /* P > ELEMENTO HTML FIXO */
-   p.PagFixa {
-       font-family: Alliance, sans-serif;
-       font-weight: 300;
-       color: var(--black);
-   
-       font-size: 2.41vw;
-       line-height: 3.27vw;
-       width: 60%;
-   
-       position: relative;
-       left: 33%;
-   }
-   
-   /* P > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
-   p.AlinhamentoEsq {
-       font-size: 1.605351170568562vw;
-       line-height: 2.0735785953177257vw;
-   
-       left: 38.12709030100334vw;
-   }
-   
-   /* BOTÕES > ELEMENTO HTML FIXO */
-   button {
-     font-family: Alliance, sans-serif;
-     font-weight: 700;
-   
-     display: block;
-     position: absolute;
-     bottom: 60px;
-   
-     padding: .5em 0;
-     margin: 0 4vw;
-   
-     border-radius: 111px;
-     border: 1px solid var(--black);
-     background-color: var(--antwhite);
-   }
-   
-   /* BOTÕES > JS */
-   .btnHover {
-     background-color: var(--black);
-   
-     color: var(--antwhite);
-   }
-   
-   /* ICON > ARROW DOWN */
-   #boot-icon, #boot-icon2 {
-   background-color: var(--antwhite);
-   margin: 0 1.2em;
-   }
-   
-   /* ICON > ARROW DOWN > JS */
-   .seta {
-   background-color: var(--black);
-   color: var(--antwhite);
-   }
-   
-   /*------------------------------------------------------------------------------------------------------------------------------*/
-   /* INDEX > FILTROS PARTE FIXA*/
-   /* ASIDE > FILTROS */
-   aside {
-     position: fixed;
-     top: 50%;
-   }
-   
-   li {
-     position: relative;
-     padding: 1.2em 0;
-   }
-   
-   .filtros {
-     text-align: left;
-     width: 12em;
-     padding: .5em 1.2em .5em 1.2em;
-   }
-   
-   .bi{
-     background-color: var(--antwhite);
-     margin-right: 1.5em;
-   }
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* END OF RESET */
 
+/*------------------------------------------------------------------------------------------------------------------------------*/
+
+/* UPLOAD DA FONT, EM DOIS WEIGHTS DIFERENTES */
+@font-face {
+    font-family: Alliance;
+    src: url(fonts/AllianceNo.2-Regular.otf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Alliance;
+    src: url(fonts/AllianceNo.2-SemiBold.otf);
+    font-weight: 700;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+
+/* BODY */
+* {
+    background-color: #F0F0F0;
+}
+
+div#fixa {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* LOGO DO NIT NO HEADER */
+header>img {
+    width: 4em;
+    height: auto;
+    position: relative;
+    left: 3vw;
+}
+
+/* NAVEGADOR HAMBURGER */
+nav {
+    font-size: 1.7em;
+    position: fixed;
+    top: 1vw;
+    right: 4vw;
+    z-index: 1;
+}
+
+/* SECÇÃO FIXA */
+section.PagFixa {
+    padding: 4vh 0;
+}
+
+/* SECÇÃO FETCH */
+section#NovoPost {
+ margin: 0;
+ padding: 0;
+}
+
+/* H1 > ELEMENTO HTML FIXO */
+h1.PagFixa {
+    font-family: Alliance, sans-serif;
+    font-weight: 700;
+
+    font-size: 8.64321608040201vw;
+    line-height: 17.94425087108014vw;
+    width: 66%;
+
+    position: relative;
+    left: 33%;
+}
+
+/* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
+h1.AlinhamentoEsq {
+    font-size: 5.752508361204013vw;
+    line-height: 6.688963210702341vw;
+
+    padding-top: 12.312997347480106vh;
+    padding-bottom: 5.150501672240803vw;
+    left: 3vw;
+    width: 30%;
+}
+
+/* P > ELEMENTO HTML FIXO */
+p.PagFixa {
+    font-family: Alliance, sans-serif;
+    font-weight: 300;
+    color: black;
+
+    font-size: 2.41vw;
+    line-height: 3.27vw;
+    width: 60%;
+
+    position: relative;
+    left: 33%;
+}
+
+/* P > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
+p.AlinhamentoEsq {
+    font-size: 1.605351170568562vw;
+    line-height: 2.0735785953177257vw;
+
+    left: 38.12709030100334vw;
+}
+
+/* BOTÕES > ELEMENTO HTML FIXO */
+button {
+    font-family: Alliance, sans-serif;
+    font-weight: 700;
+
+    display: block;
+    position: absolute;
+    bottom: 60px;
+
+    padding: .5em 0;
+    margin: 0 4vw;
+
+    border-radius: 111px;
+    border: 1px solid #000000;
+    background-color: #D9D9D9;
+}
+
+/* BOTÕES > TOGGLECLASS JS */
+.btnHover {
+  background-color: #000000;
+  border-color: #D9D9D9;
+
+  color: #D9D9D9;
+}
+
+.btnHover:after {
+  border-color: #D9D9D9;
+}
+
+/* SETA PARA BAIXO > CÍRCULO > ELEMENTO HTML FIXO */
+#arrowDown {
+    background-color: #D9D9D9;
+    margin: 0 1.2em;
+    
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+
+    border: 1px solid #000000;
+    border-radius: 50%;
+
+
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    
+
+    -moz-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+  
+/* INDEX > FILTROS PARTE FIXA*/
+/* ASIDE > FILTROS */
+aside {
+  position: fixed;
+  top: 50%;
+}
+
+li {
+  position: relative;
+  padding: 1.2em 0;
+}
+
+.filtros {
+  text-align: left;
+  width: 12em;
+  padding: .5em 1.2em .5em 1.2em;
+}
+
+.bi{
+  background-color: var(--antwhite);
+  margin-right: 1.5em;
+}
   /*------------------------------------------------------------------------------------------------------------------------------*/
 
   /* PÁGINA SOBRE */
