@@ -330,10 +330,8 @@ li {
 
 
 
-  /*-------------------------PAGINA DO ARQUIVO---------------------------*/
-
-  /* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
-
+/*-------------------------PAGINA DO ARQUIVO---------------------------*/
+/* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
 
 /* H1 > ELEMENTO HTML FIXO */
 h1.PagArq {
@@ -347,14 +345,7 @@ h1.PagArq {
   position: relative;
   left: 5%;
 }
-
-
-
-
-  /*-------------------------TENTAR FAZER UMA ESPECIE DE MENU - PAGINA DO ARQUIVO---------------------------*/
-
-
-
+/*-------------------------TENTAR FAZER UMA ESPECIE DE MENU - PAGINA DO ARQUIVO---------------------------*/
 .red{
   color: red;
 }

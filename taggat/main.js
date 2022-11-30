@@ -185,7 +185,7 @@ $("button.filtros").each(function() {
 function botaoClick(_post) {
   $("button.filtros").each(function() {
       $(this).click(function() {
-        console.log("i've been clicked!");
+        //console.log("i've been clicked!");
         if(this.id === 'btn1') {
           console.log("i'm button 1!");
           //console.log(_post.categories[0]);
@@ -201,13 +201,6 @@ function botaoClick(_post) {
       })
   })
 }
-
-
-
-
-
-
-
-
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------*/
 /*-----------------------------TENTAR FAZER MENU--------------------*/
