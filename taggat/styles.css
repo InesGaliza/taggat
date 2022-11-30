@@ -196,7 +196,29 @@ button {
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
   }
+  
+/* INDEX > FILTROS PARTE FIXA*/
+/* ASIDE > FILTROS */
+aside {
+  position: fixed;
+  top: 50%;
+}
 
+li {
+  position: relative;
+  padding: 1.2em 0;
+}
+
+.filtros {
+  text-align: left;
+  width: 12em;
+  padding: .5em 1.2em .5em 1.2em;
+}
+
+.bi{
+  background-color: var(--antwhite);
+  margin-right: 1.5em;
+}
   /*------------------------------------------------------------------------------------------------------------------------------*/
 
   /* PÁGINA SOBRE */
