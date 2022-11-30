@@ -366,7 +366,7 @@ button {
   /*-------------------------PAGINA DO ARQUIVO---------------------------*/
 
   /* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
-h1.PagArq AlinhamentoEsq {
+h1.AlinhamentoEsq {
   font-size: 5.752508361204013vw;
   line-height: 6.688963210702341vw;
 
@@ -377,7 +377,7 @@ h1.PagArq AlinhamentoEsq {
 }
 
 /* H1 > ELEMENTO HTML FIXO */
-h1.PagFixa {
+h1.PagArq {
   font-family: Alliance, sans-serif;
   font-weight: 700;
 
