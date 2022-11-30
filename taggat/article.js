@@ -262,7 +262,7 @@ function buildTitle(_title) {
       console.log("tagNames", tagNames);
 
       // use string/template literals to build the HTML object
-      eletiquetas.innerHTML = `<p> by number: ${ _post.tags}</p>
+      eletiquetas.innerHTML = `
                                 <p> by name: ${ tagNames }</p>
                             `;
     
