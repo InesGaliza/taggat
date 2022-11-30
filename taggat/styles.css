@@ -366,28 +366,6 @@ button {
   /*-------------------------PAGINA DO ARQUIVO---------------------------*/
 
   /* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
-.AlinhamentoEsq {
-  font-size: 5.752508361204013vw;
-  font-family: Alliance, sans-serif;
-  line-height: 6.688963210702341vw;
-  padding-top: 12.312997347480106vh;
-  padding-bottom: 5.150501672240803vw;
-  left: 3vw;
-  width: 30%;
-}
-
-/* H1 > ELEMENTO HTML FIXO */
-h1.PagArq {
-  font-family: Alliance, sans-serif;
-  font-weight: 700;
-
-  font-size: 8.64321608040201vw;
-  line-height: 17.94425087108014vw;
-  width: 66%;
-
-  position: relative;
-  left: 33%;
-}
 
 
 
@@ -395,6 +373,6 @@ h1.PagArq {
   font-family: Alliance;
 }
 
-#list > figure {
+figure#list{
   display: none;
 }
