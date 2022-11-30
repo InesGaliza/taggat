@@ -341,12 +341,7 @@ button {
     display: block;
     margin-bottom: 6.63129973474801vh;
   }*/
-
-
-
-
-
-
+  
 /*-------------------------PAGINA DO ARQUIVO---------------------------*/
 /* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
 
@@ -355,17 +350,13 @@ button {
 h1.PagArq {
   font-family: Alliance, sans-serif;
   font-weight: 700;
+}
 
-#List{
+#List {
   font-family: Alliance;
 }
 
-
-
-
-  /*-------------------------TENTAR FAZER UMA ESPECIE DE MENU - PAGINA DO ARQUIVO---------------------------*/
-
-
+/*-------------------------TENTAR FAZER UMA ESPECIE DE MENU - PAGINA DO ARQUIVO---------------------------*/
 
 .red{
   color: red;
