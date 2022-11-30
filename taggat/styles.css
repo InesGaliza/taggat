@@ -257,6 +257,7 @@ button {
     border-bottom: solid 1pt black;
     padding-bottom: 16.915119363395226vh;
   /* TÍTULOS TAGGAT E TAGLINE */
+  
   .TitulosPagSobreSelecionado {
     display: inline-block;
     cursor: pointer;
