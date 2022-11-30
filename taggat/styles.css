@@ -366,10 +366,10 @@ button {
   /*-------------------------PAGINA DO ARQUIVO---------------------------*/
 
   /* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
-h1.AlinhamentoEsq {
+.AlinhamentoEsq {
   font-size: 5.752508361204013vw;
-  line-height: 6.688963210702341vw;
   font-family: Alliance, sans-serif;
+  line-height: 6.688963210702341vw;
   padding-top: 12.312997347480106vh;
   padding-bottom: 5.150501672240803vw;
   left: 3vw;
