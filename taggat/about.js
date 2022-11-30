@@ -147,10 +147,14 @@ function inicio() {
     if (ConteúdoTAGGATTAGLINE.style.display === "none") {
       ConteúdoTAGGATTAGLINE.style.display = "block";
       TextoTAGGAT.style.display = "block";
+      TítuloTAGGAT.classList.add('TAGGATCaixaPreto');
     } else {
       ConteúdoTAGGATTAGLINE.style.display = "none";
       TextoTAGGAT.style.display = "none";
-  }});
+      TítuloTAGGAT.classList.remove('TAGGATCaixaPreto');
+  }
+
+});
 
   TítuloTAGLINE.addEventListener('click', function showContentTAGLINE(){
 
@@ -158,8 +162,10 @@ function inicio() {
     if (ConteúdoTAGGATTAGLINE.style.display === "none") {
       ConteúdoTAGGATTAGLINE.style.display = "block";
       TextoTAGLINE.style.display = "block";
+      TítuloTAGLINE.classList.add('TAGGATCaixaPreto');
     } else {
       ConteúdoTAGGATTAGLINE.style.display = "none";
       TextoTAGLINE.style.display = "none";
+      TítuloTAGLINE.classList.remove('TAGGATCaixaPreto');
   }});
     };
