@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
- 
+    <link rel="stylesheet" href="styles.css">
     <script src="article.js"></script>
 
     <style>
@@ -40,7 +40,10 @@
   font-family: Alliance, sans-serif;
   font-weight: 700;
 
-  font-size: 87;
+
+    font-size:9.216101694915254vw;
+
+
  
 
   padding: 3.9787798408488064vh 6vw 3.9787798408488064vh 3vw;
@@ -54,6 +57,7 @@
 
 
   margin-top: 30vh;
+  height: 24.576271186440678vh;
 }
 .grid-item {
   font-family: Alliance, sans-serif;
@@ -61,8 +65,10 @@
   font-weight: 600;
   font-size: 30px;
   padding-left: 6vw;
+  padding-top: 1vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
   text-align: left;
+
 }
 
 .grid-container2 {
@@ -78,6 +84,7 @@
 
 
   width: 54vh;
+
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 4vh;
   font-size: 20px;
@@ -128,22 +135,33 @@
       <hr />
     </header>
 
+
+
+
+
+
+<!--Título, nome do article-->
     <div class="tituloarticle">
       <section id="titulo"></section>
     </div>
+
+
+
 
 <!-- grid da data e local -->
 
     <div class="grid-container">
       <div class="grid-item">
-        <p>[DATA]</p>
+        <h1>[DATA]</h1>
        
         <section id="data"></section>
 
       </div>
 
       <div class="grid-item">
-        <p>[LOCAL]</p>
+        <h1>[LOCAL]</h1>
+        <section id="local"></section>
+
       </div>
       <div class="grid-item"></div>
     </div>
@@ -151,9 +169,13 @@
 
     <!--fim da data e local-->
 
+
     <div class="bodyarticle">
       <p>AHAHAHHA</p>
     </div>
+
+
+    <!-- grid dos extras -->
 
     <div class="grid-container2">
       <div class="grid-item2">
@@ -173,7 +195,10 @@
         <div class="grid-item2">
           <p>[OUTRA ENTRADA]</p>
         </div>
+      
     </div>
+        <!--fim da grid dos extras-->
+
   </body>
   <footer></footer>
 </html>
