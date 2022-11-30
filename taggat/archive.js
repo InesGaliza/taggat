@@ -1,15 +1,12 @@
 // CORRE A FUNÇÃO (O QUE O JS ESTÁ A FAZER), DEPOIS DO CONTEÚDO SER CARREGADO > EVENT LISTENER "LOAD"
-addEventListener("load", inicio);
+addEventListener("load", goRun);
 
 
-function inicio() {
+function goRun() {
   console.log("está pronto!");
 
   // FUNÇÃO PARA FAZER O FETCH
   vaiBuscar();
-
-  // BOTÃO > TOGGLE CLASS / HOVER / AMINAÇÃO
-  botaoHover();
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -79,7 +76,7 @@ function construirArtigo(_post) {
                           <!-- <p>${_post.content.rendered}</p> -->`;
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
-    document.querySelector("NovoPost").appendChild(el);
+    document.querySelector("#NovoPost").appendChild(el);
     //console.log("o Artigo está constrído!", el);
   }
 
