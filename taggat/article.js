@@ -16,6 +16,11 @@ const post = urlParams.get("post");
 let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=" + post;
 
 
+
+//fetch de imagens
+let imagens= "https://nit.fba.up.pt/dev/wp-json/wp/v2/media/";
+
+
 // fetch
 fetch(url)
   .then(function (resposta) {
@@ -35,8 +40,8 @@ fetch(url)
     for (let local of dados) {
       buildLocal(local);
     }
-    for (let outras of dados) {
-      buildOutras(outras);
+    for (let etiquetas of dados) {
+      buildEtiquetas(etiquetas);
     }
   })
 
@@ -157,36 +162,67 @@ function buildTitle(_title) {
       
       console.log("built local", ellocal);
     }
+
+
+    function buildEtiquetas(_etiquetas) {
+      // create a new element
+      let eletiquetas = document.createElement("article");
+      let myID = "id-" + _etiquetas.id;
+    
+      eletiquetas.setAttribute("id", myID);
+    
+      // use string/template literals to build the HTML object
+      eletiquetas.innerHTML = `<p>${_etiquetas.tags.rendered}</p>
+    
+    
+      
+                            
+      
+                            `;
+    
+      // place the new element on the page
+      document.querySelector("#etiquetas").appendChild(eletiquetas);
+      
+      console.log("built etiquetas", eletiquetas);
+    }
   
-
-     // funcao outras entradas
-
-function buildOutras(_outras) {
-  // create a new element
-  let elOutras = document.createElement("article");
-  let myID = "id-" + _outras.id;
-
-  elOutras.setAttribute("id", myID);
-
-  // use string/template literals to build the HTML object
-  elOutras.innerHTML = `<h1>${_outras.acf.entradas_relacionadas}</h1>
+    
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+   // funcao outras entradas
+
+// function buildOutras(_outras) {
+//   // create a new element
+//   let elOutras = document.createElement("article");
+//   let myID = "id-" + _outras.id;
+
+//   elOutras.setAttribute("id", myID);
+
+//   // use string/template literals to build the HTML object
+//   elOutras.innerHTML = `
+
+//   <a href="article.htm?post=${_outras.acf.entradas_relacionadas}"></a>
   
                         
   
-                        `;
+//                         `;
 
-  // place the new element on the page
-  document.querySelector("#outras").appendChild(elOutras);
+//   // place the new element on the page
+//   document.querySelector("#outras").appendChild(elOutras);
   
-  console.log("built outras", elOutras);
-}
-
-
-
-
-    
-    
-
+//   console.log("built outras", elOutras);
+// }
 
