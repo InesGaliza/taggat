@@ -15,6 +15,7 @@ const post = urlParams.get("post");
 // Fetch de um post (construir a edenreço do JSON com o parâmetro da URL )
 let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=403";
 
+
 // fetch
 fetch(url)
   .then(function (resposta) {
@@ -33,6 +34,9 @@ fetch(url)
     }
     for (let local of dados) {
       buildLocal(local);
+    }
+    for (let outras of dados) {
+      buildOutras(outras);
     }
   })
 
@@ -154,6 +158,34 @@ function buildTitle(_title) {
       console.log("built local", ellocal);
     }
   
+
+     // funcao outras entradas
+
+function buildOutras(_outras) {
+  // create a new element
+  let elOutras = document.createElement("article");
+  let myID = "id-" + _outras.id;
+
+  elOutras.setAttribute("id", myID);
+
+  // use string/template literals to build the HTML object
+  elOutras.innerHTML = `<h1>${_outras.acf.entradas_relacionadas}</h1>
+
+
+  
+                        
+  
+                        `;
+
+  // place the new element on the page
+  document.querySelector("#outras").appendChild(elOutras);
+  
+  console.log("built outras", elOutras);
+}
+
+
+
+
     
     
 
