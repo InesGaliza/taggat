@@ -7,15 +7,11 @@ function inicio() {
 
   // FUNÇÃO PARA FAZER O FETCH
   vaiBuscar();
-
   // MENU FILTROS >CATEGORIAS > CRIAR ESTE MENU
   criarCategoras();
-
   // BOTÃO > ADD&REMOVE CLASS / ENTER&LEAVE / AMINAÇÃO
   botaoHover();
-  botaoClick();
 }
-
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
 function vaiBuscar() {
@@ -31,6 +27,7 @@ function vaiBuscar() {
     // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
     for (let post of dados) {
         construirArtigo(post);
+        botaoClick(post);  
     }
     // DEPOIS DA CONSTRUÇÃO DO ARTIGO, PARA CADA ENTRADA DO WORDPRESS, CORRE UM SEGUNDO FETCH (FUNÇÃO)
     for (let post of dados) {
@@ -134,7 +131,6 @@ async function fetchImagens(_id, _media) {
   let myEl = document.querySelector(myID);
   myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
 }
-
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // FUNÇÃO PARA CRIAR FILTROS > CATEGORIAS
@@ -163,7 +159,7 @@ $("button#timeline").mouseleave(function() {
   $("#boot-icon, #boot-icon2").removeClass("seta");
   $("#boot-icon, #boot-icon2").css("background-color", "var(--antwhite)");
 })
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
 // BOTÃO FILTROS > MOUSEENTER/MOUSELEAVE
 $("button.filtros").each(function() {
   $(this).mouseenter(function() {
@@ -186,18 +182,22 @@ $("button.filtros").each(function() {
 }
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // BOTÃO CLICK > PARA FILTRAR CATEGORIAS
-function botaoClick() {
+function botaoClick(_post) {
   $("button.filtros").each(function() {
       $(this).click(function() {
         console.log("i've been clicked!");
         if(this.id === 'btn1') {
           console.log("i'm button 1!");
+          //console.log(_post.categories[0]);
+          let filtro = document.querySelector("#NovoPost>article");
+          let myCategory = "category-" + _post.categories[0];
+          filtro.setAttribute("Category", myCategory);
+          console.log(filtro.attributes);
         } else if(this.id === 'btn2') {
           console.log("i'm button 2!");
         } else if(this.id === 'btn3') {
-          console.log("i'm button 3!")
+          console.log("i'm button 3!");
         }
-
       })
   })
 }
