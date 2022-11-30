@@ -141,20 +141,20 @@ function inicio() {
 
   let ConteúdoTAGGATTAGLINE = document.querySelector("#ConteúdoTAGGATTAGLINE");
 
-  TítuloTAGGAT.addEventListener('click', function showContentTAGGAT(){
 
-    console.log("hello");
-    if (ConteúdoTAGGATTAGLINE.style.display === "block") {
-      ConteúdoTAGGATTAGLINE.style.display = "none";
-      TextoTAGGAT.style.display = "none";
-      TítuloTAGGAT.classList.remove('TAGGATCaixaPreto');
-    } else {
-      ConteúdoTAGGATTAGLINE.style.display = "block";
-      TextoTAGGAT.style.display = "block";
-      TítuloTAGGAT.classList.add('TAGGATCaixaPreto');
-  }
+  // TítuloTAGGAT.addEventListener('click', function showContentTAGGAT(){
 
-});
+  //   console.log("hello");
+  //   if (ConteúdoTAGGATTAGLINE.style.display === "block") {
+  //     ConteúdoTAGGATTAGLINE.style.display = "none";
+  //     TextoTAGGAT.style.display = "none";
+  //     //TítuloTAGGAT.classList.remove('TAGGATCaixaPreto');
+  //   } else {
+  //     ConteúdoTAGGATTAGLINE.style.display = "block";
+  //     TextoTAGGAT.style.display = "block";
+  //     //TítuloTAGGAT.classList.add('TAGGATCaixaPreto');
+  // }
+  //   });
 
   TítuloTAGLINE.addEventListener('click', function showContentTAGLINE(){
 
@@ -169,5 +169,31 @@ function inicio() {
       TítuloTAGLINE.classList.add('TAGGATCaixaPreto');
   }});
 
+  function onclickTAGGAT(event){
+    var target = $(event.target);
+    if (target.is(TítuloTAGGAT)){
+      console.log("click me");
+      TítuloTAGLINE.classList.remove('TAGGATCaixaPreto');
+      TítuloTAGGAT.classList.toggle('TAGGATCaixaPreto');
+      ConteúdoTAGGATTAGLINE.classList.toggle('conteudoTAGGATTAGLINEshow');
+      TextoTAGGAT.classList.toggle('textoTAGGATshow');
+    }
+  }
+
+  
+  function onclickTAGLINE(event){
+    var target = $(event.target);
+    if (target.is(TítuloTAGLINE)){
+      console.log("click me");
+      TítuloTAGGAT.classList.remove('TAGGATCaixaPreto');
+      
+    }
+  }
+
+  TítuloTAGGAT.addEventListener('click', onclickTAGGAT, false);
+  TítuloTAGLINE.addEventListener('click', onclickTAGLINE, false);
 
     };
+
+
+    //Tenho que criar uma classe para show e para hide e dar toggle entre essas classes maybe idk try it
