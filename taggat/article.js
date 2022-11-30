@@ -16,40 +16,107 @@ const post = urlParams.get("post");
 let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=" + post;
 
 
+// before the posts
+// fetch the post tags with names
+
+// https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/
+let tagnames = [];
+
+async function fetchTags() {
+  const response = await fetch('https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/');
+  const tags = await response.json();
+  return tags;
+}
+
+fetchTags().then(function (dados) {
+  
+  for (let tag of dados) {
+    
+    // console.log("tags", tag);
+
+    let newTag;
+    newTag = {id: tag.id, name: tag.name};
+
+    tagnames.push(newTag);
+  }
+  console.log("total tgnames",tagnames);
+  
+});
+
+
 
 //fetch de imagens
 let imagens= "https://nit.fba.up.pt/dev/wp-json/wp/v2/media/";
 
+async function fetchPost() {
+  const resposta = await fetch(url);
+  const dados = await resposta.json();
+  return dados;
+}
 
-// fetch
-fetch(url)
-  .then(function (resposta) {
-    return resposta.json();
-  })
-  .then(function (dados) {
+fetchPost().then(function (dados) {
   
-    for (let title of dados) {
-      buildTitle(title);
-    }
-    for (let mainpost of dados) {
-      buildPost(mainpost);
-    }
-    for (let date of dados) {
-      buildData(date);
-    }
-    for (let local of dados) {
-      buildLocal(local);
-    }
-    for (let etiquetas of dados) {
-      buildEtiquetas(etiquetas);
-    }
-  })
+  for (let title of dados) {
+    buildTitle(title);
+  }
+  for (let mainpost of dados) {
+    buildPost(mainpost);
+  }
+  for (let date of dados) {
+    buildData(date);
+  }
+  for (let local of dados) {
+    buildLocal(local);
+  }
+  for (let etiquetas of dados) {
+
+    buildEtiquetas(etiquetas);
+    console.log('bulding etiquetas');
+  }
+  for (let outras of dados) {
+    buildOutras(outras);
+  }
+});
+  
+
+
+// // fetch
+// fetch(url)
+//   .then(function (resposta) {
+//     return resposta.json();
+//   })
+//   .then(function (dados) {
+  
+  
+//     for (let title of dados) {
+//       buildTitle(title);
+//     }
+//     for (let mainpost of dados) {
+//       buildPost(mainpost);
+//     }
+//     for (let date of dados) {
+//       buildData(date);
+//     }
+//     for (let local of dados) {
+//       buildLocal(local);
+//     }
+//     for (let etiquetas of dados) {
+
+      
+
+//       buildEtiquetas(etiquetas);
+//       console.log('bulding etiquetas');
+//     }
+//     for (let outras of dados) {
+//       buildOutras(outras);
+//     }
+//   })
 
 
 
-  .catch(function (error) {
-    console.log(error);
-  });
+//   .catch(function (error) {
+//     console.log(error);
+//   });
 
 
 
@@ -164,20 +231,39 @@ function buildTitle(_title) {
     }
 
 
-    function buildEtiquetas(_etiquetas) {
+    function buildEtiquetas(_post) {
+
+      // console.log("post", _post);
+      console.log("tags", _post.tags);
+
       // create a new element
       let eletiquetas = document.createElement("article");
-      let myID = "id-" + _etiquetas.id;
-    
+      
+      let myID = "id-" + _post.id;
+      
+
       eletiquetas.setAttribute("id", myID);
+
+      let tagNames = "";
     
+      for(let i = 0; i < _post.tags.length; i++) {
+       
+        console.log("tag…", _post.tags[i]);
+
+        for(let k = 0; k < tagnames.length; k++ ) {
+          if( tagnames[k].id == _post.tags[i]) {
+            tagNames += tagnames[k].name+", "; 
+          }
+        }
+
+        
+      }
+
+      console.log("tagNames", tagNames);
+
       // use string/template literals to build the HTML object
-      eletiquetas.innerHTML = `<p>${_etiquetas.tags.rendered}</p>
-    
-    
-      
-                            
-      
+      eletiquetas.innerHTML = `<p> by number: ${ _post.tags}</p>
+                                <p> by name: ${ tagNames }</p>
                             `;
     
       // place the new element on the page
@@ -202,27 +288,27 @@ function buildTitle(_title) {
 
 
 
-   // funcao outras entradas
+  // funcao outras entradas
 
-// function buildOutras(_outras) {
-//   // create a new element
-//   let elOutras = document.createElement("article");
-//   let myID = "id-" + _outras.id;
+function buildOutras(_outras) {
+  // create a new element
+  let elOutras = document.createElement("article");
+  let myID = "id-" + _outras.id;
 
-//   elOutras.setAttribute("id", myID);
+  elOutras.setAttribute("id", myID);
 
-//   // use string/template literals to build the HTML object
-//   elOutras.innerHTML = `
+  // use string/template literals to build the HTML object
+  elOutras.innerHTML = `
 
-//   <a href="article.htm?post=${_outras.acf.entradas_relacionadas}"></a>
+  <p>${_outras.acf.entradas_relacionadas}</p>
   
                         
   
-//                         `;
+                        `;
 
-//   // place the new element on the page
-//   document.querySelector("#outras").appendChild(elOutras);
+  // place the new element on the page
+  document.querySelector("#outras").appendChild(elOutras);
   
-//   console.log("built outras", elOutras);
-// }
+  console.log("built outras", elOutras);
+}
 
