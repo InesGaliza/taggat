@@ -5,10 +5,10 @@ addEventListener("load", inicio);
 function inicio() {
   console.log("está pronto!");
 
-  // FUNÇÃO PARA FAZER O FETCH
-  vaiBuscar();
   // MENU FILTROS >CATEGORIAS > CRIAR ESTE MENU
   criarCategoras();
+  // FUNÇÃO PARA FAZER O FETCH
+  vaiBuscar();
   // BOTÃO > ADD&REMOVE CLASS / ENTER&LEAVE / AMINAÇÃO
   botaoHover();
 }
@@ -144,17 +144,21 @@ function criarCategoras() {
                   <li><button id="btn3" class="filtros target-14"><span class="bi bi-arrow-left-circle"></span>PESSOAS</button></li>`
   
   ul.addEventListener('click', function() {
-    console.log("hey, it's me, the button!");
-    // get classes
-    console.log(ul.getClass);
-    // get [1]
+    console.log("hey, it's me, the buttons!");
+    // GET CLASSES
+    let botoes = document.querySelectorAll('button.filtros');
+    // console.log(botoes);
+    for (let botao of botoes) {
+      console.log(botao);
+      console.log(botao.className);
+    }
+    // GET [1]
     // let target = trim string "target-"
     // queryselcter pelo "class-"+target
     // poem todos invisiveis
     // poem sóe estes visiveis
   });
-                  document.querySelector("aside").appendChild(ul);
-
+    document.querySelector("aside").appendChild(ul);
 
 
 }

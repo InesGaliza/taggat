@@ -273,7 +273,6 @@
 
   #ConteúdoTAGGATTAGLINE {
     display: none;
-
     background-color: black;
   }
 
@@ -348,6 +347,17 @@
 
   section {
     margin: 0;
+  }
+
+
+  /*tentativas cenas*/
+
+  .conteudoTAGGATTAGLINEshow{
+    display: block;
+  }
+
+  .textoTAGGATshow{
+    display: block;
   }
 
 /*_________________________________PAGINA DO ARQUIVO______________________________*/
