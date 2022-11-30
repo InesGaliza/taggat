@@ -27,7 +27,7 @@ function vaiBuscar() {
     // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
     for (let post of dados) {
         construirArtigo(post);
-        botaoClick(post);  
+        botaoClick(post);
     }
     // DEPOIS DA CONSTRUÇÃO DO ARTIGO, PARA CADA ENTRADA DO WORDPRESS, CORRE UM SEGUNDO FETCH (FUNÇÃO)
     for (let post of dados) {
@@ -48,10 +48,13 @@ function construirArtigo(_post) {
     // CRIAR UM NOVO ELEMENTO > O ARTIGO
     let el = document.createElement("article");
     let myID = "id-" + _post.id;
+    let myClass = "class-" + _post.categories[0];
     el.setAttribute("id", myID);
+    el.setAttribute("class", myClass);
+
     // UTLIZAR STRING / TEMPLATE LITERALS PARA CONSTRUIR O OBJETO HTML
     el.innerHTML = `<figure >
-                          <img src="">
+                          <a href="single.html?post=${_post.id}"><img src=""></a>
                     </figure>
   
                           <!-- PARA ENCONTRAR OS DADOS NECESSÁRIOS, É NECESSÁRIO INSPECIONAR O OBJETO JSON NO BROWSER -->
@@ -136,10 +139,23 @@ async function fetchImagens(_id, _media) {
 // FUNÇÃO PARA CRIAR FILTROS > CATEGORIAS
 function criarCategoras() {
   let ul = document.createElement('ul');
-  ul.innerHTML = `<li><button id="btn1" class="filtros"><span class="bi bi-arrow-left-circle"></span>ARTEFACTOS</button></li>
-                  <li><button id="btn2" class="filtros"><span class="bi bi-arrow-left-circle"></span>LOCAIS</button></li>
-                  <li><button id="btn3" class="filtros"><span class="bi bi-arrow-left-circle"></span>PESSOAS</button></li>`
-  document.querySelector("aside").appendChild(ul);
+  ul.innerHTML = `<li><button id="btn1" class="filtros target-52"><span class="bi bi-arrow-left-circle"></span>ARTEFACTOS</button></li>
+                  <li><button id="btn2" class="filtros target-37"><span class="bi bi-arrow-left-circle"></span>LOCAIS</button></li>
+                  <li><button id="btn3" class="filtros target-14"><span class="bi bi-arrow-left-circle"></span>PESSOAS</button></li>`
+  
+  ul.addEventListener('click', function() {
+    console.log("hey, it's me, the button!");
+    // get classes
+    console.log(ul.getClass);
+    // get [1]
+    // let target = trim string "target-"
+    // queryselcter pelo "class-"+target
+    // poem todos invisiveis
+    // poem sóe estes visiveis
+  });
+                  document.querySelector("aside").appendChild(ul);
+
+
 
 }
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -183,23 +199,28 @@ $("button.filtros").each(function() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // BOTÃO CLICK > PARA FILTRAR CATEGORIAS
 function botaoClick(_post) {
-  $("button.filtros").each(function() {
-      $(this).click(function() {
-        //console.log("i've been clicked!");
-        if(this.id === 'btn1') {
-          console.log("i'm button 1!");
-          //console.log(_post.categories[0]);
-          let filtro = document.querySelector("#NovoPost>article");
-          let myCategory = "category-" + _post.categories[0];
-          filtro.setAttribute("Category", myCategory);
-          console.log(filtro.attributes);
-        } else if(this.id === 'btn2') {
-          console.log("i'm button 2!");
-        } else if(this.id === 'btn3') {
-          console.log("i'm button 3!");
-        }
-      })
-  })
+  // $("button.filtros").each(function() {
+  //     $(this).click(function() {
+  //       //console.log("i've been clicked!");
+  //       if(this.id === 'btn1') {
+  //         console.log("i'm button 1!");
+  //         //console.log(_post.categories[0]);
+  //         let filtro = document.querySelector("#NovoPost>article");
+  //         let myCategory = "category-" + _post.categories[0];
+  //         filtro.setAttribute("Category", myCategory);
+  //         console.log(filtro.attributes);
+  //       } else if(this.id === 'btn2') {
+  //         console.log("i'm button 2!");
+  //       } else if(this.id === 'btn3') {
+  //         console.log("i'm button 3!");
+  //       }
+  //     })
+  // })
+
+  console.log("post cat", _post.categories[0]);
+// [Log] post cat – 52 (main.js, line 205, x3)
+// [Log] post cat – 37 (main.js, line 205, x3)
+// [Log] post cat – 14 (main.js, line 205, x3)
 }
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
