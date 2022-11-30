@@ -219,7 +219,7 @@ button {
   /* PÁGINA SOBRE */
     
   /* CAIXA COM AMBOS OS TÍTULOS TAGGAT E TAGLINE */
-  #CaixaTAGGATTAGLINE {
+  #SecçãoTAGGATTAGLINE {
     border: solid 1pt black;
     background-color: #F0F0F0;
 
@@ -227,6 +227,10 @@ button {
     left: 3vw;
 
     user-select: none;
+  }
+
+  #SecçãoTAGGATTAGLINE>article{
+    display: inline-block;
   }
 
   /* TÍTULOS TAGGAT E TAGLINE */
@@ -252,6 +256,36 @@ button {
   #SOBRENITCaixa{
     border-bottom: solid 1pt black;
     padding-bottom: 16.915119363395226vh;
+  /* TÍTULOS TAGGAT E TAGLINE */
+  .TitulosPagSobreSelecionado {
+    display: inline-block;
+    cursor: pointer;
+
+    font-family: Alliance, sans-serif;
+    color: white;
+    font-weight: 700;
+
+    font-size: 2.6755852842809364vw;
+    line-height: 3.27vw;
+
+    padding: 3.9787798408488064vh 6vw 3.9787798408488064vh 3vw;
+    background-color: black;
+  }
+
+  #ConteúdoTAGGATTAGLINE {
+    display: none;
+  }
+
+  .TextoTAGGATTAGLINE{
+    font-family: Alliance, sans-serif;
+    color: white;
+
+    font-size: 1vw;
+    line-height: 2vw;
+  }
+
+  #TextoTAGGAT, #TextoTAGLINE{
+    display: none;
   }
 
   /* LINKS VISITADOS */
@@ -317,11 +351,12 @@ button {
     margin: 0;
   }
 
-  br{
+  /*br{
     content: "A";
     display: block;
     margin-bottom: 6.63129973474801vh;
-  }
+  }*/
+
 
 
 
