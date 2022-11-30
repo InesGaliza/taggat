@@ -28,6 +28,8 @@ function vaiBuscar() {
     for (let post of dados) {
         construirArtigo(post);
     }
+
+
     
     // DEPOIS DA CONSTRUÇÃO DO ARTIGO, PARA CADA ENTRADA DO WORDPRESS, CORRE UM SEGUNDO FETCH (FUNÇÃO)
     for (let post of dados) {
@@ -38,12 +40,53 @@ function vaiBuscar() {
     for (let post of dados) {
       fetchImagens(post.id, post.featured_media);
     }
+
+    criarimagens();
+
     })
 
     .catch(function (error) {
         console.log(error);
     })
 }
+
+function criarimagens() {
+  console.log ("estou a criar");
+
+
+
+  // vai buscar o #list
+
+
+let alvo = document.querySelector('#list');
+
+
+  // no click do #list
+
+// alvo.addEventListener('click', function(event){
+//   let myTarget = event.target;
+
+//     // obtem o target clicado (do evento)
+//   console.log(myTarget);
+
+//   myTarget.children[0].style.display = "block";
+// });
+
+
+ 
+  $(alvo).click(function(e) {
+    let myTarget = e.target;
+    myTarget.children[0].toggleClass();
+  })
+
+
+//$("h3#openslide").click ( function(){$("ul#nav").toggle("show"); 
+
+
+
+  // target filho (figure) = block
+} //
+
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -77,6 +120,8 @@ function construirArtigo(_post) {
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
     document.querySelector("#list").appendChild(el);
+
+
     //console.log("o Artigo está constrído!", el);
   }
 
@@ -153,7 +198,7 @@ async function fetchImagens(_id, _media) {
 
 
 
-/*_____________________tentativa de menu______________________ */
+
 
 
 

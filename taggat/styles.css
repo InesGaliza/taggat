@@ -373,6 +373,7 @@ font-weight: 500;
 
 #list > article  > figure {
 display: none;
+z-index: 1099;
 }
 
 
@@ -388,7 +389,34 @@ border-top: 1px solid #000;
 
 
 
-#list > article  > h1 {
-grid-column: 6/9;
+#list > article  > a {
+grid-column: 5/9;
 align-items: flex-start;
+text-decoration-line: none;
+background: rgba(0, 128, 0, 0.1);
+
+
 }
+
+
+#list  > article:hover {
+  background-color: #ff0;
+  }
+
+
+  #list  > a:hover {
+    background-color: #ff0;
+    }
+  
+  
+
+
+
+
+
+
+
+
+
+
+/*_________________________________FIM DA PAGINA DO ARQUIVO______________________________*/
