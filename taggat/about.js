@@ -144,14 +144,14 @@ function inicio() {
   TítuloTAGGAT.addEventListener('click', function showContentTAGGAT(){
 
     console.log("hello");
-    if (ConteúdoTAGGATTAGLINE.style.display === "none") {
-      ConteúdoTAGGATTAGLINE.style.display = "block";
-      TextoTAGGAT.style.display = "block";
-      TítuloTAGGAT.classList.add('TAGGATCaixaPreto');
-    } else {
+    if (ConteúdoTAGGATTAGLINE.style.display === "block") {
       ConteúdoTAGGATTAGLINE.style.display = "none";
       TextoTAGGAT.style.display = "none";
       TítuloTAGGAT.classList.remove('TAGGATCaixaPreto');
+    } else {
+      ConteúdoTAGGATTAGLINE.style.display = "block";
+      TextoTAGGAT.style.display = "block";
+      TítuloTAGGAT.classList.add('TAGGATCaixaPreto');
   }
 
 });
@@ -159,15 +159,15 @@ function inicio() {
   TítuloTAGLINE.addEventListener('click', function showContentTAGLINE(){
 
     console.log("helloagain");
-    if (ConteúdoTAGGATTAGLINE.style.display === "none") {
-      ConteúdoTAGGATTAGLINE.style.display = "block";
-      TextoTAGLINE.style.display = "block";
-      TítuloTAGLINE.classList.add('TAGGATCaixaPreto');
-    } else {
+    if (ConteúdoTAGGATTAGLINE.style.display === "block") {
       ConteúdoTAGGATTAGLINE.style.display = "none";
       TextoTAGLINE.style.display = "none";
       TítuloTAGLINE.classList.remove('TAGGATCaixaPreto');
+    } else {
+      ConteúdoTAGGATTAGLINE.style.display = "block";
+      TextoTAGLINE.style.display = "block";
+      TítuloTAGLINE.classList.add('TAGGATCaixaPreto');
   }});
 
-  
+
     };
