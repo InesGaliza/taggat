@@ -171,7 +171,7 @@ function buildOutras(_outras) {
   // use string/template literals to build the HTML object
   elOutras.innerHTML = `<h1>${_outras.acf.entradas_relacionadas}</h1>
 
-
+  <a href="article.htm?post=${_outras.acf.entradas_relacionadas}"></a>
   
                         
   
