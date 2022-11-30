@@ -150,3 +150,10 @@ async function fetchImagens(_id, _media) {
   myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
 }
 
+
+
+
+/*_____________________tentativa de menu______________________ */
+
+
+

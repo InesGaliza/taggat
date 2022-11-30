@@ -62,25 +62,14 @@ table {
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
-:root {
-  --black: #000000;
-  --white: #F0F0F0;
-  --antwhite: #D9D9D9;
-}
-
-/*------------------------------------------------------------------------------------------------------------------------------*/
-/* INDEX */
 /* BODY */
 * {
-    background-color: var(--white);
+    background-color: #F0F0F0;
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
-/* INDEX > TIMELINE PARTE FIXA*/
-/* PARA QUALQUER VH... DIV FIXA */
 div#fixa {
-    width: 98vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 /* LOGO DO NIT NO HEADER */
@@ -107,8 +96,8 @@ section.PagFixa {
 
 /* SECÇÃO FETCH */
 section#NovoPost {
-    margin: 0;
-    padding: 0;
+ margin: 0;
+ padding: 0;
 }
 
 /* H1 > ELEMENTO HTML FIXO */
@@ -139,7 +128,7 @@ h1.AlinhamentoEsq {
 p.PagFixa {
     font-family: Alliance, sans-serif;
     font-weight: 300;
-    color: var(--black);
+    color: black;
 
     font-size: 2.41vw;
     line-height: 3.27vw;
@@ -159,77 +148,72 @@ p.AlinhamentoEsq {
 
 /* BOTÕES > ELEMENTO HTML FIXO */
 button {
-  font-family: Alliance, sans-serif;
-  font-weight: 700;
+    font-family: Alliance, sans-serif;
+    font-weight: 700;
 
-  display: block;
-  position: absolute;
-  bottom: 60px;
+    display: block;
+    position: absolute;
+    bottom: 60px;
 
-  padding: .5em 0;
-  margin: 0 4vw;
+    padding: .5em 0;
+    margin: 0 4vw;
 
-  border-radius: 111px;
-  border: 1px solid var(--black);
-  background-color: var(--antwhite);
+    border-radius: 111px;
+    border: 1px solid #000000;
+    background-color: #D9D9D9;
 }
 
-/* BOTÕES > JS */
+/* BOTÕES > TOGGLECLASS JS */
 .btnHover {
-  background-color: var(--black);
+  background-color: #000000;
+  border-color: #D9D9D9;
 
-  color: var(--antwhite);
+  color: #D9D9D9;
 }
 
-/* ICON > ARROW DOWN */
-#boot-icon, #boot-icon2 {
-background-color: var(--antwhite);
-margin: 0 1.2em;
+.btnHover:after {
+  border-color: #D9D9D9;
 }
 
-/* ICON > ARROW DOWN > JS */
-.seta {
-background-color: var(--black);
-color: var(--antwhite);
-}
+/* SETA PARA BAIXO > CÍRCULO > ELEMENTO HTML FIXO */
+#arrowDown {
+    background-color: #D9D9D9;
+    margin: 0 1.2em;
+    
+    display: inline-block;
+    width: 1em;
+    height: 1em;
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
-/* INDEX > FILTROS PARTE FIXA*/
-/* ASIDE > FILTROS */
-aside {
-  position: fixed;
-  top: 50%;
-}
+    border: 1px solid #000000;
+    border-radius: 50%;
 
-li {
-  position: relative;
-  padding: 1.2em 0;
-}
 
-.filtros {
-  text-align: left;
-  width: 12em;
-  padding: .5em 1.2em .5em 1.2em;
-}
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    
 
-.bi{
-  background-color: var(--antwhite);
-  margin-right: 1.5em;
-}
+    -moz-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------------------------------------------------------------*/
-/* PÁGINA SOBRE */
+  /*------------------------------------------------------------------------------------------------------------------------------*/
+
+  /* PÁGINA SOBRE */
     
   /* CAIXA COM AMBOS OS TÍTULOS TAGGAT E TAGLINE */
-  #CaixaTAGGATTAGLINE {
+  #SecçãoTAGGATTAGLINE {
     border: solid 1pt black;
-    background-color: var(--white);
+    background-color: #F0F0F0;
 
     margin-top: 16.915119363395226vh;
     left: 3vw;
 
     user-select: none;
+  }
+
+  #SecçãoTAGGATTAGLINE>article{
+    display: inline-block;
   }
 
   /* TÍTULOS TAGGAT E TAGLINE */
@@ -248,18 +232,50 @@ li {
 
   /* BORDA DA CAIXA DO LADO ESQUERDO */
   #TAGLINECaixa {
-    border-left: solid 1pt var(--black);
+    border-left: solid 1pt black;
   }
 
   /* BORDA DA CAIXA DE BAIXO */
   #SOBRENITCaixa{
-    border-bottom: solid 1pt var(--black);
+    border-bottom: solid 1pt black;
     padding-bottom: 16.915119363395226vh;
+  }
+  /* TÍTULOS TAGGAT E TAGLINE */
+  
+  .TitulosPagSobreSelecionado {
+    display: inline-block;
+    cursor: pointer;
+
+    font-family: Alliance, sans-serif;
+    color: white;
+    font-weight: 700;
+
+    font-size: 2.6755852842809364vw;
+    line-height: 3.27vw;
+
+    padding: 3.9787798408488064vh 6vw 3.9787798408488064vh 3vw;
+    background-color: black;
+  }
+
+  #ConteúdoTAGGATTAGLINE {
+    display: none;
+  }
+
+  .TextoTAGGATTAGLINE{
+    font-family: Alliance, sans-serif;
+    color: white;
+
+    font-size: 1vw;
+    line-height: 2vw;
+  }
+
+  #TextoTAGGAT, #TextoTAGLINE{
+    display: none;
   }
 
   /* LINKS VISITADOS */
   a:visited {
-    color: var(--black);
+    color: black;
   }
 
   /* FOOTER */
@@ -288,23 +304,23 @@ li {
   }
 
   .TAGGATCaixaPreto{
-    background-color: var(--black);
+    background-color: black;
     border-style: none;
   }
 
   h2.TAGGATCaixaPreto{
-    color: var(--antwhite);
+    color: #D9D9D9;
   }
 
   #TAGGATMostraCaixa, #TAGLINEMostraCaixa{
     display: none;
-    background-color: var(--black);
+    background-color: black;
 
     padding: 16.915119363395226vh 0;
   }
 
   #TAGGATMostraCaixa > p, #TAGLINEMostraCaixa > p{
-    background-color: var(--black);
+    background-color: black;
 
     font-family: Alliance, sans-serif;
     font-weight: 300;
@@ -320,11 +336,12 @@ li {
     margin: 0;
   }
 
-  br{
+  /*br{
     content: "A";
     display: block;
     margin-bottom: 6.63129973474801vh;
-  }
+  }*/
+
 
 
 
@@ -333,19 +350,23 @@ li {
 /*-------------------------PAGINA DO ARQUIVO---------------------------*/
 /* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
 
+
 /* H1 > ELEMENTO HTML FIXO */
 h1.PagArq {
   font-family: Alliance, sans-serif;
   font-weight: 700;
 
-  font-size: 8.64321608040201vw;
-  line-height: 17.94425087108014vw;
-  width: 66%;
-
-  position: relative;
-  left: 5%;
+#List{
+  font-family: Alliance;
 }
-/*-------------------------TENTAR FAZER UMA ESPECIE DE MENU - PAGINA DO ARQUIVO---------------------------*/
+
+
+
+
+  /*-------------------------TENTAR FAZER UMA ESPECIE DE MENU - PAGINA DO ARQUIVO---------------------------*/
+
+
+
 .red{
   color: red;
 }
