@@ -20,48 +20,48 @@ let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=" + post;
 // fetch the post tags with names
 
 // https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/
-let tagnames = [];
 
-async function fetchTags() {
-  const response = await fetch('https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/');
-  const tags = await response.json();
-  return tags;
-}
 
-fetchTags().then(function (dados) {
+// async function fetchTags() {
+//   const response = await fetch('https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/');
+//   const tags = await response.json();
+//   return tags;
+// }
+
+// fetchTags().then(function (dados) {
   
-  for (let tag of dados) {
+//   for (let tag of dados) {
     
-    // console.log("tags", tag);
+//     // console.log("tags", tag);
 
-    let newTag;
-    newTag = {id: tag.id, name: tag.name};
+//     let newTag;
+//     newTag = {id: tag.id, name: tag.name};
 
-    tagnames.push(newTag);
-  }
-  console.log("total tgnames",tagnames);
+//     tagnames.push(newTag);
+//   }
+//   console.log("total tgnames",tagnames);
   
-});
+// });
 
 
 
 //fetch de imagens
 let imagens= "https://nit.fba.up.pt/dev/wp-json/wp/v2/media/";
 
-async function fetchPost() {
-  const resposta = await fetch(url);
-  const dados = await resposta.json();
-  return dados;
-}
 
-fetchPost().then(function (dados) {
-  
+fetch(url)
+  .then(function (resposta) {
+    return resposta.json();
+  })
+  .then(function (dados) {
+    // não esquecer que devolve um array (só com 1 post)
+    for (let mainpost of dados) {
+      buildPost(mainpost);
+    }
   for (let title of dados) {
     buildTitle(title);
   }
-  for (let mainpost of dados) {
-    buildPost(mainpost);
-  }
+ 
   for (let date of dados) {
     buildData(date);
   }
@@ -73,52 +73,22 @@ fetchPost().then(function (dados) {
     buildEtiquetas(etiquetas);
     console.log('bulding etiquetas');
   }
+
   for (let outras of dados) {
     buildOutras(outras);
   }
+
+
+//loop de categorias
+  for (let cat of dados) {
+    // after the element span is on the page, run a second fetch (<-- because it may take some time to run)
+    // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
+    fetchCategory(cat.categories[0]);
+  }
+
+
 });
   
-
-
-// // fetch
-// fetch(url)
-//   .then(function (resposta) {
-//     return resposta.json();
-//   })
-//   .then(function (dados) {
-  
-  
-//     for (let title of dados) {
-//       buildTitle(title);
-//     }
-//     for (let mainpost of dados) {
-//       buildPost(mainpost);
-//     }
-//     for (let date of dados) {
-//       buildData(date);
-//     }
-//     for (let local of dados) {
-//       buildLocal(local);
-//     }
-//     for (let etiquetas of dados) {
-
-      
-
-//       buildEtiquetas(etiquetas);
-//       console.log('bulding etiquetas');
-//     }
-//     for (let outras of dados) {
-//       buildOutras(outras);
-//     }
-//   })
-
-
-
-//   .catch(function (error) {
-//     console.log(error);
-//   });
-
-
 
 
 
@@ -136,10 +106,6 @@ function buildTitle(_title) {
   // use string/template literals to build the HTML object
   el.innerHTML = `<h1>${_title.title.rendered}</h1>
 
-
-  
-                        
-  
                         `;
 
   // place the new element on the page
@@ -163,13 +129,7 @@ function buildTitle(_title) {
     elmainpost.setAttribute("id", myID);
   
     // use string/template literals to build the HTML object
-    elmainpost.innerHTML = `<p>${_mainpost.content.rendered}</p>
-  
-  
-    
-                          
-    
-                          `;
+    elmainpost.innerHTML = `<p>${_mainpost.content.rendered}</p>`;
   
     // place the new element on the page
     document.querySelector("#post").appendChild(elmainpost);
@@ -190,13 +150,7 @@ function buildTitle(_title) {
       eldate.setAttribute("id", myID);
     
       // use string/template literals to build the HTML object
-      eldate.innerHTML = `<p>${_date.acf.data}</p>
-    
-    
-      
-                            
-      
-                            `;
+      eldate.innerHTML = `<p>${_date.acf.data}</p>`;
     
       // place the new element on the page
       document.querySelector("#data").appendChild(eldate);
@@ -237,50 +191,42 @@ function buildTitle(_title) {
       console.log("tags", _post.tags);
 
       // create a new element
-      let eletiquetas = document.createElement("article");
+      let elEtiquetas = document.createElement("article");
       
       let myID = "id-" + _post.id;
       
 
-      eletiquetas.setAttribute("id", myID);
+      elEtiquetas.setAttribute("id", myID);
 
-      let tagNames = "";
+      // let tagNames = "";
     
-      for(let i = 0; i < _post.tags.length; i++) {
+      // for(let i = 0; i < _post.tags.length; i++) {
        
-        console.log("tag…", _post.tags[i]);
+      //   console.log("tag…", _post.tags[i]);
 
-        for(let k = 0; k < tagnames.length; k++ ) {
-          if( tagnames[k].id == _post.tags[i]) {
-            tagNames += tagnames[k].name+", "; 
-          }
-        }
+      //   for(let k = 0; k < tagnames.length; k++ ) {
+      //     if( tagnames[k].id == _post.tags[i]) {
+      //       tagNames += tagnames[k].name+", "; 
+      //     }
+      //   }
 
         
-      }
+      // }
 
-      console.log("tagNames", tagNames);
+      // console.log("tagNames", tagNames);
 
       // use string/template literals to build the HTML object
-      eletiquetas.innerHTML = `
-                                <p> by name: ${ tagNames }</p>
+      elEtiquetas.innerHTML = `
+                                <p> by name: ${ "s"}</p>
                             `;
     
       // place the new element on the page
-      document.querySelector("#etiquetas").appendChild(eletiquetas);
+      document.querySelector("#etiquetas").appendChild(elEtiquetas);
       
-      console.log("built etiquetas", eletiquetas);
+      console.log("built etiquetas", elEtiquetas);
     }
   
     
-
-
-
-
-
-
-
-
 
 
 
@@ -311,4 +257,78 @@ function buildOutras(_outras) {
   
   console.log("built outras", elOutras);
 }
+
+
+
+
+// funcao categorias
+
+function buildCats(_cats) {
+  // create a new element
+  let elCats = document.createElement("article");
+  let myID = "id-" + _cats.id;
+
+  elCats.setAttribute("id", myID);
+
+  // use string/template literals to build the HTML object
+  elCats.innerHTML = `
+
+  <p>${_post.categories[0]}">duh… what num?</p>
+  
+                        
+  
+                        `;
+
+  // place the new element on the page
+  document.querySelector("#cats").appendChild(elCats);
+  
+  console.log("built cats", elCats);
+}
+
+
+
+
+
+
+function fetchCategory(_cat_num) {
+  console.log("fetching categories names");
+
+  // this will be the text string name to insert in the HTML span element(s)
+  let category_name = "";
+
+  // this is the base URL to fetch the category names
+  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/categories/";
+
+  // add the category number
+  // the final url should be something like this
+  // https://nit.fba.up.pt/dev/wp-json/wp/v2/categories/14
+  url += _cat_num;
+
+
+  fetch(url)
+    .then(function (resposta) {
+      return resposta.json();
+    })
+    .then(function (dados) {
+      // define a new text string to build the class name with the number
+      let myClass = ".c" + _cat_num;
+
+      //console.log("my class", myClass);
+
+      // grab all elements with that class in the DOM (<-- querySelector all it's an array, remember?)
+      // you could also just grab the last one from the array… better method!
+      let els = document.querySelectorAll(myClass);
+
+      // in each one of the elements
+      // change the inner text/html for the name provided by wordpress for that specific category number
+      // remember to always inspect the JSON object to find out what property you need…
+      for (let elCat of els) {
+        elCat.innerHTML = dados.name;
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
 
