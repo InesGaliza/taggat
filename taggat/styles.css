@@ -383,7 +383,7 @@ font-weight: 500;
 
 #list > article  > figure {
 display: none;
-z-index: 1099;
+
 }
 
 
@@ -410,12 +410,12 @@ background: rgba(0, 128, 0, 0.1);
 
 
 #list  > article:hover {
-  background-color: #ff0;
+  background-color: #000;
   }
 
 
   #list  > a:hover {
-    background-color: #ff0;
+    background-color: #000;
     }
   
   

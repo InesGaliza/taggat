@@ -75,8 +75,10 @@ let alvo = document.querySelector('#list');
 
  
 $("#list article").on("click", function () {
-
+  $("article").children("figure").css("display", "none");
   $(this).children("figure").toggle();
+  $(this).children("figure").css("position","absolute");
+
 
 });
 
