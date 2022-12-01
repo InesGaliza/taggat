@@ -74,10 +74,11 @@ let alvo = document.querySelector('#list');
 
 
  
-  $(alvo).click(function(e) {
-    let myTarget = e.target;
-    myTarget.children[0].toggleClass();
-  })
+$("#list article").on("click", function () {
+
+  $(this).children("figure").toggle();
+
+});
 
 
 //$("h3#openslide").click ( function(){$("ul#nav").toggle("show"); 
