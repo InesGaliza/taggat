@@ -129,13 +129,20 @@ function buildTitle(_title) {
     elmainpost.setAttribute("id", myID);
   
     // use string/template literals to build the HTML object
-    elmainpost.innerHTML = `<p>${_mainpost.content.rendered}</p>`;
+    elmainpost.innerHTML = `<p>${_mainpost.content.rendered}</p>
+
+
+    <span class="categoria c${_mainpost.categories[0]}">duh… what num?</span>
+    
+    `;
   
     // place the new element on the page
     document.querySelector("#post").appendChild(elmainpost);
     
     console.log("built post", elmainpost);
   }
+
+
 
 
 
@@ -226,7 +233,34 @@ function buildTitle(_title) {
       console.log("built etiquetas", elEtiquetas);
     }
   
-    
+
+
+
+
+// funcao categorias
+
+
+function buildCategory(_category) {
+  // create a new element
+  let elcategory = document.createElement("article");
+  let myID = "id-" + _category.id;
+
+  elcategory.setAttribute("id", myID);
+
+  // use string/template literals to build the HTML object
+  elcategory.innerHTML = `<p>${_mainpost.content.rendered}</p>
+
+
+  <span class="categoria c${_mainpost.categories[0]}">duh… what num?</span>
+  
+  `;
+
+  // place the new element on the page
+  document.querySelector("#post").appendChild(elmainpost);
+  
+  console.log("built post", elmainpost);
+}
+
 
 
 
@@ -258,36 +292,7 @@ function buildOutras(_outras) {
   console.log("built outras", elOutras);
 }
 
-
-
-
-// funcao categorias
-
-function buildCats(_cats) {
-  // create a new element
-  let elCats = document.createElement("article");
-  let myID = "id-" + _cats.id;
-
-  elCats.setAttribute("id", myID);
-
-  // use string/template literals to build the HTML object
-  elCats.innerHTML = `
-
-  <p>${_post.categories[0]}">duh… what num?</p>
-  
-                        
-  
-                        `;
-
-  // place the new element on the page
-  document.querySelector("#cats").appendChild(elCats);
-  
-  console.log("built cats", elCats);
-}
-
-
-
-
+// CATEGORIAS FETCH --------------------------------
 
 
 function fetchCategory(_cat_num) {
@@ -322,13 +327,14 @@ function fetchCategory(_cat_num) {
       // in each one of the elements
       // change the inner text/html for the name provided by wordpress for that specific category number
       // remember to always inspect the JSON object to find out what property you need…
-      for (let elCat of els) {
-        elCat.innerHTML = dados.name;
+      for (let elcat of els) {
+        elcat.innerHTML = dados.name;
       }
     })
     .catch(function (error) {
       console.log(error);
     });
 }
+
 
 
