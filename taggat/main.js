@@ -145,16 +145,19 @@ function criarCategoras() {
   
   ul.addEventListener('click', function() {
     console.log("hey, it's me, the buttons!");
-    // GET CLASSES
     let botoes = document.querySelectorAll('button.filtros');
     // console.log(botoes);
+    // GET CLASSES
     for (let botao of botoes) {
-      console.log(botao);
-      console.log(botao.className);
+      nomeClass = botao.className;
+      // console.log(botao.id);
+      // console.log(nomeClass);
+      target = nomeClass.substring(7);
+      console.log(target);
     }
     // GET [1]
     // let target = trim string "target-"
-    // queryselcter pelo "class-"+target
+    // queryselcter pelo "class-"+ target
     // poem todos invisiveis
     // poem sóe estes visiveis
   });
