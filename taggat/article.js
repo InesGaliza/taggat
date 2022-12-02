@@ -65,6 +65,8 @@ fetch(url)
   for (let date of dados) {
     buildData(date);
   }
+
+  
   for (let local of dados) {
     buildLocal(local);
   }
@@ -74,16 +76,23 @@ fetch(url)
     console.log('bulding etiquetas');
   }
 
+
+
+
+
   for (let outras of dados) {
     buildOutras(outras);
   }
-
 
 //loop de categorias
   for (let cat of dados) {
     // after the element span is on the page, run a second fetch (<-- because it may take some time to run)
     // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
     fetchCategory(cat.categories[0]);
+  }
+
+  for (let categorias of dados) {
+    buildCategorias(categorias);
   }
 
 
@@ -132,7 +141,7 @@ function buildTitle(_title) {
     elmainpost.innerHTML = `<p>${_mainpost.content.rendered}</p>
 
 
-    <span class="categoria c${_mainpost.categories[0]}">duh… what num?</span>
+    
     
     `;
   
@@ -157,7 +166,10 @@ function buildTitle(_title) {
       eldate.setAttribute("id", myID);
     
       // use string/template literals to build the HTML object
-      eldate.innerHTML = `<p>${_date.acf.data}</p>`;
+      eldate.innerHTML = `<p>${_date.acf.data}</p>
+      
+      
+      `;
     
       // place the new element on the page
       document.querySelector("#data").appendChild(eldate);
@@ -236,30 +248,31 @@ function buildTitle(_title) {
 
 
 
+//funcao categorias
 
-// funcao categorias
-
-
-function buildCategory(_category) {
+function buildCategorias(_categorias) {
   // create a new element
-  let elcategory = document.createElement("article");
-  let myID = "id-" + _category.id;
+  let elcat = document.createElement("article");
+  let myID = "id-" + _categorias.id;
 
-  elcategory.setAttribute("id", myID);
+  elcat.setAttribute("id", myID);
 
   // use string/template literals to build the HTML object
-  elcategory.innerHTML = `<p>${_mainpost.content.rendered}</p>
+  elcat.innerHTML = `
 
-
-  <span class="categoria c${_mainpost.categories[0]}">duh… what num?</span>
+  <span class="categoria c${_categorias.categories[0]}">duh… what num?</span>
   
-  `;
+                        
+  
+                        `;
 
   // place the new element on the page
-  document.querySelector("#post").appendChild(elmainpost);
+  document.querySelector("#cats").appendChild(elcat);
   
-  console.log("built post", elmainpost);
+  console.log("built cats", elcat);
 }
+
+
 
 
 

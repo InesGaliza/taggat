@@ -96,33 +96,84 @@ font-size: 18pt;
  padding-top: 15pt;
  
 }
-
-.grid-container2 {
-  display: grid;
-  grid-template-columns: auto auto auto;
- 
-  
-}
-.grid-item2 {
+#cats{
   font-family: Alliance, sans-serif;
-  font-weight: 300;
+font-size: 18pt;
+ line-height: 4.378531073446328vh;
+ font-weight: 200;
+ padding-top: 15pt;
+ 
+}
+
+.wrapperDbx {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 100px;
+
+}
+
+.titDBX{
+  font-family: Alliance, sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 36px;
+  font-size: 20px;
 
 
   width: 54vh;
 
-  border: 1px solid rgba(0, 0, 0, 0.8);
+ 
   padding-right: 4vh;
-  padding-top: 4vh;
-  padding-bottom: 30vh;
+
+  padding-bottom: 2vh;
   padding-left: 6vh;
-  font-size: 20px;
   text-align: left;
   float: left;
-  position: relative;
+ 
+
+
 }
+
+
+.box1dbx {
+ grid-column-start:1;
+  grid-column-end:2 ;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: tomato;
+  padding-left: 6vw;
+  padding-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+
+}
+
+.box2dbx {
+    grid-column-start:1;
+  grid-column-end:2 ;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  background-color:limegreen;
+  padding-left: 6vw;
+  padding-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+
+}
+
+.box3dbx {
+  
+  grid-column-start:2;
+  grid-column-end:5 ;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  background-color:cornsilk;
+  padding-left: 6vw;
+  padding-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+
+}
+
 
 
 /*Artigo em si, post*/
@@ -222,30 +273,49 @@ padding-bottom: 17.937853107344633vh;
 
     <!-- grid dos extras -->
 
-    <div class="grid-container2">
+
+    <div class="wrapperDbx">
+      <div class="box1dbx">
+        <h1 class="titDBX">[ETIQUETAS]</h1>
+        <section id="etiquetas"></section>
+      </div>
+      <div class="box2dbx">
+
+        <h1 class="titDBX">[CATEGORIA]</h1>
+        <section id="cats"></section>
+
+      </div>
+      <div class="box3dbx">
+        <h1 class="titDBX">[OUTRA ENTRADA]</h1>
+        <section id="outras"></section>
+
+      </div>
+     
+    </div>
+    <!-- <div class="grid-container2">
       <div class="grid-item2">
         <h1>[ETIQUETAS]</h1>
         <section id="etiquetas"></section>
       
       </div>
-    </div>
+    </div> -->
 
-    <div class="grid-container2">
+    <!-- <div class="grid-container2">
       <div class="grid-item2">
         <h1>[CATEGORIA]</h1>
         <section id="cats"></section>
 
-      </div>
+      </div> -->
 
 
-
+<!-- 
       <div class="grid-container2">
         <div class="grid-item2">
           <h1>[OUTRA ENTRADA]</h1>
           <section id="outras"></section>
         </div>
       
-    </div>
+    </div> -->
         <!--fim da grid dos extras-->
 
   </body>
