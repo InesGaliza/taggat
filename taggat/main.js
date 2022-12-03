@@ -1,7 +1,6 @@
 // CORRE A FUNÇÃO (O QUE O JS ESTÁ A FAZER), DEPOIS DO CONTEÚDO SER CARREGADO > EVENT LISTENER "LOAD"
 addEventListener("load", inicio);
 
-
 function inicio() {
   console.log("está pronto!");
 
@@ -12,8 +11,10 @@ function inicio() {
   // BOTÃO > ADD&REMOVE CLASS / ENTER&LEAVE / AMINAÇÃO
   botaoHover();
 }
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
 function vaiBuscar() {
     // DECLARAR O URL DO WORDPRESS
     let urlBase = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?categories=13";
@@ -23,17 +24,25 @@ function vaiBuscar() {
       return resposta.json();
     })
     .then(function (dados) {
-    console.log(dados);
+    console.log("o array:", dados);
+    //REORGANIZAR O ARRAY PELO ANO (ACF.DATA)
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    //https://bobbyhadz.com/blog/javascript-sort-array-of-objects-by-date-property
+    let rearranjedArr = dados.sort(
+      (objA, objB) => Number(objA.acf.data) - Number(objB.acf.data),
+    );
+    console.log(rearranjedArr)
+
     // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
-    for (let post of dados) {
+    for (let post of rearranjedArr) {
         construirArtigo(post);
     }
     // DEPOIS DA CONSTRUÇÃO DO ARTIGO, PARA CADA ENTRADA DO WORDPRESS, CORRE UM SEGUNDO FETCH (FUNÇÃO)
-    for (let post of dados) {
+    for (let post of rearranjedArr) {
         fetchCategoria(post.categories[0]);
     }
     // DEPOIS, CORRER UM TERCEIRO FETCH
-    for (let post of dados) {
+    for (let post of rearranjedArr) {
       fetchImagens(post.id, post.featured_media);
     }
     })
@@ -41,7 +50,9 @@ function vaiBuscar() {
         console.log(error);
     })
 }
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
 // FUNÇÃO PARA CONSTRUIR OS ARTIGOS
 function construirArtigo(_post) {
     // CRIAR UM NOVO ELEMENTO > O ARTIGO
@@ -76,7 +87,9 @@ function construirArtigo(_post) {
     document.querySelector("#NovoPost").appendChild(el);
     //console.log("o Artigo está constrído!", el);
   }
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
 // FUNÇÃO QUE CORRE O SEGUNDO FETCH
 function fetchCategoria(_cat_num) {
     //console.log("fetching categories names!");
@@ -108,7 +121,9 @@ function fetchCategoria(_cat_num) {
         console.log(error);
       });
   }
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
 // FUNÇÃO QUE CORRE O TERCEIRO FETCH
 async function fetchImagens(_id, _media) {
   //console.log("estou fetchar o media!");
@@ -135,8 +150,10 @@ async function fetchImagens(_id, _media) {
   let myEl = document.querySelector(myID);
   myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
 }
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
 // FUNÇÃO PARA CRIAR FILTROS > CATEGORIAS
 function criarCategoras() {
   let ul = document.createElement('ul');
@@ -148,7 +165,10 @@ function criarCategoras() {
                   <li><button id="btn1" class="filtros target-52"><span class="bi bi-arrow-left-circle"></span>ARTEFACTOS</button></li>
                   <li><button id="btn2" class="filtros target-37"><span class="bi bi-arrow-left-circle"></span>LOCAIS</button></li>
                   <li><button id="btn3" class="filtros target-14"><span class="bi bi-arrow-left-circle"></span>PESSOAS</button></li>`
-  
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+
+//QUANDO CLICAR NOS BOTÕES DAS CATEGORIAS...
   ul.addEventListener('click', function(e) {
     //console.log("hey, it's me, the buttons!");
     let nomeClass, target;
@@ -175,6 +195,8 @@ function criarCategoras() {
 
     // SE O TARGETCLASS FOR IGUAL A... 
     // FAZ SÓ DISPLAY DESSES ARTIGOS...
+    // SEMPRE QUE FOR ADICIONADA UMA CATEGORIA... 
+    // ADICIONAR UM NOVO ELSE IF COM O NÚMERO DA CATEGORIA
     if(targetClass === "0") {
       // PÔR TODOS VISÍVEIS
       $("article").css("display","block");
@@ -197,8 +219,10 @@ function criarCategoras() {
   });
     document.querySelector("aside").appendChild(ul);
 }
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
 // FUNÇÃO PARA BOTÃO > ADD&REMOVE CLASS / ENTER&LEAVE / AMINAÇÃO
 function botaoHover() {
 // BOTÃO "VER A TIMELINE" > MOUSEENTER/MOUSELEAVE
@@ -214,8 +238,11 @@ $("button#timeline").mouseleave(function() {
   $("#boot-icon, #boot-icon2").removeClass("seta");
   $("#boot-icon, #boot-icon2").css("background-color", "var(--antwhite)");
 })
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
 // BOTÃO FILTROS > MOUSEENTER/MOUSELEAVE
+// COM AJUDA DA LÓGICA > https://jsfiddle.net/KyleMit/8vFJA/
 $("button.filtros").each(function() {
 $(this).click(function() {
   $("button.filtros").removeClass("btnHover");
@@ -228,7 +255,6 @@ $(this).click(function() {
 })
 })
 }
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
-
-
-/*-----------------------------TENTAR FAZER MENU--------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------*/
