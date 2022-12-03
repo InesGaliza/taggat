@@ -377,6 +377,7 @@ h1.alinhar {
 
 
 #list{
+
 font-family: Alliance;
 font-weight: 500;
 }
@@ -386,6 +387,13 @@ display: none;
 
 }
 
+
+#list > article  >  figure > img{  
+
+  height: 16vw;
+  border: 20px solid #000;
+  
+}
 
 #list > article {
 display: grid;
@@ -400,7 +408,7 @@ border-top: 1px solid #000;
 
 
 #list > article  > a {
-grid-column: 5/9;
+grid-column: 5/8;
 align-items: flex-start;
 text-decoration-line: none;
 background: rgba(0, 128, 0, 0.1);
@@ -409,19 +417,67 @@ background: rgba(0, 128, 0, 0.1);
 }
 
 
-#list  > article:hover {
-  background-color: #000;
+.meta {
+  grid-column: 8/10;
+  float: right;
+
+  
+  
   }
 
 
-  #list  > a:hover {
-    background-color: #000;
+#list  > article:hover {
+  background-color: #000!important;
+  }
+
+
+  #list  > a {
+    background-color: rgb(240, 240, 240)
     }
   
   
+    a:link {
+      color: #000;
+      }
+    
 
 
 
+      #list  > article:hover > a > h1 {
+        background-color: #000!important;
+        color: #fff!important;
+        }
+
+        #list  > article:hover > .meta > span:nth-child(2){
+          background-color: #000!important; 
+          color: #fff!important;
+          }
+
+          #list  > article > .meta > span:first-child {
+            color: #000;
+            border-radius: 111px;
+            padding: 2px 20px;
+            border: 1px solid var(--black);
+            background-color: var(--antwhite);
+            font-weight: 700;
+
+          }
+
+          #list  > article > .meta > span:nth-child(2) {
+      float:right;
+      margin-right: 35px;
+
+          }
+
+          #list  > article:hover > .meta {
+            background-color: #000!important;
+            color: #fff!important;
+            }
+      
+      
+        span {
+        text-transform: uppercase;
+        }
 
 
 

@@ -75,7 +75,33 @@ let alvo = document.querySelector('#list');
 
  
 $("#list article").on("click", function () {
+
   $("article").children("figure").css("display", "none");
+  $("article").css("background-color", "rgb(240, 240, 240)");
+  $("article").children("a").children("h1").css("background-color", "rgb(240, 240, 240)");
+  $("article").children(".meta").children("span").css("background-color", "rgb(240, 240, 240)");
+  $("article").children(".meta").css("background-color", "rgb(240, 240, 240)");
+  $("article").children("a").children("h1").css("color","#000");
+  $("article").children(".meta").children("span").css("color","#000");
+  $("article").children(".meta").children("span:first-child").css("background-color", "var(--antwhite)");
+
+
+  $(this).children("a").children("h1").css("background-color", "#000");
+  
+
+  $(this).children("a").children("h1").css("color", "#fff");
+  $(this).children(".meta").children("span").css("background-color", "#000");
+  $(this).children(".meta").children("span:first-child").css("background-color", "var(--antwhite)");
+  
+  $(this).children(".meta").children("span").css("color", "#fff");
+  $(this).children(".meta").children("span:first-child").css("color", "#000");
+  $(this).children(".meta").css("background-color", "#000");
+
+
+  $(this).css("background-color","#000");
+  $(this).css("color","#000");
+
+
   $(this).children("figure").toggle();
   $(this).children("figure").css("position","absolute");
 
@@ -110,13 +136,14 @@ function construirArtigo(_post) {
                           <a href="article.htm?post=${_post.id}"><h1>${_post.title.rendered}</h1></a>
   
                           <div class="meta">
+                               <span class="categoria c${_post.categories[0]}">duh… what num?</span>
                               <span class="data">${_post.acf.data}</span>
                               <!-- <span class="local">${_post.acf.local}</span> -->
   
                               <!-- O POST ORIGINAL DO JSON SÓ TEM O ID (número) DA CATEGORIA -->
                               <!-- PODEMOS POR O NÚMERO DE CATEGORIA COMO UMA CLASSE -->
                               <!-- DEPOIS, FAZENDO UM SEGUNDO FETCH LOOP, DEFINIMOS O INNERHTML DESTES ELEMENTOS -->
-                              <!-- <span class="categoria c${_post.categories[0]}">duh… what num?</span> -->
+                             
                           </div>
   
                           <!-- <p>${_post.content.rendered}</p> -->`;
