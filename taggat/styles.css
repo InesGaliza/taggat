@@ -148,6 +148,14 @@
   }
 
 
+  /* FOOTER */
+  footer{
+    border-top: solid 1pt var(--black);
+    margin-top: 6em;
+  }
+
+
+
    /*------------------------------------------------------------------------------------------------------------------------------*/
    /* INDEX */
    /* BODY */
@@ -328,11 +336,11 @@
   }
 
   .sobreFooter {
-    padding: 16.915119363395226vh 3vw 16.915119363395226vh 0;
+    padding: 6rem 3rem 6rem 0;
     font-size: 1.0702341137123745vw;
     line-height: 1.605351170568562vw;
 
-    width: 45%;
+    width: 40%;
   }
 
   .sobreFooter p{
