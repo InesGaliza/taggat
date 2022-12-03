@@ -217,27 +217,14 @@ $("button#timeline").mouseleave(function() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // BOTÃO FILTROS > MOUSEENTER/MOUSELEAVE
 $("button.filtros").each(function() {
-//   $(this).mouseenter(function() {
-//     //console.log("i'm in!");
-//     $(this).addClass("btnHover");
-//     $(this).children(".bi-arrow-left-circle").each(function () {
-//       $(this).addClass("seta");
-//       $(this).css("background-color", "var(--black)");
-//     })
-//   })
-//   $(this).mouseleave(function() {
-//     //console.log("i'm out!");
-//     $(this).removeClass("btnHover");
-//     $(".bi-arrow-left-circle").removeClass("seta");
-//     $(".bi-arrow-left-circle").css("background-color", "var(--antwhite)");
-//   })
-// })
+$(this).click(function() {
+  $("button.filtros").removeClass("btnHover");
+  $(".bi-arrow-left-circle").removeClass("seta");
 
-$(this).hover(function() {
-  $(this).toggleClass("btnHover");
-  let setas = document.querySelector("span.bi-arrow-left-circle");
-  console.log(setas);
-
+  $(this).addClass("btnHover");
+  $(this).children(".bi-arrow-left-circle").each(function () {
+    $(this).addClass("seta");
+    })
 })
 })
 }
