@@ -107,8 +107,8 @@
    
    /* SECÇÃO FETCH */
    section#NovoPost {
-       margin: 0;
-       padding: 0;
+      margin: 0;
+      padding: 0;
    }
    
    /* H1 > ELEMENTO HTML FIXO */
@@ -177,7 +177,6 @@
    /* BOTÕES > JS */
    .btnHover {
      background-color: var(--black);
-   
      color: var(--antwhite);
    }
    
@@ -186,8 +185,12 @@
    background-color: var(--antwhite);
    margin: 0 1.2em;
    }
+
+   .bi-arrow-left-circle {
+   color: var(--black);
+   }
    
-   /* ICON > ARROW DOWN > JS */
+   /* ICON > ARROW DOWN > JS // HOVER */
    .seta {
    background-color: var(--black);
    color: var(--antwhite);

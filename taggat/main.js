@@ -5,10 +5,10 @@ addEventListener("load", inicio);
 function inicio() {
   console.log("está pronto!");
 
-  // MENU FILTROS >CATEGORIAS > CRIAR ESTE MENU
-  criarCategoras();
   // FUNÇÃO PARA FAZER O FETCH
   vaiBuscar();
+  // MENU FILTROS > CATEGORIAS > CRIAR ESTE MENU
+  criarCategoras();
   // BOTÃO > ADD&REMOVE CLASS / ENTER&LEAVE / AMINAÇÃO
   botaoHover();
 }
@@ -27,7 +27,6 @@ function vaiBuscar() {
     // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
     for (let post of dados) {
         construirArtigo(post);
-        botaoClick(post);
     }
     // DEPOIS DA CONSTRUÇÃO DO ARTIGO, PARA CADA ENTRADA DO WORDPRESS, CORRE UM SEGUNDO FETCH (FUNÇÃO)
     for (let post of dados) {
@@ -51,6 +50,7 @@ function construirArtigo(_post) {
     let myClass = "class-" + _post.categories[0];
     el.setAttribute("id", myID);
     el.setAttribute("class", myClass);
+    // console.log(el);
 
     // UTLIZAR STRING / TEMPLATE LITERALS PARA CONSTRUIR O OBJETO HTML
     el.innerHTML = `<figure >
@@ -111,9 +111,10 @@ function fetchCategoria(_cat_num) {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // FUNÇÃO QUE CORRE O TERCEIRO FETCH
 async function fetchImagens(_id, _media) {
-  console.log("estou fetchar o media!");
+  //console.log("estou fetchar o media!");
   //console.log(_id);
   //console.log(_media);
+
   // ESTE É O URL PARA IR BUSCAR O MEDIA (IMAGENS)
   let mediaURL = "https://nit.fba.up.pt/dev/wp-json/wp/v2/media/";
   // ADICIONAR O NÚMERO DO MEDIA AO URL
@@ -139,31 +140,62 @@ async function fetchImagens(_id, _media) {
 // FUNÇÃO PARA CRIAR FILTROS > CATEGORIAS
 function criarCategoras() {
   let ul = document.createElement('ul');
-  ul.innerHTML = `<li><button id="btn1" class="filtros target-52"><span class="bi bi-arrow-left-circle"></span>ARTEFACTOS</button></li>
+  // CRIAR OS BOTÕES PARA OS FILTROS
+  // CRIAR UM EXTRA BOTÃO PARA TODAS AS CATEGORIAS
+  // SEMPRE QUE FOR ADICIONADA UMA CATEGORIA... CRIAR UM BOTÃO
+  // <button id="btn0" class="filtros target-(NÚMERO DA CATEGORIA)">
+  ul.innerHTML = `<li><button id="btn0" class="filtros target-0"><span class="bi bi-arrow-left-circle"></span>VER TODOS</button></li>
+                  <li><button id="btn1" class="filtros target-52"><span class="bi bi-arrow-left-circle"></span>ARTEFACTOS</button></li>
                   <li><button id="btn2" class="filtros target-37"><span class="bi bi-arrow-left-circle"></span>LOCAIS</button></li>
                   <li><button id="btn3" class="filtros target-14"><span class="bi bi-arrow-left-circle"></span>PESSOAS</button></li>`
   
-  ul.addEventListener('click', function() {
-    console.log("hey, it's me, the buttons!");
+  ul.addEventListener('click', function(e) {
+    //console.log("hey, it's me, the buttons!");
+    let nomeClass, target;
     let botoes = document.querySelectorAll('button.filtros');
     // console.log(botoes);
-    // GET CLASSES
+
+    // GET BOTÕES
     for (let botao of botoes) {
-      nomeClass = botao.className;
+      e.nomeClass = botao.className;
       // console.log(botao.id);
       // console.log(nomeClass);
-      target = nomeClass.substring(7);
-      console.log(target);
+
+    // DECLARAR O TARGET (BUTÃO) COM SLICE
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
+      e.target = e.nomeClass.slice(7);
+      // console.log(e.target);
     }
-    // GET [1]
-    // let target = trim string "target-"
-    // queryselcter pelo "class-"+ target
-    // poem todos invisiveis
-    // poem sóe estes visiveis
+
+    // GET UM
+    console.log(e.target);
+    // GET CLASSES
+    targetClass = e.target.className.slice(15, -9);
+    console.log(targetClass);
+
+    // SE O TARGETCLASS FOR IGUAL A... 
+    // FAZ SÓ DISPLAY DESSES ARTIGOS...
+    if(targetClass === "0") {
+      // PÔR TODOS VISÍVEIS
+      $("article").css("display","block");
+    }
+    if(targetClass === "52") {
+      // console.log("sou os Artefactos!");
+      // PÔR TODOS INVISÍVEIS
+      $("article").css("display","none");
+      // PÔR A CATEGORIA VISÍVEIS
+      $("article.class-"+targetClass).css("display","block");
+    } else if(targetClass==="37") {
+      // console.log("sou os Locais!");
+      $("article").css("display","none");
+      $("article.class-"+targetClass).css("display","block");
+    } else if(targetClass==="14") {
+      // console.log("sou as Pessoas!");
+      $("article").css("display","none");
+      $("article.class-"+targetClass).css("display","block");
+    }
   });
     document.querySelector("aside").appendChild(ul);
-
-
 }
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -185,50 +217,31 @@ $("button#timeline").mouseleave(function() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // BOTÃO FILTROS > MOUSEENTER/MOUSELEAVE
 $("button.filtros").each(function() {
-  $(this).mouseenter(function() {
-    //console.log("i'm in!");
-    $(this).addClass("btnHover");
+//   $(this).mouseenter(function() {
+//     //console.log("i'm in!");
+//     $(this).addClass("btnHover");
+//     $(this).children(".bi-arrow-left-circle").each(function () {
+//       $(this).addClass("seta");
+//       $(this).css("background-color", "var(--black)");
+//     })
+//   })
+//   $(this).mouseleave(function() {
+//     //console.log("i'm out!");
+//     $(this).removeClass("btnHover");
+//     $(".bi-arrow-left-circle").removeClass("seta");
+//     $(".bi-arrow-left-circle").css("background-color", "var(--antwhite)");
+//   })
+// })
 
-    $(this).children(".bi-arrow-left-circle").each(function () {
-      $(this).addClass("seta");
-      $(this).css("background-color", "var(--black)");
-    })
+$(this).hover(function() {
+  $(this).toggleClass("btnHover");
+  let setas = document.querySelector("span.bi-arrow-left-circle");
+  console.log(setas);
 
-  })
-  $(this).mouseleave(function() {
-    //console.log("i'm out!");
-    $(this).removeClass("btnHover");
-      $(".bi-arrow-left-circle").removeClass("seta");
-      $(".bi-arrow-left-circle").css("background-color", "var(--antwhite)");
-  })
+})
 })
 }
 /*------------------------------------------------------------------------------------------------------------------------------*/
-// BOTÃO CLICK > PARA FILTRAR CATEGORIAS
-function botaoClick(_post) {
-  // $("button.filtros").each(function() {
-  //     $(this).click(function() {
-  //       //console.log("i've been clicked!");
-  //       if(this.id === 'btn1') {
-  //         console.log("i'm button 1!");
-  //         //console.log(_post.categories[0]);
-  //         let filtro = document.querySelector("#NovoPost>article");
-  //         let myCategory = "category-" + _post.categories[0];
-  //         filtro.setAttribute("Category", myCategory);
-  //         console.log(filtro.attributes);
-  //       } else if(this.id === 'btn2') {
-  //         console.log("i'm button 2!");
-  //       } else if(this.id === 'btn3') {
-  //         console.log("i'm button 3!");
-  //       }
-  //     })
-  // })
 
-  console.log("post cat", _post.categories[0]);
-// [Log] post cat – 52 (main.js, line 205, x3)
-// [Log] post cat – 37 (main.js, line 205, x3)
-// [Log] post cat – 14 (main.js, line 205, x3)
-}
-/*------------------------------------------------------------------------------------------------------------------------------*/
-/*------------------------------------------------------------------------------------------------------------------------------*/
+
 /*-----------------------------TENTAR FAZER MENU--------------------*/
