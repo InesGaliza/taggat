@@ -75,7 +75,10 @@ let alvo = document.querySelector('#list');
 
  
 $("#list article").on("click", function () {
-
+  let open = true
+  if($(this).children("figure").css("display")=="block"){ 
+    open = false;
+  }
   $("article").children("figure").css("display", "none");
   $("article").css("background-color", "rgb(240, 240, 240)");
   $("article").children("a").children("h1").css("background-color", "rgb(240, 240, 240)");
@@ -86,25 +89,22 @@ $("#list article").on("click", function () {
   $("article").children(".meta").children("span:first-child").css("background-color", "var(--antwhite)");
 
 
-  $(this).children("a").children("h1").css("background-color", "#000");
-  
+  if(open){
 
-  $(this).children("a").children("h1").css("color", "#fff");
-  $(this).children(".meta").children("span").css("background-color", "#000");
-  $(this).children(".meta").children("span:first-child").css("background-color", "var(--antwhite)");
-  
-  $(this).children(".meta").children("span").css("color", "#fff");
-  $(this).children(".meta").children("span:first-child").css("color", "#000");
-  $(this).children(".meta").css("background-color", "#000");
+    $(this).children("a").children("h1").css("background-color", "#000");
+    $(this).children("a").children("h1").css("color", "#fff");
+    $(this).children(".meta").children("span").css("background-color", "#000");
+    $(this).children(".meta").children("span:first-child").css("background-color", "var(--antwhite)");  
+    $(this).children(".meta").children("span").css("color", "#fff");
+    $(this).children(".meta").children("span:first-child").css("color", "#000");
+    $(this).children(".meta").css("background-color", "#000");
+    $(this).css("background-color","#000");
+    $(this).css("color","#000"); 
+    $(this).children("figure").toggle();
+    $(this).children("figure").css("position","absolute");
 
 
-  $(this).css("background-color","#000");
-  $(this).css("color","#000");
-
-
-  $(this).children("figure").toggle();
-  $(this).children("figure").css("position","absolute");
-
+  }
 
 });
 
@@ -217,7 +217,7 @@ async function fetchImagens(_id, _media) {
 
   const dados = await resposta.json();
 
-  mySrc = dados.media_details.sizes.thumbnail.source_url;
+  mySrc = dados.media_details.sizes.full.source_url;
   //console.log("featured media scr url", mySrc);
 
   let myID = "#id-" + _id;

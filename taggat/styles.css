@@ -395,6 +395,7 @@ display: none;
   
 }
 
+
 #list > article {
 display: grid;
 grid-template-columns: repeat(9, 1fr);
@@ -405,7 +406,9 @@ padding: 2vw 0;
 border-top: 1px solid #000;
 }
 
-
+#list > article:last-child {
+  border-bottom: 1px solid #000;
+}
 
 #list > article  > a {
 grid-column: 5/8;
