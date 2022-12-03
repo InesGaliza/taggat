@@ -68,11 +68,102 @@
      --antwhite: #D9D9D9;
    }
    
+  /*------------------------------------------------------------------------------------------------------------------------------*/
+  /* GLOBAL */
+
+  /* BODY */
+  /* COR DO BODY*/
+  * {
+    background-color: var(--white);
+  }
+
+  /*---------------------------------*/
+  /* NAV */
+  /* NAVEGADOR HAMBURGER */
+  nav {
+    font-size: 1.7em;
+    position: fixed;
+    top: 1rem;
+    right: 3rem;
+    z-index: 1;
+  }
+
+  /* LOGO DO NIT NO NAV */
+  header>img {
+    width: 4em;
+    height: auto;
+    position: relative;
+    left: 3rem;
+  }
+
+
+  /*---------------------------------*/
+  /* MAIN */
+  /* TÍTULOS */
+  h1.titulos{
+    font-family: Alliance, sans-serif;
+    font-weight: 700;
+
+    font-size: 6rem;
+    line-height: 6.5rem;
+
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+    left: 3rem;
+    width: 40%;
+    position: relative;
+  }
+
+  /* DESCRIÇÃO DA PÁGINA || SUBTÍTULOS */
+  .descricao {
+    font-family: Alliance, sans-serif;
+    font-weight: 300;
+    color: var(--black);
+  
+    font-size: 1.5rem;
+    line-height: 2rem;
+    width: 60%;
+  
+    position: relative;
+    left: 33%;
+  }
+
+
+  /*---------------------------------*/
+  /* LINKS */
+  /* LINKS VISITADOS */
+  a:visited {
+    color: var(--black);
+  }
+
+  /*---------------------------------*/
+  /* BOLD */
+  strong{
+    font-weight: 700;
+  }
+
+  .fundoPreto, .fundoPreto:visited{
+    color: var(--white);
+    background-color: var(--black);
+  }
+
+
+  /* FOOTER */
+  footer{
+    border-top: solid 1pt var(--black);
+    margin-top: 6em;
+  }
+
+
+
    /*------------------------------------------------------------------------------------------------------------------------------*/
    /* INDEX */
    /* BODY */
-   * {
-       background-color: var(--white);
+
+   /* TÍTULO */
+   #landTitulo{
+    position: relative;
+    left: 33%;
    }
    
    /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -83,78 +174,10 @@
        height: 100vh;
    }
    
-   /* LOGO DO NIT NO HEADER */
-   header>img {
-       width: 4em;
-       height: auto;
-       position: relative;
-       left: 3vw;
-   }
-   
-   /* NAVEGADOR HAMBURGER */
-   nav {
-       font-size: 1.7em;
-       position: fixed;
-       top: 1vw;
-       right: 4vw;
-       z-index: 1;
-   }
-   
-   /* SECÇÃO FIXA */
-   section.PagFixa {
-       padding: 4vh 0;
-   }
-   
    /* SECÇÃO FETCH */
    section#NovoPost {
       margin: 0;
       padding: 0;
-   }
-   
-   /* H1 > ELEMENTO HTML FIXO */
-   h1.PagFixa {
-       font-family: Alliance, sans-serif;
-       font-weight: 700;
-   
-       font-size: 8.64321608040201vw;
-       line-height: 17.94425087108014vw;
-       width: 66%;
-   
-       position: relative;
-       left: 33%;
-   }
-   
-   /* H1 > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
-   h1.AlinhamentoEsq {
-       font-size: 5.752508361204013vw;
-       line-height: 6.688963210702341vw;
-   
-       padding-top: 12.312997347480106vh;
-       padding-bottom: 5.150501672240803vw;
-       left: 3vw;
-       width: 30%;
-   }
-   
-   /* P > ELEMENTO HTML FIXO */
-   p.PagFixa {
-       font-family: Alliance, sans-serif;
-       font-weight: 300;
-       color: var(--black);
-   
-       font-size: 2.41vw;
-       line-height: 3.27vw;
-       width: 60%;
-   
-       position: relative;
-       left: 33%;
-   }
-   
-   /* P > ELEMENTO HTML FIXO > ALINHAMENTO À ESQ */
-   p.AlinhamentoEsq {
-       font-size: 1.605351170568562vw;
-       line-height: 2.0735785953177257vw;
-   
-       left: 38.12709030100334vw;
    }
    
    /* BOTÕES > ELEMENTO HTML FIXO */
@@ -222,25 +245,28 @@
   /*------------------------------------------------------------------------------------------------------------------------------*/
 
   /* PÁGINA SOBRE */
-    
-  /* CAIXA COM AMBOS OS TÍTULOS TAGGAT E TAGLINE */
-  #SecçãoTAGGATTAGLINE {
-    border: solid 1pt black;
-    background-color: #F0F0F0;
+  /* sobre = SOMENTE DA PÁGINA SOBRE*/
 
+
+  /*---------------------------------*/
+  /* TÌTULOS */
+  h1.sobreTitulos{
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+  
+
+  /*---------------------------------*/
+  /* SECÇÃO COM A CAIXA TAGGAT E TAGLINE */
+  #sobreSeccaoSubtitulos {
     margin-top: 16.915119363395226vh;
-    left: 3vw;
-
     user-select: none;
   }
 
-  #SecçãoTAGGATTAGLINE>article{
-    display: inline-block;
-  }
-
-  /* TÍTULOS TAGGAT E TAGLINE */
-  .TitulosPagSobre {
-    display: inline-block;
+  /* CONTENTOR || CAIXA COM OS SUBTÍTULOS "TAGGAT" E "TAGLINE" */
+  /* INSPIRAÇÃO PARA O CONTENTOR - https://www.w3docs.com/snippets/html/how-to-make-a-div-fill-the-remaining-width.html*/
+  #sobreContentorSubtitulos {
+    border: solid 1pt var(--black);
     cursor: pointer;
 
     font-family: Alliance, sans-serif;
@@ -248,65 +274,63 @@
 
     font-size: 2.6755852842809364vw;
     line-height: 3.27vw;
-
-    padding: 3.9787798408488064vh 6vw 3.9787798408488064vh 3vw;
   }
 
-  /* BORDA DA CAIXA DE BAIXO */
-  #SOBRENITCaixa{
-    border-bottom: solid 1pt black;
-    padding-bottom: 16.915119363395226vh;
+  /* SUBTÍTULOS */
+  #sobreSubtituloTaggat, #sobreSubtituloTagline{
+    padding: 2.5rem;
   }
-  /* TÍTULOS TAGGAT E TAGLINE */
-  
-  .TitulosPagSobreSelecionado {
-    display: inline-block;
-    cursor: pointer;
 
-    font-family: Alliance, sans-serif;
-    color: white;
-    font-weight: 700;
+  #sobreSubtituloTagline{
+    padding-left: 60%;
+  }
 
-    font-size: 2.6755852842809364vw;
-    line-height: 3.27vw;
+  #sobreSubtituloTaggat{
+    float: left;
+    border-right: solid 1pt var(--black);
+  }
 
-    padding: 3.9787798408488064vh 6vw 3.9787798408488064vh 3vw;
+  /* SUBTÍTULOS VERSÃO A PRETO*/
+  .sobreVersaoPreto{
     background-color: black;
   }
 
-  #ConteúdoTAGGATTAGLINE {
+  h2.sobreVersaoPreto{
+    color: var(--white);
+  }
+
+  /* INFORMAÇÃO DENTRO DAS CAIXAS DOS SUBTÍTULOS */
+  #sobreContentorInfo {
     display: none;
-    background-color: black;
+    background-color: var(--black);
+    border-style: none;
   }
 
-  .TextoTAGGATTAGLINE{
-    font-family: Alliance, sans-serif;
-    color: white;
-
-    font-size: 1vw;
-    line-height: 2vw;
-  }
-
-  #TextoTAGGAT, #TextoTAGLINE{
+  #sobreInfoTaggat, #sobreInfoTagline{
     display: none;
-    background-color: black;
-
-    font-family: Alliance, sans-serif;
-    font-weight: 300;
-    font-size: 18pt;
-    line-height: 2.07358vw;
-    color: #D9D9D9;
+    background-color: var(--black);
 
     padding: 5% 0 5% 0;
     width: 60%;
-    left: 3vw;
   }
 
-  /* LINKS VISITADOS */
-  a:visited {
-    color: black;
+  .infoPropriedades > p{
+    background-color: var(--black);
+
+    font-family: Alliance, sans-serif;
+    font-weight: 300;
+    color: var(--white);
+  
+    font-size: 1.5rem;
+    line-height: 2rem;
+    width: 100%;
+    padding-bottom: 2rem;
+  
+    position: relative;
+    left: 3rem;
   }
 
+  /*---------------------------------*/
   /* FOOTER */
 
   footer div{
@@ -314,38 +338,17 @@
     padding-left: 33%;
   }
 
-  .FooterClass {
-    padding: 16.915119363395226vh 3vw 16.915119363395226vh 0;
+  .sobreFooter {
+    padding: 6rem 3rem 6rem 0;
     font-size: 1.0702341137123745vw;
     line-height: 1.605351170568562vw;
 
-    width: 45%;
+    width: 40%;
   }
 
-  .FooterClass p{
+  .sobreFooter p{
     font-family: Alliance, sans-serif;
     padding-bottom: 4.5092838196286475vh;
-  }
-
-  /* STRONG */
-  strong{
-    font-weight: 700;
-  }
-
-  .TAGGATCaixaPreto{
-    background-color: black;
-    border-style: none;
-  }
-
-  h2.TAGGATCaixaPreto{
-    color: #D9D9D9;
-  }
-
-  #TAGGATMostraCaixa, #TAGLINEMostraCaixa{
-    display: none;
-    background-color: black;
-
-    padding: 16.915119363395226vh 0;
   }
 
   section {
@@ -353,31 +356,7 @@
   }
 
 
-  /*tentativas cenas*/
-
-  .conteudoTAGGATTAGLINEshow{
-    display: block;
-  }
-
-  .textoTAGGATshow{
-    display: block;
-  }
-
 /*_________________________________PAGINA DO ARQUIVO______________________________*/
-
-
-
-h1.alinhar {
-  font-size: 6rem;
-  line-height: 14vw;
-  font-family: Alliance;
-  font-weight: 700;
-  padding-top: 12vh;
-  padding-bottom: 5vw;
-  padding-left: 15vh;
-}
-
-
 
 #list{
 
@@ -398,6 +377,7 @@ display: none;
   
 }
 
+
 #list > article {
 display: grid;
 grid-template-columns: repeat(9, 1fr);
@@ -408,7 +388,9 @@ padding: 2vw 0;
 border-top: 1px solid #000;
 }
 
-
+#list > article:last-child {
+  border-bottom: 1px solid #000;
+}
 
 #list > article  > a {
 grid-column: 5/8;
