@@ -3,6 +3,29 @@ addEventListener("load", inicio);
 
 function inicio() {
 
+  let hamMenu = document.querySelector(".linhasMenu");
+
+  let menuAberto = document.querySelector('.itensMenu');
+
+  hamMenu.addEventListener('click', function abreFechaMenu(){
+
+    if (menuAberto.style.left === "0%"){
+      menuAberto.style.left = "100%";
+    } else if (menuAberto.style.left = "100%"){
+      menuAberto.style.left = "0%";
+    }
+    menuAberto.style.transition = 1000 + "ms";
+  });
+
+  menuAberto.addEventListener('click', function fechaMenu(){
+
+    if (menuAberto.style.left === "0%"){
+      menuAberto.style.left = "100%";
+    }
+
+  });
+
+
   let sobreSubtituloTaggat = document.querySelector("#sobreSubtituloTaggat");
   let sobreSubtituloTagline = document.querySelector("#sobreSubtituloTagline");
 
@@ -10,8 +33,6 @@ function inicio() {
   let infoTagline = document.querySelector("#sobreInfoTagline");
 
   let contentorInfo = document.querySelector("#sobreContentorInfo");
-
-  // TENTATIVA DA GALIZA
 
   sobreSubtituloTagline.addEventListener('click', function showContentTAGLINE(){
 
@@ -50,9 +71,3 @@ function inicio() {
 
   });
 };
-
-
-
-
-
-    //Tenho que criar uma classe para show e para hide e dar toggle entre essas classes maybe idk try it
