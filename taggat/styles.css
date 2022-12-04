@@ -291,17 +291,56 @@ button {
   font-family: Alliance, sans-serif;
   font-weight: 700;
    
-     display: block;
-     position: absolute;
-     bottom: 60px;
+  display: block;
+  position: absolute;
+  bottom: 60px;
    
-     padding: .5em 0;
-     margin: 0 4vw;
+  padding: .5em 0;
+  margin: 0 4vw;
    
-     border-radius: 111px;
-     border: 1px solid var(--black);
-     background-color: var(--antwhite);
-   }
+  border-radius: 111px;
+  border: 1px solid var(--black);
+  background-color: var(--antwhite);
+}
+
+.bi-arrow-left-circle {
+  color: var(--black);
+}
+   
+button:hover {
+  background-color: var(--black);
+  color: var(--antwhite)
+}
+
+button:hover> .bi-arrow-left-circle {
+  background-color: var(--black);
+  color: var(--antwhite)
+}
+
+
+ /*------------------------------------------------------------------------------------------------------------------------------*/
+   /* INDEX > FILTROS PARTE FIXA*/
+   /* ASIDE > FILTROS */
+   aside {
+    position: fixed;
+    top: 50%;
+  }
+  
+  li {
+    position: relative;
+    padding: 1.2em 0;
+  }
+  
+  .filtros {
+    text-align: left;
+    width: 12em;
+    padding: .5em 1.2em .5em 1.2em;
+  }
+  
+  .bi{
+    background-color: var(--antwhite);
+    margin-right: 1.5em;
+  }
    
    /* BOTÕES > JS */
    .btnHover {
@@ -322,29 +361,6 @@ button {
    color: var(--antwhite);
    }
    
-   /*------------------------------------------------------------------------------------------------------------------------------*/
-   /* INDEX > FILTROS PARTE FIXA*/
-   /* ASIDE > FILTROS */
-   aside {
-     position: fixed;
-     top: 50%;
-   }
-   
-   li {
-     position: relative;
-     padding: 1.2em 0;
-   }
-   
-   .filtros {
-     text-align: left;
-     width: 12em;
-     padding: .5em 1.2em .5em 1.2em;
-   }
-   
-   .bi{
-     background-color: var(--antwhite);
-     margin-right: 1.5em;
-   }
   /*------------------------------------------------------------------------------------------------------------------------------*/
 
   /* PÁGINA SOBRE */
