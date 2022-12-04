@@ -119,6 +119,15 @@ fetch(url)
 
 
 
+  //mini fotos
+    for (let media of dados) {
+      fetchFeaturedMedia(media.id, media.featured_media);
+    }
+
+
+
+
+
 
 });
   
@@ -430,3 +439,52 @@ function fetchCategory(_cat_num) {
 
 
 
+//MEDIA____________________________________________________FOTOS
+
+
+
+
+async function fetchFeaturedMedia(_id, _media) {
+  console.log("fetching media");
+  // console.log("id", _id);
+  // console.log("media num", _media);
+
+  // fetch method is similar to previous
+  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/media/";
+  url += _media;
+  // console.log("featured media fetch url", url);
+
+  // we will use this to store the URL  when it arrives
+  let mySrc = "";
+
+  // first difference from "normal" fetch
+  // either const or let will store the response…
+  // only after "waiting" for it to arrive
+  // it means that all the code "halts and waits" for this before proceeeding
+  const resposta = await fetch(url);
+
+  // check for errors (URL not OK)
+  if (!resposta.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  // if a promise is sent, get the data "after waiting for it to arrive" into a new JSON variable/object
+  const dados = await resposta.json();
+
+  //   <!-- inspect the JSON object in the browser to find out the necessary data -->
+  // eg.: https://nit.fba.up.pt/dev/wp-json/wp/v2/media/404
+
+  // using dados.guid.rendered will return the full-size image src url
+  // e.g.: https://nit.fba.up.pt/dev/wp-content/uploads/2022/11/Museu-da-Imprensa.jpg
+
+  // using dados.media_details.sizes.thumbnail.source_url will return predefined smaller sizes
+  // eg. https://nit.fba.up.pt/dev/wp-content/uploads/2022/11/Museu-da-Imprensa-300x121.jpg
+
+  mySrc = dados.media_details.sizes.thumbnail.source_url;
+  console.log("featured media scr url", mySrc);
+
+  // get the article > figure > img and set the src
+  let myID = "#id-" + _id;
+  let myElMedia = document.querySelector(myID);
+  myElMedia.children.item(0).children.item(0).setAttribute("src", mySrc);
+}
