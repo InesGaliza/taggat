@@ -66,13 +66,13 @@ function construirArtigo(_post) {
 
     // UTLIZAR STRING / TEMPLATE LITERALS PARA CONSTRUIR O OBJETO HTML
     el.innerHTML = `<figure >
-                          <img src="">
+                          <img src="" />
                     </figure>
   
                           <!-- PARA ENCONTRAR OS DADOS NECESSÁRIOS, É NECESSÁRIO INSPECIONAR O OBJETO JSON NO BROWSER -->
                           <a href="article.htm?post=${_post.id}"><h1>${_post.title.rendered}</h1></a>
   
-                          <div class="meta">
+                          <div class="elementos">
                               <span class="data">${_post.acf.data}</span>
                               <!-- <span class="local">${_post.acf.local}</span> -->
   
@@ -145,7 +145,7 @@ async function fetchImagens(_id, _media) {
   }
 
   const dados = await resposta.json();
-  mySrc = dados.media_details.sizes.thumbnail.source_url;
+  mySrc = dados.media_details.sizes.full.source_url;
   //console.log("featured media scr url", mySrc);
   let myID = "#id-" + _id;
   let myEl = document.querySelector(myID);
@@ -242,9 +242,12 @@ $("button#timeline").mouseleave(function() {
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
-// BOTÃO FILTROS > MOUSEENTER/MOUSELEAVE
+// BOTÃO FILTROS > JQUERY CLICK / ADD&REMOVE CLASS
 // COM AJUDA DA LÓGICA > https://jsfiddle.net/KyleMit/8vFJA/
 $("button.filtros").each(function() {
+$("#btn0").addClass("btnHover");
+$("#btn0 > .bi-arrow-left-circle").addClass("seta");
+
 $(this).click(function() {
   $("button.filtros").removeClass("btnHover");
   $(".bi-arrow-left-circle").removeClass("seta");
