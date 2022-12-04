@@ -71,16 +71,16 @@ function construirArtigo(_post) {
   
                           <!-- PARA ENCONTRAR OS DADOS NECESSÁRIOS, É NECESSÁRIO INSPECIONAR O OBJETO JSON NO BROWSER -->
                           <a href="article.htm?post=${_post.id}"><h1>${_post.title.rendered}</h1></a>
-  
-                          <div class="elementos">
-                              <span class="data">${_post.acf.data}</span>
+                          <span class="data">${_post.acf.data}</span>
+
+                          <!-- <div class="elementos"> -->
                               <!-- <span class="local">${_post.acf.local}</span> -->
   
                               <!-- O POST ORIGINAL DO JSON SÓ TEM O ID (número) DA CATEGORIA -->
                               <!-- PODEMOS POR O NÚMERO DE CATEGORIA COMO UMA CLASSE -->
                               <!-- DEPOIS, FAZENDO UM SEGUNDO FETCH LOOP, DEFINIMOS O INNERHTML DESTES ELEMENTOS -->
                               <!-- <span class="categoria c${_post.categories[0]}">duh… what num?</span> -->
-                          </div>
+                          <!-- </div> -->
   
                           <!-- <p>${_post.content.rendered}</p> -->`;
   
