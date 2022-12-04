@@ -472,6 +472,49 @@ a:link {
   font-weight: 700;
 }
 
+      #list  > article:hover > a > h1 {
+        background-color: #000!important;
+        color: #fff!important;
+        }
+
+        #list  > article:hover > .meta > span:nth-child(2){
+          background-color: #000!important; 
+          color: #fff!important;
+          }
+
+          #list  > article > .meta > span:first-child {
+            color: #000;
+            border-radius: 111px;
+            padding: 2px 20px;
+            border: 1px solid var(--black);
+            background-color: var(--antwhite);
+            font-weight: 700;
+
+          }
+
+          #list  > article > .meta > span:nth-child(2) {
+      float:right;
+      margin-right: 35px;
+
+          }
+
+          #list  > article:hover > .meta {
+            background-color: #000!important;
+            color: #fff!important;
+            }
+      
+      
+        span {
+        text-transform: uppercase;
+        }
+
+
+        aside#archive{
+          background-color: #f0f;
+          position: static;
+        }
+
+
 #list  > article > .meta > span:nth-child(2) {
   float:right;
   margin-right: 35px;
