@@ -600,6 +600,15 @@ background: rgba(0, 128, 0, 0.1);
 
 
 
+        #nit {
+          width: 4em;
+          height: auto;
+          position: relative;
+          left: 3rem;
+        }
+
+
+
 
 
 
