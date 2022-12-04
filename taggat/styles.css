@@ -222,16 +222,66 @@
        height: 100vh;
    }
    
-   /* SECÇÃO FETCH */
-   section#NovoPost {
-       margin: 0;
-       padding: 0;
-   }
-   
-   /* BOTÕES > ELEMENTO HTML FIXO */
-   button {
-     font-family: Alliance, sans-serif;
-     font-weight: 700;
+/* SECÇÃO FETCH */
+section#NovoPost {
+  width: 100vw;
+  margin: 0 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(8rem, 1fr));
+  grid-auto-rows: 1fr;
+}
+
+section#NovoPost::before {
+  content: '';
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+}
+
+section#NovoPost > *:first-child {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+}
+
+section#NovoPost > article {
+  padding: 10% 0;
+  text-align: center;
+  border: .5px solid var(--black);
+}
+
+section#NovoPost > article > a > h1 {
+  background-color: none;
+  font-family: Alliance, sans-serif;
+  font-weight: 300;
+  text-align: left;
+  font-size: 1.5vw;
+  line-height: 1.8vw;
+  max-width: 49%;
+  /* position:relative;
+  left: 3.8vw; */
+}
+
+section#NovoPost > article > span.data {
+  font-family: Alliance, sans-serif;
+  font-weight: 300;
+  text-align: right;
+  font-size: 1.5vw;
+}
+
+section#NovoPost > article > a > h1, section#NovoPost > article > span.data {
+display: inline-block;
+}
+
+section#NovoPost > article > figure > img {
+  width: 25vw;
+  height: 25vw;
+  object-fit:cover;
+}
+ 
+/* BOTÕES > ELEMENTO HTML FIXO */
+button {
+  font-family: Alliance, sans-serif;
+  font-weight: 700;
    
      display: block;
      position: absolute;
@@ -480,6 +530,25 @@ background: rgba(0, 128, 0, 0.1);
           color: #fff!important;
           }
 
+#list  > article > .meta > span:first-child {
+  color: #000;
+  border-radius: 111px;
+  padding: 2px 20px;
+  border: 1px solid var(--black);
+  background-color: var(--antwhite);
+  font-weight: 700;
+}
+
+      #list  > article:hover > a > h1 {
+        background-color: #000!important;
+        color: #fff!important;
+        }
+
+        #list  > article:hover > .meta > span:nth-child(2){
+          background-color: #000!important; 
+          color: #fff!important;
+          }
+
           #list  > article > .meta > span:first-child {
             color: #000;
             border-radius: 111px;
@@ -495,6 +564,28 @@ background: rgba(0, 128, 0, 0.1);
       margin-right: 35px;
 
           }
+
+          #list  > article:hover > .meta {
+            background-color: #000!important;
+            color: #fff!important;
+            }
+      
+      
+        span {
+        text-transform: uppercase;
+        }
+
+
+        aside#archive{
+          background-color: #f0f;
+          position: static;
+        }
+
+
+#list  > article > .meta > span:nth-child(2) {
+  float:right;
+  margin-right: 35px;
+}
 
           #list  > article:hover > .meta {
             background-color: #000!important;
