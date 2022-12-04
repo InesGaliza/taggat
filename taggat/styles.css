@@ -475,8 +475,13 @@ section {
   display: none;
 }
 
+
+
+
 #list > article  >  figure > img {  
-  height: 16vw;
+  height: 21.2vw;
+  width: 21.2vw;
+  object-fit: cover;
   border: 20px solid #000; 
 }
 
