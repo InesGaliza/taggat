@@ -70,11 +70,11 @@ fetch(url)
   for (let local of dados) {
     buildLocal(local);
   }
-  for (let etiquetas of dados) {
 
-    buildEtiquetas(etiquetas);
-    console.log('bulding etiquetas');
-  }
+
+
+
+
 
 
 
@@ -97,12 +97,28 @@ fetch(url)
     buildCategorias(categorias);
   }
 
-  //loop de etiquetas
-  for (let etik of dados) {
-    // after the element span is on the page, run a second fetch (<-- because it may take some time to run)
-    // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
-    fetchEtiqueta(etik.tags[0]);
+
+
+
+    //loop de etiquetas
+    for (let etik of dados) {
+      // after the element span is on the page, run a second fetch (<-- because it may take some time to run)
+      // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
+      fetchTag(etik.tags[0]);
+    }
+
+
+      
+  for (let tags of dados) {
+
+    buildEtiquetas(tags);
+    console.log('bulding tags');
   }
+
+
+
+
+
 
 });
   
@@ -215,22 +231,28 @@ function buildTitle(_title) {
 
 
 
+    function buildEtiquetas(_tags) {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      // create a new element
+      let elEtiquetas = document.createElement("article");
+      
+      let myID = "id-" + _tags.id;
+      
+    
+      elEtiquetas.setAttribute("id", myID);
+    
+     
+      elEtiquetas.innerHTML = `
+      <span class= "categoria t${_tags.tags[0]}" >duh… what num?</span>
+      
+                            `;
+    
+      // place the new element on the page
+      document.querySelector("#etiquetas").appendChild(elEtiquetas);
+      
+      console.log("built etiquetas", elEtiquetas);
+    }
 
 
 
@@ -268,6 +290,47 @@ function buildOutras(_outras) {
 
 
 
+//etiquetas fetch  ---------------------------------
+
+function fetchTag(_etik_num) {
+  console.log("fetching tags names");
+
+  // this will be the text string name to insert in the HTML span element(s)
+  let etiquetas_name = "";
+
+  // this is the base URL to fetch the tags names
+  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/";
+
+
+  url += _etik_num;
+
+
+  fetch(url)
+    .then(function (resposta) {
+      return resposta.json();
+    })
+    .then(function (dados) {
+      // define a new text string to build the class name with the number
+      let myClass = ".t" + _etik_num;
+
+      //console.log("my class", myClass);
+
+      // grab all elements with that class in the DOM (<-- querySelector all it's an array, remember?)
+      // you could also just grab the last one from the array… better method!
+      let elt = document.querySelectorAll(myClass);
+
+      // in each one of the elements
+      // change the inner text/html for the name provided by wordpress for that specific category number
+      // remember to always inspect the JSON object to find out what property you need…
+      for (let elEtiquetas of elt) {
+        elEtiquetas.innerHTML = dados.name;
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+  
 
 
 
@@ -275,7 +338,17 @@ function buildOutras(_outras) {
 
 
 
-//CATEGORIAS E FETCH---------------------------------------------
+
+
+
+
+
+
+
+
+//TUDO DAs cATEGORIAS E FETCH---------------------------------------------
+
+
 
 
 
@@ -303,6 +376,8 @@ function buildCategorias(_categorias) {
   
   console.log("built cats", elcat);
 }
+
+
 
 
 
@@ -355,77 +430,3 @@ function fetchCategory(_cat_num) {
 
 
 
-
-
-
-
-
-
-
-
-
-//etiquetas fetch ---------------------------------
-
-function buildEtiquetas(_post) {
-
-
-  // create a new element
-  let elEtiquetas = document.createElement("article");
-  
-  let myID = "id-" + _post.id;
-  
-
-  elEtiquetas.setAttribute("id", myID);
-
- 
-  elEtiquetas.innerHTML = `
-  <span class="categoria t${_post.tags[0]} + "," ">duh… what num?</span>
-  
-                        `;
-
-  // place the new element on the page
-  document.querySelector("#etiquetas").appendChild(elEtiquetas);
-  
-  console.log("built etiquetas", elEtiquetas);
-}
-
-
-function fetchTag(_etik_num) {
-  console.log("fetching tags names");
-
-  // this will be the text string name to insert in the HTML span element(s)
-  let etiquetas_name = "";
-
-  // this is the base URL to fetch the tags names
-  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/";
-
-4
-  url += _etik_num;
-
-
-  fetch(url)
-    .then(function (resposta) {
-      return resposta.json();
-    })
-    .then(function (dados) {
-      // define a new text string to build the class name with the number
-      let myTag = ".t" + _etik_num;
-
-      //console.log("my class", myClass);
-
-      // grab all elements with that class in the DOM (<-- querySelector all it's an array, remember?)
-      // you could also just grab the last one from the array… better method!
-      let elt = document.querySelectorAll(myClass);
-
-      // in each one of the elements
-      // change the inner text/html for the name provided by wordpress for that specific category number
-      // remember to always inspect the JSON object to find out what property you need…
-      for (let el of elt) {
-        elEtiquetas.innerHTML = dados.name;
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-  
