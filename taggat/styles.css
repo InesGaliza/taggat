@@ -173,8 +173,7 @@ div#fixa {
    
 /* SECÇÃO FETCH */
 section#NovoPost {
-  margin: 0;
-  padding: 0;
+  margin: 0 -2em;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(8rem, 1fr));
@@ -183,8 +182,6 @@ section#NovoPost {
 
 section#NovoPost::before {
   content: '';
-  width: 0;
-  padding-bottom: 100%;
   grid-row: 1 / 1;
   grid-column: 1 / 1;
 }
@@ -194,20 +191,15 @@ section#NovoPost > *:first-child {
   grid-column: 1 / 1;
 }
 
-section#NovoPostid > * {
-  background: rgba(0,0,0,0.1);
-  border: 1px white solid;
-}
-
 section#NovoPost > article {
   padding: 20%;
   text-align: center;
-  border: .3px solid var(--black);
+  border: .5px solid var(--black);
 }
 
 section#NovoPost > article > figure > img {
-  width: 20vw;
-  height: 20vw;
+  width: 15vw;
+  height: 15vw;
   object-fit:cover;
 }
  
