@@ -173,7 +173,7 @@ div#fixa {
    
 /* SECÇÃO FETCH */
 section#NovoPost {
-  margin: 0 -2em;
+  margin: 0 0;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(8rem, 1fr));
@@ -192,14 +192,22 @@ section#NovoPost > *:first-child {
 }
 
 section#NovoPost > article {
-  padding: 20%;
+  padding: 10% 0;
   text-align: center;
   border: .5px solid var(--black);
 }
 
+section#NovoPost > article > a > h1 {
+  font-family: Alliance, sans-serif;
+  font-weight: 300;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 section#NovoPost > article > figure > img {
-  width: 15vw;
-  height: 15vw;
+  width: 25vw;
+  height: 25vw;
   object-fit:cover;
 }
  
