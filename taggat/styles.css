@@ -476,7 +476,10 @@ background: rgba(0, 128, 0, 0.1);
         }
 
 
-
+        aside#archive{
+          background-color: #f0f;
+          position: static;
+        }
 
 
 
