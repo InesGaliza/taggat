@@ -555,6 +555,7 @@ a:link {
   color: #000;
   border-radius: 111px;
   padding: 2px 20px;
+  font-size: 10px;
   border: 1px solid var(--black);
   background-color: var(--antwhite);
   font-weight: 700;
@@ -570,14 +571,6 @@ a:link {
   color: #fff!important;
 }
 
-#list  > article > .meta > span:first-child {
-  color: #000;
-  border-radius: 111px;
-  padding: 2px 20px;
-  border: 1px solid var(--black);
-  background-color: var(--antwhite);
-  font-weight: 700;
-}
 
 #list  > article > .meta > span:nth-child(2) {
   float:right;
