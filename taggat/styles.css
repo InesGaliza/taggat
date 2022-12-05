@@ -244,7 +244,7 @@ div#fixa {
    
 /* SECÇÃO FETCH */
 section#NovoPost {
-  width: 100vw;
+  width: 99vw;
   margin: 0 0;
 
   display: grid;
@@ -307,7 +307,8 @@ section#NovoPost > article > figure > img {
 /* SECÇÃO FETCH > HOVER */
 section#NovoPost > article:hover, section#NovoPost > article:hover > figure, section#NovoPost > article:hover > a > h1, section#NovoPost > article:hover > span.data {
   background-color: var(--black);
-  color: var(--antwhite)
+  color: var(--antwhite);
+  transition: 0.3s;
 }
  
 /* BOTÕES > ELEMENTO HTML FIXO */
@@ -333,13 +334,20 @@ button {
    
 button:hover {
   background-color: var(--black);
-  color: var(--antwhite)
+  color: var(--antwhite);
+  transition: 0.3s;
 }
 
-button:hover> .bi-arrow-left-circle {
+button:hover> .bi-arrow-left-circle  {
   background-color: var(--black);
-  color: var(--antwhite)
+  color: var(--antwhite);
+  transition: 0.3s;
 }
+
+button#timeline:hover > #boot-icon, button#timeline:hover > #boot-icon2  {
+  transition: 0.3s;
+}
+
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /* INDEX > FILTROS PARTE FIXA*/

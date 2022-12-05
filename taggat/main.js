@@ -134,9 +134,12 @@ function construirArtigo(_post) {
     document.querySelector("#NovoPost").appendChild(el);
     // $("article#id-393").addClass("go")
     //console.log("o Artigo está constrído!", el);
+    // CRIAR OBJETOS SEM CONTEÚDO
     let anotherBlank = le.cloneNode(true);
     let anotherBlank2 = le.cloneNode(true);
 
+    // QUADRICULA TOSCA > NECESSITA REVISÃO
+    // ADICIONAR E REMOVER BLANK SPOTS
     if (_post.acf.data > "1700") {
       document.querySelector("#NovoPost").appendChild(le);
       document.querySelector("#NovoPost").appendChild(anotherBlank);
