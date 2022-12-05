@@ -6,10 +6,45 @@ function inicio() {
   // os fetches todos
   getSome();
 
-
-
+  // animação do menu
+  menu();
 
 }
+
+// MENU
+function menu(){
+  
+  // CRIAR VARIÁVEL PARA AS LINHAS DO MENU (BOTÃO)
+  const hamMenu = document.querySelector(".linhasMenu");
+  // CRIAR VARIÁVEL PARA A CAIXA QUE CONTÉM A LISTA NAVEGÁVEL QUE APARECE CARREGANDO NO MENU
+  let menuAberto = document.querySelector('.itensMenu');
+
+  // AO CLICKAR NO BOTÃO DO MENU E A CAIXA ESTIVER "ABERTA || 0% À ESQUERDA"
+  // A CAIXA FICA "FECHADA || 100% À ESQUERDA"
+  hamMenu.addEventListener('click', function abreFechaMenu(){
+    if (menuAberto.style.left === "0%"){
+      menuAberto.style.left = "100%";
+    
+    // AO CLICKAR NO BOTÃO DO MENU E A CAIXA ESTIVER "FECHADA || 100% À ESQUERDA"
+    // A CAIXA FICA "ABERTA || 0% À ESQUERDA"
+    } else if (menuAberto.style.left = "100%"){
+      menuAberto.style.left = "0%";
+    }
+
+    // ANIMAÇAÇÃO || TRANSIÇÃO DO MENU ABRIR E FECHAR
+    menuAberto.style.transition = 1000 + "ms";
+
+    // ADIÇÃO DE CLASSE PARA FAZER COM QUE O HAMGURGUER SE TORNE UM X
+    hamMenu.classList.toggle('ativado');
+  });
+
+  // AO CARREGAR NA CAIXA QUE CONTÉM A LISTA NAVEGÁVEL, O MENU FECHA
+  menuAberto.addEventListener('click', function fechaMenu(){
+    if (menuAberto.style.left === "0%"){
+      menuAberto.style.left = "100%";
+    }
+  });
+};
 
 
 function getSome() {
@@ -157,7 +192,11 @@ function buildTitle(_title) {
     elmainpost.setAttribute("id", myID);
   
     // use string/template literals to build the HTML object
-    elmainpost.innerHTML = `<p>${_mainpost.content.rendered}</p>
+    elmainpost.innerHTML = `
+    
+   
+
+                    <p>${_mainpost.content.rendered}</p>
 
 
     
@@ -279,7 +318,31 @@ function buildOutras(_outras) {
 }
 
 
+//funçao mini fotos
 
+
+function buildMedia(_media) {
+  // create a new element
+  let elMedia = document.createElement("article");
+  let myID = "id-" + _media.id;
+
+  elMedia.setAttribute("id", myID);
+
+  // use string/template literals to build the HTML object
+  elMedia.innerHTML = `
+
+  <figure >
+  <img src="">
+  <figcaption>Caption of image</figcaption>
+  </figure>
+  
+                        `;
+
+  // place the new element on the page
+  document.querySelector("#media").appendChild(elMedia);
+  
+  console.log("built lil imgs", elMedia);
+}
 
 
 
@@ -470,7 +533,8 @@ async function fetchFeaturedMedia(_id, _media) {
   console.log("featured media scr url", mySrc);
 
   // get the article > figure > img and set the src
-  let myID = "#id-" + _id;
-  let myElMedia = document.querySelector(myID);
-  myElMedia.children.item(0).children.item(0).setAttribute("src", mySrc);
+   let myID = "#id-" + _id;
+  let myEl = document.querySelector(myID);
+  myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
 }
+

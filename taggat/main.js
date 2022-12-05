@@ -24,15 +24,26 @@ function menu(){
   let hamMenu = document.querySelector(".linhasMenu");
   let menuAberto = document.querySelector('.itensMenu');
 
+  // AO CLICKAR NO BOTÃO DO MENU E A CAIXA ESTIVER "ABERTA || 0% À ESQUERDA"
+  // A CAIXA FICA "FECHADA || 100% À ESQUERDA"
   hamMenu.addEventListener('click', function abreFechaMenu(){
     if (menuAberto.style.left === "0%"){
       menuAberto.style.left = "100%";
+    
+    // AO CLICKAR NO BOTÃO DO MENU E A CAIXA ESTIVER "FECHADA || 100% À ESQUERDA"
+    // A CAIXA FICA "ABERTA || 0% À ESQUERDA"
     } else if (menuAberto.style.left = "100%"){
       menuAberto.style.left = "0%";
     }
+
+    // ANIMAÇAÇÃO || TRANSIÇÃO DO MENU ABRIR E FECHAR
     menuAberto.style.transition = 1000 + "ms";
+
+    // ADIÇÃO DE CLASSE PARA FAZER COM QUE O HAMGURGUER SE TORNE UM X
+    hamMenu.classList.toggle('ativado');
   });
 
+  // AO CARREGAR NA CAIXA QUE CONTÉM A LISTA NAVEGÁVEL, O MENU FECHA
   menuAberto.addEventListener('click', function fechaMenu(){
     if (menuAberto.style.left === "0%"){
       menuAberto.style.left = "100%";
@@ -40,6 +51,8 @@ function menu(){
   });
 };
 
+/*------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------*/
 
 //FUNÇÃO PARA O FETCH
 function vaiBuscar() {
@@ -51,14 +64,14 @@ function vaiBuscar() {
       return resposta.json();
     })
     .then(function (dados) {
-    console.log("o array:", dados);
+    console.log("o array original:", dados);
     //REORGANIZAR O ARRAY PELO ANO (ACF.DATA)
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
     //https://bobbyhadz.com/blog/javascript-sort-array-of-objects-by-date-property
     let rearranjedArr = dados.sort(
       (objA, objB) => Number(objA.acf.data) - Number(objB.acf.data),
     );
-    console.log(rearranjedArr);
+    console.log("o array organizado:", rearranjedArr);
 
     // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
     for (let post of rearranjedArr) {
@@ -82,13 +95,6 @@ function vaiBuscar() {
 
 // FUNÇÃO PARA CONSTRUIR OS ARTIGOS
 function construirArtigo(_post) {
-    // OBTER UM NÚMERO RANDOM DE 1 A 3
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-    function getRandomInt(min ,max) {
-      return Math.floor(Math.random() * (max - min) + min);
-    }
-    console.log(getRandomInt(1,4));
-
     // CRIAR UM NOVO ELEMENTO > O ARTIGO
     let el = document.createElement("article");
     let myID = "id-" + _post.id;
@@ -119,7 +125,6 @@ function construirArtigo(_post) {
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
     document.querySelector("#NovoPost").appendChild(el);
-
     //console.log("o Artigo está constrído!", el);
   }
 

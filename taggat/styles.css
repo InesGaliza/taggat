@@ -96,6 +96,7 @@ nav {
   float: right;
 }
 
+/*ÍCONE DO MENU */
 .linhasMenu {
   height: 1.6rem;
   width: 2rem;
@@ -107,13 +108,39 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  transition: all 100ms ease-in-out;
 }
 
+/* LINHAS DO MENU */
 .linhasMenu .linha {
   height: .25rem;
   width: 100%;
   border-radius: 10px;
   background-color: var(--black);
+  transition: all 100ms ease-in-out;
+}
+
+/* LINHAS DO MENU QUANDO ESTÁ EM X */
+.linhasMenu.ativado .linhaTopo{
+  transition: all 100ms ease-in-out;
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 100%;
+}
+
+/* LINHAS DO MENU QUANDO ESTÁ EM X */
+.linhasMenu.ativado .linhaMeio{
+  opacity: 0;
+  transition: all 100ms ease-in-out;
+  transform-origin: center;
+}
+
+/* LINHAS DO MENU QUANDO ESTÁ EM X */
+.linhasMenu.ativado .linhaBaixo{
+  transition: all 100ms ease-in-out;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  width: 100%;
 }
 
 .itensMenu {
@@ -225,7 +252,8 @@ section#NovoPost {
 }
 
 section#NovoPost > article {
-  display: list-item;
+  background-color: var(--white);
+  display: block;
   padding: 10% 0 5% 0;
   text-align: center;
   border: .5px solid var(--black);
@@ -258,8 +286,8 @@ section#NovoPost > article > span.data {
 }
 
 section#NovoPost > article > a > h1, section#NovoPost > article > span.data {
-display: inline-block;
-padding-top: .5rem;
+  display: inline-block;
+  padding-top: .5rem;
 }
 
 section#NovoPost > article > figure > img {
