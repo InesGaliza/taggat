@@ -22,11 +22,10 @@ menu();
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
 // MENU
+// ANIMAÇÃO DO MENU
+
 function menu(){
-  
-  // CRIAR VARIÁVEL PARA AS LINHAS DO MENU (BOTÃO)
-  const hamMenu = document.querySelector(".linhasMenu");
-  // CRIAR VARIÁVEL PARA A CAIXA QUE CONTÉM A LISTA NAVEGÁVEL QUE APARECE CARREGANDO NO MENU
+  let hamMenu = document.querySelector(".linhasMenu");
   let menuAberto = document.querySelector('.itensMenu');
 
   // AO CLICKAR NO BOTÃO DO MENU E A CAIXA ESTIVER "ABERTA || 0% À ESQUERDA"
@@ -45,6 +44,7 @@ function menu(){
     menuAberto.style.transition = 1000 + "ms";
 
     // ADIÇÃO DE CLASSE PARA FAZER COM QUE O HAMGURGUER SE TORNE UM X
+    // CRÉDITOS - https://www.youtube.com/watch?v=KCjsdMgl84g
     hamMenu.classList.toggle('ativado');
   });
 
@@ -53,6 +53,7 @@ function menu(){
     if (menuAberto.style.left === "0%"){
       menuAberto.style.left = "100%";
     }
+    hamMenu.classList.toggle('ativado');
   });
 };
 
