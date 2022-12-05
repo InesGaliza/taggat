@@ -32,7 +32,7 @@ function vaiBuscar() {
     let rearranjedArr = dados.sort(
       (objA, objB) => Number(objA.acf.data) - Number(objB.acf.data),
     );
-    console.log(rearranjedArr)
+    console.log(rearranjedArr);
 
     // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
     for (let post of rearranjedArr) {
@@ -56,6 +56,13 @@ function vaiBuscar() {
 
 // FUNÇÃO PARA CONSTRUIR OS ARTIGOS
 function construirArtigo(_post) {
+    // OBTER UM NÚMERO RANDOM DE 1 A 3
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    function getRandomInt(min ,max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+    console.log(getRandomInt(1,4));
+
     // CRIAR UM NOVO ELEMENTO > O ARTIGO
     let el = document.createElement("article");
     let myID = "id-" + _post.id;
@@ -86,6 +93,7 @@ function construirArtigo(_post) {
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
     document.querySelector("#NovoPost").appendChild(el);
+
     //console.log("o Artigo está constrído!", el);
   }
 
