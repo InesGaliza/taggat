@@ -16,20 +16,34 @@ function inicio() {
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
-// MENU > ANIMAÇÃO DO MENU
+
+// MENU
+// ANIMAÇÃO DO MENU
+
 function menu(){
   let hamMenu = document.querySelector(".linhasMenu");
   let menuAberto = document.querySelector('.itensMenu');
 
+  // AO CLICKAR NO BOTÃO DO MENU E A CAIXA ESTIVER "ABERTA || 0% À ESQUERDA"
+  // A CAIXA FICA "FECHADA || 100% À ESQUERDA"
   hamMenu.addEventListener('click', function abreFechaMenu(){
     if (menuAberto.style.left === "0%"){
       menuAberto.style.left = "100%";
+    
+    // AO CLICKAR NO BOTÃO DO MENU E A CAIXA ESTIVER "FECHADA || 100% À ESQUERDA"
+    // A CAIXA FICA "ABERTA || 0% À ESQUERDA"
     } else if (menuAberto.style.left = "100%"){
       menuAberto.style.left = "0%";
     }
+
+    // ANIMAÇAÇÃO || TRANSIÇÃO DO MENU ABRIR E FECHAR
     menuAberto.style.transition = 1000 + "ms";
+
+    // ADIÇÃO DE CLASSE PARA FAZER COM QUE O HAMGURGUER SE TORNE UM X
+    hamMenu.classList.toggle('ativado');
   });
 
+  // AO CARREGAR NA CAIXA QUE CONTÉM A LISTA NAVEGÁVEL, O MENU FECHA
   menuAberto.addEventListener('click', function fechaMenu(){
     if (menuAberto.style.left === "0%"){
       menuAberto.style.left = "100%";
