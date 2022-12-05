@@ -1,6 +1,18 @@
-console.log("hello single page mode");
+// use DOM load event listener to wait for content on page
+addEventListener("load", inicio);
+
+function inicio() {
+  console.log("ready when you are!");
+  // os fetches todos
+  getSome();
 
 
+
+
+}
+
+
+function getSome() {
 // this gets the URL address bar
 const queryString = window.location.search;
 
@@ -14,56 +26,6 @@ const post = urlParams.get("post");
 
 // Fetch de um post (construir a edenreço do JSON com o parâmetro da URL )
 let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=" + post;
-
-
-// before the posts
-// fetch the post tags with names
-
-// https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/
-
-
-// async function fetchTags() {
-//   const response = await fetch('https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/');
-//   const tags = await response.json();
-//   return tags;
-// }
-
-// fetchTags().then(function (dados) {
-  
-//   for (let tag of dados) {
-    
-//     // console.log("tags", tag);
-
-//     let newTag;
-//     newTag = {id: tag.id, name: tag.name};
-
-//     tagnames.push(newTag);
-//   }
-//   console.log("total tgnames",tagnames);
-  
-// });
-
-// ANIMAÇÃO DO MENU
-
-function menu(){
-  let hamMenu = document.querySelector(".linhasMenu");
-  let menuAberto = document.querySelector('.itensMenu');
-
-  hamMenu.addEventListener('click', function abreFechaMenu(){
-    if (menuAberto.style.left === "0%"){
-      menuAberto.style.left = "100%";
-    } else if (menuAberto.style.left = "100%"){
-      menuAberto.style.left = "0%";
-    }
-    menuAberto.style.transition = 1000 + "ms";
-  });
-
-  menuAberto.addEventListener('click', function fechaMenu(){
-    if (menuAberto.style.left === "0%"){
-      menuAberto.style.left = "100%";
-    }
-  });
-};
 
 
 
@@ -153,6 +115,8 @@ fetch(url)
 
 });
   
+
+}
 
 
 
