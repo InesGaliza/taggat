@@ -21,7 +21,7 @@ function inicio() {
 function menu(){
   
   // CRIAR VARIÁVEL PARA AS LINHAS DO MENU (BOTÃO)
-  let hamMenu = document.querySelector(".linhasMenu");
+  const hamMenu = document.querySelector(".linhasMenu");
   // CRIAR VARIÁVEL PARA A CAIXA QUE CONTÉM A LISTA NAVEGÁVEL QUE APARECE CARREGANDO NO MENU
   let menuAberto = document.querySelector('.itensMenu');
 
@@ -39,6 +39,9 @@ function menu(){
 
     // ANIMAÇAÇÃO || TRANSIÇÃO DO MENU ABRIR E FECHAR
     menuAberto.style.transition = 1000 + "ms";
+
+    // ADIÇÃO DE CLASSE PARA FAZER COM QUE O HAMGURGUER SE TORNE UM X
+    hamMenu.classList.toggle('ativado');
   });
 
   // AO CARREGAR NA CAIXA QUE CONTÉM A LISTA NAVEGÁVEL, O MENU FECHA

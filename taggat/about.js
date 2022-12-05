@@ -2,8 +2,12 @@ addEventListener("load", inicio);
 
 
 function inicio() {
+
+  // MENU
   menu();
-  openCategories();
+
+  // CATEGORIAS
+  abrirCategorias();
 };
 
 
@@ -11,7 +15,7 @@ function inicio() {
 function menu(){
   
   // CRIAR VARIÁVEL PARA AS LINHAS DO MENU (BOTÃO)
-  let hamMenu = document.querySelector(".linhasMenu");
+  const hamMenu = document.querySelector(".linhasMenu");
   // CRIAR VARIÁVEL PARA A CAIXA QUE CONTÉM A LISTA NAVEGÁVEL QUE APARECE CARREGANDO NO MENU
   let menuAberto = document.querySelector('.itensMenu');
 
@@ -29,6 +33,9 @@ function menu(){
 
     // ANIMAÇAÇÃO || TRANSIÇÃO DO MENU ABRIR E FECHAR
     menuAberto.style.transition = 1000 + "ms";
+
+    // ADIÇÃO DE CLASSE PARA FAZER COM QUE O HAMGURGUER SE TORNE UM X
+    hamMenu.classList.toggle('ativado');
   });
 
   // AO CARREGAR NA CAIXA QUE CONTÉM A LISTA NAVEGÁVEL, O MENU FECHA
@@ -39,7 +46,10 @@ function menu(){
   });
 };
 
-function openCategories(){
+
+
+// FUNÇÃO PARA ABRIR AS CATEGORIAS
+function abrirCategorias(){
 // VARIÁVEIS DOS TíTULOS DAS CATEGORIAS - TAGGAT E TAGLINE
 let sobreSubtituloTagline = document.querySelector("#sobreSubtituloTagline");
 let sobreSubtituloTaggat = document.querySelector("#sobreSubtituloTaggat");
