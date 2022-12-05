@@ -10,10 +10,36 @@ function inicio() {
   criarCategoras();
   // BOTÃO > ADD&REMOVE CLASS / ENTER&LEAVE / AMINAÇÃO
   botaoHover();
+  // ANIMAÇÃO DO MENU
+  menu();
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
+// MENU
+// ANIMAÇÃO DO MENU
+
+function menu(){
+  let hamMenu = document.querySelector(".linhasMenu");
+  let menuAberto = document.querySelector('.itensMenu');
+
+  hamMenu.addEventListener('click', function abreFechaMenu(){
+    if (menuAberto.style.left === "0%"){
+      menuAberto.style.left = "100%";
+    } else if (menuAberto.style.left = "100%"){
+      menuAberto.style.left = "0%";
+    }
+    menuAberto.style.transition = 1000 + "ms";
+  });
+
+  menuAberto.addEventListener('click', function fechaMenu(){
+    if (menuAberto.style.left === "0%"){
+      menuAberto.style.left = "100%";
+    }
+  });
+};
+
 
 //FUNÇÃO PARA O FETCH
 function vaiBuscar() {
