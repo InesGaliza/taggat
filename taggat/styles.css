@@ -259,16 +259,10 @@ section#NovoPost > article {
   border: .5px solid var(--black);
 }
 
-section#NovoPost > article:hover {
-  background-color: var(--black);
-}
-
-section#NovoPost > article:hover > figure, section#NovoPost > article:hover > a > h1, section#NovoPost > article:hover > span.data {
-  background-color: var(--black);
-  color: var(--antwhite)
-}
-
 section#NovoPost > article.blank {
+  background-color: var(--white);
+}
+section#NovoPost > article.blank:hover {
   background-color: var(--white);
 }
 
@@ -308,6 +302,12 @@ section#NovoPost > article > figure > img {
   width: 25vw;
   height: 25vw;
   object-fit:cover;
+}
+
+/* SECÇÃO FETCH > HOVER */
+section#NovoPost > article:hover, section#NovoPost > article:hover > figure, section#NovoPost > article:hover > a > h1, section#NovoPost > article:hover > span.data {
+  background-color: var(--black);
+  color: var(--antwhite)
 }
  
 /* BOTÕES > ELEMENTO HTML FIXO */
