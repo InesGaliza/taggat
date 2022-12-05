@@ -92,7 +92,6 @@ function vaiBuscar() {
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
-
 // FUNÇÃO PARA CONSTRUIR OS ARTIGOS
 function construirArtigo(_post) {
     // CRIAR UM NOVO ELEMENTO > O ARTIGO
@@ -103,6 +102,12 @@ function construirArtigo(_post) {
     el.setAttribute("class", myClass);
     // console.log(el);
 
+    let le = document.createElement("article");
+    le.setAttribute("class", "blank");
+    //UTLIZAR STRING / TEMPLATE LITERALS PARA CONSTRUIR O OBJETO HTML BLANK
+    le.innerHTML = `  `;
+    // console.log(le);
+    
     // UTLIZAR STRING / TEMPLATE LITERALS PARA CONSTRUIR O OBJETO HTML
     el.innerHTML = `<figure >
                           <img src="" />
@@ -124,7 +129,12 @@ function construirArtigo(_post) {
                           <!-- <p>${_post.content.rendered}</p> -->`;
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
-    document.querySelector("#NovoPost").appendChild(el);
+    let articleArt = document.querySelector("#NovoPost").appendChild(el);
+    if(_post.acf.data > "1700") {
+    document.querySelector("#NovoPost").appendChild(le);
+    }
+
+    // $("article#id-393").addClass("go")
     //console.log("o Artigo está constrído!", el);
   }
 
@@ -202,8 +212,8 @@ function criarCategoras() {
   // SEMPRE QUE FOR ADICIONADA UMA CATEGORIA... CRIAR UM BOTÃO
   // <button id="btn0" class="filtros target-(NÚMERO DA CATEGORIA)">
   ul.innerHTML = `<li><button id="btn0" class="filtros target-0"><span class="bi bi-arrow-left-circle"></span>VER TODOS</button></li>
-                  <li><button id="btn1" class="filtros target-52"><span class="bi bi-arrow-left-circle"></span>ARTEFACTOS</button></li>
-                  <li><button id="btn2" class="filtros target-37"><span class="bi bi-arrow-left-circle"></span>LOCAIS</button></li>
+                  <li><button id="btn1" class="filtros target-37"><span class="bi bi-arrow-left-circle"></span>ARTEFACTOS</button></li>
+                  <li><button id="btn2" class="filtros target-52"><span class="bi bi-arrow-left-circle"></span>LOCAIS</button></li>
                   <li><button id="btn3" class="filtros target-14"><span class="bi bi-arrow-left-circle"></span>PESSOAS</button></li>`
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
