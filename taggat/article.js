@@ -192,7 +192,11 @@ function buildTitle(_title) {
     elmainpost.setAttribute("id", myID);
   
     // use string/template literals to build the HTML object
-    elmainpost.innerHTML = `<p>${_mainpost.content.rendered}</p>
+    elmainpost.innerHTML = `
+    
+   
+
+                    <p>${_mainpost.content.rendered}</p>
 
 
     
@@ -314,7 +318,31 @@ function buildOutras(_outras) {
 }
 
 
+//funçao mini fotos
 
+
+function buildMedia(_media) {
+  // create a new element
+  let elMedia = document.createElement("article");
+  let myID = "id-" + _media.id;
+
+  elMedia.setAttribute("id", myID);
+
+  // use string/template literals to build the HTML object
+  elMedia.innerHTML = `
+
+  <figure >
+  <img src="">
+  <figcaption>Caption of image</figcaption>
+  </figure>
+  
+                        `;
+
+  // place the new element on the page
+  document.querySelector("#media").appendChild(elMedia);
+  
+  console.log("built lil imgs", elMedia);
+}
 
 
 
@@ -505,7 +533,8 @@ async function fetchFeaturedMedia(_id, _media) {
   console.log("featured media scr url", mySrc);
 
   // get the article > figure > img and set the src
-  let myID = "#id-" + _id;
-  let myElMedia = document.querySelector(myID);
-  myElMedia.children.item(0).children.item(0).setAttribute("src", mySrc);
+   let myID = "#id-" + _id;
+  let myEl = document.querySelector(myID);
+  myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
 }
+
