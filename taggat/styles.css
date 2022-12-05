@@ -348,14 +348,51 @@ button#timeline:hover > #boot-icon, button#timeline:hover > #boot-icon2  {
   transition: 0.3s;
 }
 
-
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /* INDEX > FILTROS PARTE FIXA*/
 /* ASIDE > FILTROS */
 aside {
   position: fixed;
+  float: right;
   top: 50%;
+  right: 3.5em;
+
+  transition-property: right;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1000ms;
+  z-index: 1;
 }
+
+aside:hover {
+  right: 11em;
+}
+
+  @media only screen and (min-width: 800px) {
+    aside {
+      right: 4.3em;
+    }
+    aside:hover {
+      right: 12em;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
+    aside {
+      right: 5em;
+    }
+    aside:hover {
+      right: 13em;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    aside {
+      right: 5.8em;
+    }
+    aside:hover {
+      right: 14.2em;
+    }
+  }
   
 li {
   position: relative;
