@@ -40,6 +40,7 @@ function menu(){
     menuAberto.style.transition = 1000 + "ms";
 
     // ADIÇÃO DE CLASSE PARA FAZER COM QUE O HAMGURGUER SE TORNE UM X
+    // CRÉDITOS - https://www.youtube.com/watch?v=KCjsdMgl84g
     hamMenu.classList.toggle('ativado');
   });
 
@@ -48,6 +49,7 @@ function menu(){
     if (menuAberto.style.left === "0%"){
       menuAberto.style.left = "100%";
     }
+    hamMenu.classList.toggle('ativado');
   });
 };
 
