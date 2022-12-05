@@ -129,14 +129,12 @@ function construirArtigo(_post) {
                           <!-- <p>${_post.content.rendered}</p> -->`;
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
-    let articleArt = document.querySelector("#NovoPost").appendChild(el);
-    if(_post.acf.data > "1700") {
-    document.querySelector("#NovoPost").appendChild(le);
-    }
-
+    document.querySelector("#NovoPost").appendChild(el);
     // $("article#id-393").addClass("go")
     //console.log("o Artigo está constrído!", el);
-  }
+    document.querySelector("#NovoPost").appendChild(le);
+    // document.querySelector("#NovoPost").appendChild(le.cloneNode(true));
+}
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
