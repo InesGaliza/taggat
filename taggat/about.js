@@ -77,17 +77,25 @@ sobreSubtituloTagline.addEventListener('click', function showContentTAGLINE(){
   }
 });
 
+// AO CLICKAR NO TÍTULO TAGGAT
 sobreSubtituloTaggat.addEventListener('click', function showContentTAGGAT(){
 
+  // SE AO CLICKAR O CONTENTOR EXISTIR EM BLOCK E O TÍTULO TAGGAT ESTIVER COM FUNDO PRETO
+  // DESAPARECE O CONTENTOR E O TÍTULO FICA COM FUNDO BRANCO
   if (contentorInfo.style.display === "block" && sobreSubtituloTaggat.classList.contains('sobreVersaoPreto')) {
     contentorInfo.style.display = "none";
     infoTaggat.style.display = "none";
     sobreSubtituloTaggat.classList.remove('sobreVersaoPreto');
+
+  // SE AO CLICKAR O CONTENTOR EXISTIR EM BLOCK E O TÍTULO TAGGAT ESTIVER COM FUNDO PRETO
+  // O CONTENTOR DO TEXTO TAGLINE DESAPARECE E O TÍTULO TAGLINE FICA COM FUNDO BRANCO
   } else if (contentorInfo.style.display === "block" && !sobreSubtituloTaggat.classList.contains('sobreVersaoPreto')) {
     infoTagline.style.display = "none";
     sobreSubtituloTagline.classList.remove('sobreVersaoPreto');
     infoTaggat.style.display = "block";
     sobreSubtituloTaggat.classList.add('sobreVersaoPreto');
+
+  // TENDO EM CONTA AS CONDIÇÕES ANTERIORES, O CONTENTOR E O TEXTO DO TAGGAT APARECEM E O TÍTULO FICA A PRETO
   } else {
     contentorInfo.style.display = "block";
     infoTaggat.style.display = "block";
