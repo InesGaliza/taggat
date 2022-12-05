@@ -134,8 +134,46 @@ function construirArtigo(_post) {
     document.querySelector("#NovoPost").appendChild(el);
     // $("article#id-393").addClass("go")
     //console.log("o Artigo está constrído!", el);
-    document.querySelector("#NovoPost").appendChild(le);
-    // document.querySelector("#NovoPost").appendChild(le.cloneNode(true));
+    let anotherBlank = le.cloneNode(true);
+    let anotherBlank2 = le.cloneNode(true);
+
+    if (_post.acf.data > "1700") {
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
+      document.querySelector("#NovoPost").appendChild(anotherBlank2);
+    }
+    if (_post.acf.data > "1800") {
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").removeChild(anotherBlank);
+      document.querySelector("#NovoPost").removeChild(anotherBlank2);
+    }
+    if (_post.acf.data > "1900") {
+      document.querySelector("#NovoPost").removeChild(le);
+    }
+    if (_post.acf.data > "1925") {
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data > "1940") {
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data > "1960") {
+      document.querySelector("#NovoPost").removeChild(le);
+      document.querySelector("#NovoPost").removeChild(anotherBlank);
+    }
+    if (_post.acf.data > "1970") {
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data > "1980") {
+      document.querySelector("#NovoPost").removeChild(le);
+      document.querySelector("#NovoPost").removeChild(anotherBlank);
+    }
+    if (_post.acf.data > "2000") {
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
