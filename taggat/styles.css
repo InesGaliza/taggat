@@ -367,6 +367,16 @@ aside:hover {
   right: 11em;
 }
 
+
+.filtros{
+  text-align:left;
+  width: 12em;
+  padding: .5em 1.2em .5em 1.2em;
+}
+
+
+
+
   @media only screen and (min-width: 800px) {
     aside {
       right: 4.3em;
@@ -571,6 +581,10 @@ section {
   border-top: 1px solid #000;
 }
 
+#list > article:last-child{
+  border-bottom: 1px solid #000;
+}
+
 #list > article  > a {
   grid-column: 5/8;
   align-items: flex-start;
@@ -640,9 +654,16 @@ span {
   text-transform: uppercase;
 }
 
+
+aside{
+  position: fixed;
+  top: 50%;
+}
+
 aside#archive{
   background-color: #f0f;
-  position: static;
+  position: fixed;
+  top: 25%;
 }
 
 #list  > article > .meta > span:nth-child(2) {
