@@ -562,9 +562,13 @@ async function fetchFeaturedMedia(_id, _media) {
   mySrc = dados.media_details.sizes.thumbnail.source_url;
   console.log("featured media scr url", mySrc);
 
+  let newel = document.createElement('img');
+  newel.setAttribute('src', mySrc);
+
+  document.querySelector("#media-item").appendChild(newel);
   // get the article > figure > img and set the src
-   let myID = "#id-" + _id;
-  let myEl = document.querySelector(myID);
-  myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
+   //let myID = "#id-" + _id;
+  //let myEl = document.querySelector(myID);
+  //myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
 }
 
