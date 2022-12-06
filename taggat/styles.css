@@ -374,6 +374,9 @@ aside:hover {
   padding: .5em 1.2em .5em 1.2em;
 }
 
+
+
+
   @media only screen and (min-width: 800px) {
     aside {
       right: 4.3em;
@@ -523,12 +526,12 @@ h2.sobreVersaoPreto {
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /* FOOTER */
-footer div {
-  display: inline-block;
+#footerPaginaSobre {
   padding-left: 33%;
 }
 
 .sobreFooter {
+  display: inline-block;
   padding: 6rem 3rem 6rem 0;
   font-size: 1.0702341137123745vw;
   line-height: 1.605351170568562vw;
@@ -545,6 +548,24 @@ section {
   margin: 0;
 }
 
+.footerBotoesCaixa{
+  border-top: solid 1pt var(--black);
+  padding: 3em 33%;
+}
+
+.footerBotoesCaixa a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.botaoFooter{
+  display: inline-block;
+  position: relative;
+  padding: .5em 1.5em;
+  bottom: 0;
+  margin: 0;
+}
+
 /* END OF SOBRE PAGE */
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -557,8 +578,6 @@ section {
 #list > article  > figure {
   display: none;
 }
-
-
 
 
 #list > article  >  figure > img {  
@@ -900,13 +919,6 @@ padding-bottom: 17.937853107344633vh;
 
 
 
-#post{
-
-  padding-top: 4rem;
-}
-
-
-
 #post img{ 
   padding-top: 5rem ;
   padding-bottom: 5rem ;
@@ -915,14 +927,4 @@ padding-bottom: 17.937853107344633vh;
   
 
 }
-
-#media-item img{
-
-  padding-left: 0,5rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-right: 2rem;
-}
-
-
 
