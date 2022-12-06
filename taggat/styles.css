@@ -243,12 +243,51 @@ strong {
   background-color: var(--black);
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------*/
 /* FOOTER */
-footer{
-  border-top: solid 1pt var(--black);
-  margin-top: 6em;
+
+.footerBotoesCaixa > a > img {
+  display: inline-block;
+  width: 2em;
+  height: auto;
 }
 
+.footerBotoesCaixa{
+  text-align: center;
+  padding: 3em 0; 
+}
+
+.footerBotoesCaixa a:nth-child(n){
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 3em;
+  vertical-align: middle;
+}
+
+/* PARA FICAR MESMO CENTRADO, A PRIMEIRA CHILD NÃO VAI TER MARGIN-LEFT */
+.footerBotoesCaixa a:nth-child(1){
+  margin-left: 0;
+}
+
+/* LOGO DA UPORTO AJUSTADO */
+.footerBotoesCaixa a:nth-child(3)>img{
+  width: 7em;
+  height: auto;
+}
+
+/* LOGO DA NIT AJUSTADO */
+.footerBotoesCaixa a:nth-child(4)>img{
+  width: 3.5em;
+  height: auto;
+}
+
+.botaoFooter{
+  display: inline-block;
+  position: relative;
+  padding: .5em 1.5em;
+  bottom: 0;
+  margin: 0;
+}
 /* END OF CSS GLOBAL */
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -351,6 +390,7 @@ button {
   border-radius: 111px;
   border: 1px solid var(--black);
   background-color: var(--antwhite);
+  transition: 0.3s;
 }
 
 .bi-arrow-left-circle {
@@ -398,6 +438,9 @@ aside:hover {
   width: 12em;
   padding: .5em 1.2em .5em 1.2em;
 }
+
+
+
 
   @media only screen and (min-width: 800px) {
     aside {
@@ -546,24 +589,37 @@ h2.sobreVersaoPreto {
   left: 3rem;
 }
 
+#sobreONitSeccao{
+  padding-bottom: 6em;
+}
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /* FOOTER */
-footer div {
-  display: inline-block;
+#footerPaginaSobre {
   padding-left: 33%;
+  border-top: solid 1pt var(--black);
 }
 
 .sobreFooter {
+  display: inline-block;
   padding: 6rem 3rem 6rem 0;
-  font-size: 1.0702341137123745vw;
-  line-height: 1.605351170568562vw;
+  font-size: 1em;
+  line-height: 1.6em;
 
   width: 40%;
 }
 
 .sobreFooter p {
   font-family: Alliance, sans-serif;
-  padding-bottom: 4.5092838196286475vh;
+  padding-bottom: 3em;
+}
+
+.sobreFooter p:nth-last-child(1) {
+  padding-bottom: 0;
+}
+
+#footerSobreLinha{
+  border-top: solid 1pt var(--black);
 }
 
 section {
@@ -582,8 +638,6 @@ section {
 #list > article  > figure {
   display: none;
 }
-
-
 
 
 #list > article  >  figure > img {  
@@ -932,5 +986,13 @@ padding-bottom: 17.937853107344633vh;
   height: auto;
   
 
+}
+
+
+#media-item{
+
+padding-left: 4rem;
+padding-top: 1rem;
+padding-bottom: 1rem;
 }
 
