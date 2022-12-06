@@ -100,6 +100,7 @@
 /* BODY */
 * {
   background-color: var(--white);
+  scroll-behavior: smooth;
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -288,6 +289,13 @@ strong {
   bottom: 0;
   margin: 0;
 }
+
+.fa-lg {
+  font-size: 1.5em;
+  line-height: .75em;
+  vertical-align: -15%;
+}
+
 /* END OF CSS GLOBAL */
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -382,6 +390,7 @@ button {
    
   display: block;
   position: absolute;
+  cursor: pointer;
   bottom: 60px;
    
   padding: .5em 0;
@@ -484,6 +493,20 @@ li {
   background-color: var(--antwhite);
   margin-right: 1.5em;
 }
+
+.bi-arrow-right{
+  margin-right: 0;
+  margin-left: .5em;
+  transition: 0.3s;
+}
+
+button:hover> .bi-arrow-right  {
+  background-color: var(--black);
+  color: var(--antwhite);
+  transition: 0.3s;
+}
+
+
    
 /* BOTÕES > JS */
 .btnHover {
@@ -494,7 +517,7 @@ li {
 /* ICON > ARROW DOWN */
 #boot-icon, #boot-icon2 {
   background-color: var(--antwhite);
-  margin: 0 4.2em;
+  margin: 0 1.5em;
 }
    
 /* ICON > ARROW DOWN > JS */
