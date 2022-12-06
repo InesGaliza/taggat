@@ -369,7 +369,7 @@ function buildMedia(_media) {
                         `;
 
   // place the new element on the page
-  document.querySelector("#media").appendChild(elMedia);
+  document.querySelector("#post").appendChild(elMedia);
   
   console.log("built lil imgs", elMedia);
 }
@@ -559,13 +559,13 @@ async function fetchFeaturedMedia(_id, _media) {
   // using dados.media_details.sizes.thumbnail.source_url will return predefined smaller sizes
   // eg. https://nit.fba.up.pt/dev/wp-content/uploads/2022/11/Museu-da-Imprensa-300x121.jpg
 
-  mySrc = dados.media_details.sizes.thumbnail.source_url;
+  mySrc = dados.media_details.sizes.large.source_url;
   console.log("featured media scr url", mySrc);
 
   let newel = document.createElement('img');
   newel.setAttribute('src', mySrc);
 
-  document.querySelector("#media-item").appendChild(newel);
+  document.querySelector("#post").appendChild(newel);
   // get the article > figure > img and set the src
    //let myID = "#id-" + _id;
   //let myEl = document.querySelector(myID);
