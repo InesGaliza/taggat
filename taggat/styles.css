@@ -900,6 +900,13 @@ padding-bottom: 17.937853107344633vh;
 
 
 
+#post{
+
+  padding-top: 4rem;
+}
+
+
+
 #post img{ 
   padding-top: 5rem ;
   padding-bottom: 5rem ;
@@ -908,4 +915,14 @@ padding-bottom: 17.937853107344633vh;
   
 
 }
+
+#media-item img{
+
+  padding-left: 0,5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+}
+
+
 
