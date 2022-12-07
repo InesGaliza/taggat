@@ -481,6 +481,16 @@ button:hover> .bi-arrow-right  {
   color: var(--antwhite);
   transition: 0.3s;
 }
+
+.bi-arrow-left  {
+  transition: 0.3s;
+}
+
+button:hover> .bi-arrow-left  {
+  background-color: var(--black);
+  color: var(--antwhite);
+  transition: 0.3s;
+}
    
 /* BOTÕES > JS */
 .btnHover {
