@@ -323,12 +323,15 @@ $("button#timeline").mouseenter(function() {
   $(this).addClass("btnHover");
   $("#boot-icon, #boot-icon2").addClass("seta");
   $("#boot-icon, #boot-icon2").css("background-color", "var(--black)");
+  $("#boot-icon, #boot-icon2").css("transition-duration", "300ms");
+
 })
 $("button#timeline").mouseleave(function() {
   //console.log("i'm out!");
   $(this).removeClass("btnHover");
   $("#boot-icon, #boot-icon2").removeClass("seta");
   $("#boot-icon, #boot-icon2").css("background-color", "var(--antwhite)");
+  $("#boot-icon, #boot-icon2").css("transition-duration", "300ms");
 })
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -337,16 +340,10 @@ $("button#timeline").mouseleave(function() {
 // COM AJUDA DA LÓGICA > https://jsfiddle.net/KyleMit/8vFJA/
 $("button.filtros").each(function() {
 $("#btn0").addClass("btnHover");
-$("#btn0 > .bi-arrow-left-circle").addClass("seta");
 
 $(this).click(function() {
   $("button.filtros").removeClass("btnHover");
-  $(".bi-arrow-left-circle").removeClass("seta");
-
   $(this).addClass("btnHover");
-  $(this).children(".bi-arrow-left-circle").each(function () {
-    $(this).addClass("seta");
-    })
 })
 })
 }
