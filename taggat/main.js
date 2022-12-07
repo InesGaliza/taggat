@@ -253,10 +253,10 @@ function criarCategoras() {
   // CRIAR UM EXTRA BOTÃO PARA TODAS AS CATEGORIAS
   // SEMPRE QUE FOR ADICIONADA UMA CATEGORIA... CRIAR UM BOTÃO
   // <button id="btn0" class="filtros target-(NÚMERO DA CATEGORIA)">
-  ul.innerHTML = `<li><button id="btn0" class="filtros target-0"><span class="bi bi-arrow-left-circle"></span>VER TODOS</button></li>
-                  <li><button id="btn1" class="filtros target-37"><span class="bi bi-arrow-left-circle"></span>ARTEFACTOS</button></li>
-                  <li><button id="btn2" class="filtros target-52"><span class="bi bi-arrow-left-circle"></span>LOCAIS</button></li>
-                  <li><button id="btn3" class="filtros target-14"><span class="bi bi-arrow-left-circle"></span>PESSOAS</button></li>`
+  ul.innerHTML = `<li><button id="btn0" class="filtros target-0">VER TODOS</button></li>
+                  <li><button id="btn1" class="filtros target-37">ARTEFACTOS</button></li>
+                  <li><button id="btn2" class="filtros target-52">LOCAIS</button></li>
+                  <li><button id="btn3" class="filtros target-14">PESSOAS</button></li>`
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
