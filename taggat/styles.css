@@ -401,17 +401,7 @@ button {
   transition: 0.3s;
 }
 
-.bi-arrow-left-circle {
-  color: var(--black);
-}
-   
 button:hover {
-  background-color: var(--black);
-  color: var(--antwhite);
-  transition: 0.3s;
-}
-
-button:hover> .bi-arrow-left-circle  {
   background-color: var(--black);
   color: var(--antwhite);
   transition: 0.3s;
@@ -476,7 +466,13 @@ li {
   transition: 0.3s;
 }
 
-button:hover> .bi-arrow-right  {
+.bi-arrow-left{
+  margin-right: .5em;
+  margin-left: .0;
+  transition: 0.3s;
+}
+
+button:hover> .bi-arrow-right, button:hover> .bi-arrow-left{
   background-color: var(--black);
   color: var(--antwhite);
   transition: 0.3s;
