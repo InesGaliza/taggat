@@ -883,7 +883,9 @@ span {
   margin-left: 20vw;
   margin-right: 20vw;
   margin-top: 10vh;
-  padding-bottom: 17.937853107344633vh;
+  /* padding-bottom: 17.937853107344633vh; */
+
+  width: 66%;
 
   height: auto;
   font-family: Alliance, sans-serif;
@@ -895,7 +897,7 @@ span {
 
 #post {
   vertical-align: middle;
-  display: table-cell;
+  /* display: table-cell */
 }
 
 #post p {
@@ -912,7 +914,6 @@ span {
   margin: 0 auto;
   padding: 1rem 0;
   max-width: 100%;
-  height: auto;
 }
 
 #media-item{
