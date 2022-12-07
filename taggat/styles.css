@@ -311,7 +311,7 @@ strong {
 /* INDEX > TIMELINE PARTE FIXA */
 /* PARA QUALQUER VH... DIV FIXA */
 div#fixa {
-  width: 98vw;
+  max-width: 98vw;
   height: 100vh;
 }
    
