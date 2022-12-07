@@ -133,6 +133,7 @@ $("#list article").on("click", function () {
   $("article").children("a").children("h1").css("color","#000");
   $("article").children(".meta").children("span").css("color","#000");
   $("article").children(".meta").children("span:first-child").css("background-color", "var(--antwhite)");
+  $("article").children(".meta").children("span:first-child").css("color", "#707070");
 
 
   if(open){
@@ -142,7 +143,7 @@ $("#list article").on("click", function () {
     $(this).children(".meta").children("span").css("background-color", "#000");
     $(this).children(".meta").children("span:first-child").css("background-color", "var(--antwhite)");  
     $(this).children(".meta").children("span").css("color", "#fff");
-    $(this).children(".meta").children("span:first-child").css("color", "#000");
+    $(this).children(".meta").children("span:first-child").css("color", "#707070");
     $(this).children(".meta").css("background-color", "#000");
     $(this).css("background-color","#000");
     $(this).css("color","#000"); 

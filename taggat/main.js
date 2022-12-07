@@ -248,6 +248,7 @@ async function fetchImagens(_id, _media) {
 // FUNÇÃO PARA CRIAR FILTROS > CATEGORIAS
 function criarCategoras() {
   let ul = document.createElement('ul');
+
   // CRIAR OS BOTÕES PARA OS FILTROS
   // CRIAR UM EXTRA BOTÃO PARA TODAS AS CATEGORIAS
   // SEMPRE QUE FOR ADICIONADA UMA CATEGORIA... CRIAR UM BOTÃO
