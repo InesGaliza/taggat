@@ -483,6 +483,8 @@ button:hover> .bi-arrow-right  {
 }
 
 .bi-arrow-left  {
+  margin-right: .5em;
+  margin-left: 0;
   transition: 0.3s;
 }
 
