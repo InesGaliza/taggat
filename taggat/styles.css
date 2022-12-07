@@ -1001,18 +1001,24 @@ padding-bottom: 17.937853107344633vh;
   font-family: Alliance, sans-serif;
 
 
- font-size: 18pt;
-  line-height: 4.378531073446328vh;
+ font-size: 1.4rem;
+  line-height: 1.9rem;
 }
 
+#post p {
+  padding-bottom: 1.2em;
+}
 
+#post blockquote {
+  font-weight: 700;
+  font-style: italic;
+}
 
 #post img{ 
   padding-top: 5rem ;
   padding-bottom: 5rem ;
   max-width: 100%;
   height: auto;
-  
 
 }
 
