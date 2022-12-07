@@ -311,7 +311,7 @@ strong {
 /* INDEX > TIMELINE PARTE FIXA */
 /* PARA QUALQUER VH... DIV FIXA */
 div#fixa {
-  width: 98vw;
+  max-width: 98vw;
   height: 100vh;
 }
    
@@ -401,7 +401,17 @@ button {
   transition: 0.3s;
 }
 
+.bi-arrow-left-circle {
+  color: var(--black);
+}
+   
 button:hover {
+  background-color: var(--black);
+  color: var(--antwhite);
+  transition: 0.3s;
+}
+
+button:hover> .bi-arrow-left-circle  {
   background-color: var(--black);
   color: var(--antwhite);
   transition: 0.3s;
@@ -458,6 +468,18 @@ li {
 .bi{
   background-color: var(--antwhite);
   margin-right: 1.5em;
+}
+
+.bi-arrow-right{
+  margin-right: 0;
+  margin-left: .5em;
+  transition: 0.3s;
+}
+
+button:hover> .bi-arrow-right  {
+  background-color: var(--black);
+  color: var(--antwhite);
+  transition: 0.3s;
 }
    
 /* BOTÕES > JS */
