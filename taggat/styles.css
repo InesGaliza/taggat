@@ -449,7 +449,7 @@ aside:hover {
   right: 2.5em;
 }
 
-.filtros{
+.filtros {
   text-align:left;
   width: 12em;
   padding: .5em 1.2em .5em 1.2em;
@@ -463,12 +463,6 @@ li {
   position: relative;
   padding: .5em .5em .5em 0;
   background-color: transparent;
-}
-  
-.filtros {
-  text-align: left;
-  width: 12em;
-  padding: .5em 1.2em .5em 1.2em;
 }
   
 .bi{
