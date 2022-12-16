@@ -92,17 +92,9 @@ fetch(url)
   }
 
 
-
-
-
-
-
-
-
-
-  // for (let outras of dados) {
-  //   buildOutras(outras);
-  // }
+ for (let outras of dados) {
+  buildOutras(outras);
+   }
 
 //loop de categorias
   for (let cat of dados) {
@@ -127,6 +119,8 @@ fetch(url)
       fetchTag(etik.tags[0]);
     }
 
+    
+
 
       
   for (let tags of dados) {
@@ -146,6 +140,13 @@ fetch(url)
 
 
 
+      //loop de outras
+      for (let outrasEntradas of dados) {
+        // after the element span is on the page, run a second fetch (<-- because it may take some time to run)
+        // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
+        fetchTag(outrasEntradas.oe[0]);
+      }
+  
 
 
 
@@ -296,56 +297,56 @@ function buildTitle(_title) {
 
   // funcao outras entradas
 
-// function buildOutras(_outras) {
-//   // create a new element
-//   let elOutras = document.createElement("article");
-//   let myID = "id-" + _outras.id;
+function buildOutras(_outras) {
+  // create a new element
+  let elOutras = document.createElement("article");
+  let myID = "id-" + _outras.id;
 
-//   console.log("outras", _outras);
+  console.log("outras", _outras);
 
-//   console.log("total artigos rel", _outras.acf.entradas_relacionadas.length);
+  console.log("total artigos rel", _outras.acf.entradas_relacionadas.length);
 
-//   elOutras.setAttribute("id", myID);
+  elOutras.setAttribute("id", myID);
 
-//   // use string/template literals to build the HTML object
-//   elOutras.innerHTML = `
+  // use string/template literals to build the HTML object
+  elOutras.innerHTML = `
 
-//   <p id="outrasENTRIES" >entradas ${_outras.acf.entradas_relacionadas}, …</p>  `;
-//   document.querySelector(".box3dbx").appendChild(elOutras);
+  <p id="outrasENTRIES" > ${_outras.acf.entradas_relacionadas}</p>  `;
+  document.querySelector(".box3dbx").appendChild(elOutras);
   
 
-//     for(let i = 0; i < _outras.acf.entradas_relacionadas.length; i++){
-//       let newel = document.createElement('span');
+    for(let i = 0; i < _outras.acf.entradas_relacionadas.length; i++){
+      let newel = document.createElement('span');
 
-//       let tid = "e-"+_outras.acf.entradas_relacionadas[i];
-//       newel.setAttribute('id', tid);
+      let tid = "e-"+_outras.acf.entradas_relacionadas[i];
+      newel.setAttribute('id', tid);
 
-//       // fetch de URL com o id (devolve um post unico)
-//       //let h1el = post.title.rendered
-//       // let urlel = post.url
+      // fetch de URL com o id (devolve um post unico)
+      //let h1el = post.title.rendered
+      // let urlel = post.url
 
-//       newel.innerHTML = ` h1 h1el a href urlel`
+      newel.innerHTML = ` `
       
-//       document.querySelector("#outrasENTRIES").appendChild(newel);
-//     }
+      document.querySelector("#outrasENTRIES").appendChild(newel);
+    }
     
  
   
                       
-//  //default nao foram acrescentadas entradas relacionadas quer acrescentar outras
-//                         //para cada umas dessas entradas (for acf-entradas.length - for 
-//                                                             //para cada umas das entradas fazer um fetch
-//                         //                                     cada entrada relacionada. id
-//                         //                                     e devolve o titulo e o link)
-//                         // //devolve me o titulo e o link das entradas
-//                         // querySelector - entry-${_outras.id}
-//                         // substituir por cada umas das childs
+ //default nao foram acrescentadas entradas relacionadas quer acrescentar outras
+                        //para cada umas dessas entradas (for acf-entradas.length - for 
+                                                            //para cada umas das entradas fazer um fetch
+                        //                                     cada entrada relacionada. id
+                        //                                     e devolve o titulo e o link)
+                        // //devolve me o titulo e o link das entradas
+                        // querySelector - entry-${_outras.id}
+                        // substituir por cada umas das childs
 
-//   // place the new element on the page
-//   document.querySelector("#outras").appendChild(elOutras);
+  // place the new element on the page
+  document.querySelector("#outras").appendChild(elOutras);
   
-//   console.log("built outras", elOutras);
-// }
+  console.log("built outras", elOutras);
+}
 
 
 //funçao mini fotos
@@ -571,4 +572,10 @@ async function fetchFeaturedMedia(_id, _media) {
   // let myEl = document.querySelector(myID);
   // myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
 }
+
+
+
+
+
+
 
