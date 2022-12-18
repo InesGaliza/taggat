@@ -938,3 +938,42 @@ span {
   padding-bottom: 1rem;
 }
 
+
+
+.vertical-line{
+  border-left: 4px solid #5f5;
+  display: block;
+  position: absolute;
+  margin: 0 auto;
+  width: 1px;
+  z-index: 1;
+  
+}
+
+#cronologia {
+  position: fixed;
+  display: flex;
+  font-family: Alliance;
+  font-weight: 700;
+  width: 100%;
+  gap: 4vw;
+  bottom: 20px;
+  border: 1px solid #000;
+  border-radius: 50px;
+  background-color:rgba(0, 0, 0, 0.1);
+z-index: 99;
+  justify-content: center; 
+  align-items:center;
+
+}
+
+#cronologia li{
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.cronologia-hover {
+  background-color: black;
+  color: white;
+}
