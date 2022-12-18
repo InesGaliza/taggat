@@ -62,6 +62,7 @@ let infoTaggat = document.querySelector("#sobreInfoTaggat");
 // VARIÁVEL DO CONTENTOR QUE CONTÉM OS TEXTOS ANTERIORES
 let contentorInfo = document.querySelector("#sobreContentorInfo");
 
+
 // AO CLICKAR NO TÍTULO TAGLINE
 sobreSubtituloTagline.addEventListener('click', function showContentTAGLINE(){
 

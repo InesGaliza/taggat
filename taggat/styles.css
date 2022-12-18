@@ -93,7 +93,6 @@
 
 
 
-
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /* CSS GLOBAL > TODAS AS PÁGINAS */
 
@@ -103,7 +102,7 @@
   scroll-behavior: smooth;
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 /* NAV */
 /* NAVEGADOR HAMBURGER */
 nav {
@@ -122,7 +121,7 @@ nav {
   float: right;
 }
 
-/*ÍCONE DO MENU */
+/* ÍCONE DO MENU */
 .linhasMenu {
   background-color: transparent;
   height: 1.6rem;
@@ -170,6 +169,7 @@ nav {
   width: 100%;
 }
 
+/* POPRIEDADES DA LISTA DO MENU */
 .itensMenu {
   position: fixed;
   z-index: 2;
@@ -185,6 +185,10 @@ nav {
   padding-top: 6rem;
 }
 
+#listaItens > li {
+  padding-right: 0;
+}
+
 #listaItens > li > a {
   font-family: Alliance, sans-serif;
   font-weight: 700;
@@ -197,8 +201,8 @@ nav {
   text-decoration: underline;
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
-/* MAIN */
+
+/*--------------------------------------------------------------*/
 /* TÍTULOS */
 h1.titulos{
   font-family: Alliance, sans-serif;
@@ -227,14 +231,14 @@ h1.titulos{
   left: 33%;
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 /* LINKS */
 /* LINKS VISITADOS */
 a:visited {
   color: var(--black);
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 /* BOLD */
 strong {
   font-weight: 700;
@@ -245,9 +249,10 @@ strong {
   background-color: var(--black);
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 /* FOOTER */
 
+/* TAMANHO DOS LOGOS NO FOOTER */
 .footerBotoesCaixa > a > img {
   display: inline-block;
   width: 2em;
@@ -283,6 +288,7 @@ strong {
   height: auto;
 }
 
+/* PROPRIEDADES DOS BOTÕES NO FOOTER */
 .botaoFooter{
   display: inline-block;
   position: relative;
@@ -291,23 +297,85 @@ strong {
   margin: 0;
 }
 
+/*--------------------------------------------------------------*/
+/* SETAS || BOOTSTRAP ICONS */
+
+/* TAMANHO DOS ÍCONES DO BOOTSTRAP */
 .fa-lg {
   font-size: 1.5em;
   line-height: .75em;
   vertical-align: -15%;
 }
 
-/* END OF CSS GLOBAL */
+/* PROPRIEDADES DOS ÍCONES DO BOOTSTRAP */
+.bi{
+  background-color: var(--antwhite);
+  margin-right: 1.5em;
+}
+
+/* PROPRIEDADES DA SETA DA DIREITA */
+.bi-arrow-right{
+  margin-right: 0;
+  margin-left: .5em;
+  transition: 0.3s;
+}
+
+/* PROPRIEDADES DA SETA DA DIREITA COM HOVER */
+button:hover> .bi-arrow-right  {
+  background-color: var(--black);
+  color: var(--antwhite);
+  transition: 0.3s;
+}
+
+/* PROPRIEDADES DA SETA DA ESQUERDA */
+.bi-arrow-left  {
+  margin-right: .5em;
+  margin-left: 0;
+  transition: 0.3s;
+}
+
+/* PROPRIEDADES DA SETA DA ESQUERDA COM HOVER */
+button:hover> .bi-arrow-left  {
+  background-color: var(--black);
+  color: var(--antwhite);
+  transition: 0.3s;
+}
+   
+/* BOTÕES > JS */
+.btnHover {
+  background-color: var(--black);
+  color: var(--antwhite);
+}
+   
+/* PROPRIEDADES DA SETA NO JS */
+#boot-icon, #boot-icon2 {
+  background-color: var(--antwhite);
+  margin: 0 1.5em;
+}
+   
+/* PROPRIEDADES DA SETA NO JS */
+.seta {
+  background-color: var(--black);
+  color: var(--antwhite);
+}
+
+/* FIM DO CSS GLOBAL */
+
+
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
-/* INDEX PAGE */
+
+
+
+/* INDEX PAGE || TIMELINE */
 /* TÍTULO */
 #landTitulo {
   position: relative;
   left: 33%;
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 /* INDEX > TIMELINE PARTE FIXA */
 /* PARA QUALQUER VH... DIV FIXA */
 div#fixa {
@@ -316,38 +384,45 @@ div#fixa {
 }
    
 /* SECÇÃO FETCH */
-section#NovoPost {
-  width: 100VW;
-  margin: 0 0;
+section#novoPost {
+  width: 100%;
+  margin: 0;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
-section#NovoPost > article {
+/* PROPRIEDADES DO ARTICLE */
+section#novoPost > article {
   background-color: var(--white);
   display: block;
   padding: 10% 0 5% 0;
   text-align: center;
-  border: .5px solid var(--black);
+  border-top: .25px solid var(--black);
+  border-left: .5px solid var(--black);
+  border-right: 0;
 }
 
-section#NovoPost > article.blank {
-  background-color: var(--white);
-}
-section#NovoPost > article.blank:hover {
+/* PROPRIEDADES DO ARTICLE SEM NADA */
+section#novoPost > article.blank {
   background-color: var(--white);
 }
 
-section#NovoPost > article > a > h1 {
+/* PROPRIEDADES DO ARTICLE SEM NADA COM HOVER */
+section#novoPost > article.blank:hover {
+  background-color: var(--white);
+}
+
+/* PROPRIEDADES DO TÍTULO DO ARTICLE */
+section#novoPost > article > a > h1 {
   background-color: none;
   font-family: Alliance, sans-serif;
   font-weight: 300;
-  font-size: 1.3vw;
+  font-size: 1.2rem;
   text-align: left;
-  line-height: 1.8vw;
+  line-height: 1.8rem;
   max-width: 60%;
-  position:relative;
+  position: relative;
   left: -3vw;
 
   float: left;
@@ -355,10 +430,11 @@ section#NovoPost > article > a > h1 {
   left: 4vw;
 }
 
-section#NovoPost > article > span.data {
+/* PROPRIEDADES DA DATA DO ARTICLE */
+section#novoPost > article > span.data {
   font-family: Alliance, sans-serif;
   font-weight: 300;
-  font-size: 1.3vw;
+  font-size: 1.2rem;
   line-height: 1.8vw;
 
   float: right;
@@ -366,19 +442,21 @@ section#NovoPost > article > span.data {
   right: 4vw;
 }
 
-section#NovoPost > article > a > h1, section#NovoPost > article > span.data {
+/* ALINHAMENTO DO TÍTULO E DA DATA */
+section#novoPost > article > a > h1, section#novoPost > article > span.data {
   display: inline-block;
   padding-top: .5rem;
 }
 
-section#NovoPost > article > figure > img {
+/* COLOCAÇÃO DA IMAGEM */
+section#novoPost > article > figure > img {
   width: 25vw;
   height: 25vw;
   object-fit:cover;
 }
 
 /* SECÇÃO FETCH > HOVER */
-section#NovoPost > article:hover, section#NovoPost > article:hover > figure, section#NovoPost > article:hover > a > h1, section#NovoPost > article:hover > span.data {
+section#novoPost > article:hover, section#novoPost > article:hover > figure, section#novoPost > article:hover > a > h1, section#novoPost > article:hover > span.data {
   background-color: var(--black);
   color: var(--antwhite);
   transition: 0.3s;
@@ -391,7 +469,7 @@ button {
    
   display: block;
   cursor: pointer;
-  bottom: 60px;
+  bottom: 4rem;
    
   padding: .5em 0;
    
@@ -401,22 +479,14 @@ button {
   transition: 0.3s;
 }
 
-.bi-arrow-left-circle {
-  color: var(--black);
-}
-   
+/* BOTÕES COM HOVER */ 
 button:hover {
   background-color: var(--black);
   color: var(--antwhite);
   transition: 0.3s;
 }
 
-button:hover> .bi-arrow-left-circle  {
-  background-color: var(--black);
-  color: var(--antwhite);
-  transition: 0.3s;
-}
-
+/* POSIÇÃO DOS BOTÕES DA TIMELINE */
 button#timeline{
   position: absolute;
   margin: 11em 0 0 4em;
@@ -430,13 +500,13 @@ button#timeline:hover > #boot-icon, button#timeline:hover > #boot-icon2  {
   transition: 0.3s;
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 /* INDEX > FILTROS PARTE FIXA*/
 /* ASIDE > FILTROS */
 aside {
   position: fixed;
   float: right;
-  right: -7em;
+  right: -12em;
   background-color: transparent;
 
   transition-property: right;
@@ -445,117 +515,84 @@ aside {
   z-index: 1;
 }
 
-aside:hover {
-  right: 2.5em;
+/* MUDANÇA DA POSIÇÃO DO ASIDE NO HOVER */
+aside:hover { 
+   right: -3em;
 }
 
+/* PROPRIEDADES DOS FILTROS (BOTÕES DO ASIDE) */
 .filtros {
   text-align:left;
   width: 12em;
   padding: .5em 1.2em .5em 1.2em;
 }
-  
+
+/* PROPRIEDADES DA LISTA QUE CONTÉM OS BOTÕES DO ASIDE */
 ul{
   background-color: transparent;
 }
 
+/* PROPRIEDADES DOS BOTÕES DO ASIDE */
 li {
   position: relative;
-  padding: .5em .5em .5em 0;
+  padding: .5em 5em .5em 0;
   background-color: transparent;
 }
-  
-.bi{
-  background-color: var(--antwhite);
-  margin-right: 1.5em;
-}
 
-.bi-arrow-right{
-  margin-right: 0;
-  margin-left: .5em;
-  transition: 0.3s;
-}
+/* FIM DA PÁGINA INDEX || TIMELINE*/
 
-button:hover> .bi-arrow-right  {
-  background-color: var(--black);
-  color: var(--antwhite);
-  transition: 0.3s;
-}
 
-.bi-arrow-left  {
-  margin-right: .5em;
-  margin-left: 0;
-  transition: 0.3s;
-}
 
-button:hover> .bi-arrow-left  {
-  background-color: var(--black);
-  color: var(--antwhite);
-  transition: 0.3s;
-}
-   
-/* BOTÕES > JS */
-.btnHover {
-  background-color: var(--black);
-  color: var(--antwhite);
-}
-   
-/* ICON > ARROW DOWN */
-#boot-icon, #boot-icon2 {
-  background-color: var(--antwhite);
-  margin: 0 1.5em;
-}
-   
-/* ICON > ARROW DOWN > JS */
-.seta {
-  background-color: var(--black);
-  color: var(--antwhite);
-}
-
-/* END OF INDEX PAGE */ 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
 /* SOBRE PAGE */
-/* SOBRE = SOMENTE DA PÁGINA SOBRE*/
+/* ID SOBRE = SOMENTE DA PÁGINA SOBRE*/
 
+/*--------------------------------------------------------------*/
 /* TÌTULOS */
 h1.sobreTitulos {
   font-size: 5rem;
   line-height: 5.5rem;
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 /* SECÇÃO COM A CAIXA TAGGAT E TAGLINE */
 #sobreSeccaoSubtitulos {
-  margin-top: 16.915119363395226vh;
+  margin-top: 10%;
   user-select: none;
 }
 
 /* CONTENTOR || CAIXA COM OS SUBTÍTULOS "TAGGAT" E "TAGLINE" */
-/* INSPIRAÇÃO PARA O CONTENTOR - https://www.w3docs.com/snippets/html/how-to-make-a-div-fill-the-remaining-width.html*/
+/* INSPIRAÇÃO PARA O CONTENTOR - https://www.w3docs.com/snippets/html/how-to-make-a-div-fill-the-remaining-width.html */
 #sobreContentorSubtitulos {
-  border: solid 1pt var(--black);
+  border: solid 1px var(--black);
   cursor: pointer;
 
   font-family: Alliance, sans-serif;
   font-weight: 700;
 
-  font-size: 2.6755852842809364vw;
-  line-height: 3.27vw;
+  font-size: 2.4rem;
+  line-height: 1em;
 }
 
+/*--------------------------------------------------------------*/
 /* SUBTÍTULOS */
 #sobreSubtituloTaggat, #sobreSubtituloTagline {
   padding: 2.5rem;
 }
 
+/* POSIÇÃO ESPECÍFICA DO TÍTULO TAGLINE */
 #sobreSubtituloTagline {
-  padding-left: 60%;
+  padding-left: 50rem;
 }
 
+/* POSIÇÃO ESPECÍFICA DO TÍTULO TAGGAT */
 #sobreSubtituloTaggat {
   float: left;
-  border-right: solid 1pt var(--black);
+  border-right: solid 1px var(--black);
 }
 
 /* SUBTÍTULOS VERSÃO A PRETO*/
@@ -582,6 +619,7 @@ h2.sobreVersaoPreto {
   width: 60%;
 }
 
+/* PROPRIEDADES DO TEXTO DENTRO DAS CAIXAS*/
 .infoPropriedades > p {
   background-color: var(--black);
 
@@ -599,16 +637,19 @@ h2.sobreVersaoPreto {
 }
 
 #sobreONitSeccao{
-  padding-bottom: 6em;
+  padding-bottom: 10%;
 }
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 /* FOOTER */
+
+/* POSIÇÃO E BORDA DO FOOTER */
 #footerPaginaSobre {
   padding-left: 33%;
-  border-top: solid 1pt var(--black);
+  border-top: solid 1px var(--black);
 }
 
+/* TEXTO NO FOOTER */
 .sobreFooter {
   display: inline-block;
   padding: 6rem 3rem 6rem 0;
@@ -627,17 +668,24 @@ h2.sobreVersaoPreto {
   padding-bottom: 0;
 }
 
+/* LINHA ESPECÍFICA DO FOOTER */
 #footerSobreLinha{
-  border-top: solid 1pt var(--black);
+  border-top: solid 1px var(--black);
 }
 
 section {
   margin: 0;
 }
 
-/* END OF SOBRE PAGE */
+/* FIM DA SOBRE PAGE */
+
+
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
 /* ARCHIVE PAGE */
 #list {
   font-family: Alliance;
@@ -721,13 +769,15 @@ a:link {
 
 #list  > article > .meta > span:nth-child(2) {
   float: right;
-  margin-right: 2.5em;
+  margin-right: 3em;
 }
       
 span {
   text-transform: uppercase;
 }
 
+/*--------------------------------------------------------------*/
+/* ASIDE */
 aside{
   position: fixed;
   top: 50%;
@@ -736,7 +786,7 @@ aside{
 aside#archive{
   position: absolute;
   top: 15%;
-  right: 2.5em;
+  right: -2em;
 }
 
 #list  > article:hover > .meta {
@@ -755,9 +805,15 @@ span {
   left: 3rem;
 }
 
-/* END OF ARCHIVE PAGE */
+/* FIM DA ARCHIVE PAGE */
+
+
+
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
 /* ARTICLE PAGE */
 
 .separator {
