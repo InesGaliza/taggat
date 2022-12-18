@@ -19,6 +19,7 @@ function inicio() {
 
 // MENU
 // ANIMAÇÃO DO MENU
+
 function menu(){
   let hamMenu = document.querySelector(".linhasMenu");
   let menuAberto = document.querySelector('.itensMenu');
@@ -55,7 +56,7 @@ function menu(){
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
-// FUNÇÃO PARA O FETCH
+//FUNÇÃO PARA O FETCH
 function vaiBuscar() {
     // DECLARAR O URL DO WORDPRESS
     let urlBase = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?categories=13";
@@ -74,7 +75,7 @@ function vaiBuscar() {
     );
     console.log("o array organizado:", rearranjedArr);
 
-    // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONSTROI UM ARTIGO (FUNÇÃO)
+    // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
     for (let post of rearranjedArr) {
         construirArtigo(post);
     }
@@ -130,7 +131,7 @@ function construirArtigo(_post) {
                           <!-- <p>${_post.content.rendered}</p> -->`;
   
     // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
-    document.querySelector("#novoPost").appendChild(el);
+    document.querySelector("#NovoPost").appendChild(el);
     // $("article#id-393").addClass("go")
     //console.log("o Artigo está constrído!", el);
     // CRIAR OBJETOS SEM CONTEÚDO
@@ -140,41 +141,41 @@ function construirArtigo(_post) {
     // QUADRICULA TOSCA > NECESSITA REVISÃO
     // ADICIONAR E REMOVER BLANK SPOTS
     if (_post.acf.data > "1700") {
-      document.querySelector("#novoPost").appendChild(le);
-      document.querySelector("#novoPost").appendChild(anotherBlank);
-      document.querySelector("#novoPost").appendChild(anotherBlank2);
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
+      document.querySelector("#NovoPost").appendChild(anotherBlank2);
     }
     if (_post.acf.data > "1800") {
-      document.querySelector("#novoPost").appendChild(le);
-      document.querySelector("#novoPost").removeChild(anotherBlank);
-      document.querySelector("#novoPost").removeChild(anotherBlank2);
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").removeChild(anotherBlank);
+      document.querySelector("#NovoPost").removeChild(anotherBlank2);
     }
     if (_post.acf.data > "1900") {
-      document.querySelector("#novoPost").removeChild(le);
+      document.querySelector("#NovoPost").removeChild(le);
     }
     if (_post.acf.data > "1925") {
-      document.querySelector("#novoPost").appendChild(le);
-      document.querySelector("#novoPost").appendChild(anotherBlank);
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data > "1940") {
-      document.querySelector("#novoPost").appendChild(le);
-      document.querySelector("#novoPost").appendChild(anotherBlank);
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data > "1960") {
-      document.querySelector("#novoPost").removeChild(le);
-      document.querySelector("#novoPost").removeChild(anotherBlank);
+      document.querySelector("#NovoPost").removeChild(le);
+      document.querySelector("#NovoPost").removeChild(anotherBlank);
     }
     if (_post.acf.data > "1970") {
-      document.querySelector("#novoPost").appendChild(le);
-      document.querySelector("#novoPost").appendChild(anotherBlank);
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data > "1980") {
-      document.querySelector("#novoPost").removeChild(le);
-      document.querySelector("#novoPost").removeChild(anotherBlank);
+      document.querySelector("#NovoPost").removeChild(le);
+      document.querySelector("#NovoPost").removeChild(anotherBlank);
     }
     if (_post.acf.data > "2000") {
-      document.querySelector("#novoPost").appendChild(le);
-      document.querySelector("#novoPost").appendChild(anotherBlank);
+      document.querySelector("#NovoPost").appendChild(le);
+      document.querySelector("#NovoPost").appendChild(anotherBlank);
     }
 }
 

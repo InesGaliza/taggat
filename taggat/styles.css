@@ -860,7 +860,7 @@ aside#archive{
   font-family: Alliance, sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 25pt;
+  font-size: 1.7rem;
   padding-left: 6vw;
   padding-top: 1vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
@@ -868,48 +868,45 @@ aside#archive{
 }
 
 /* DATA */
-#data{
+#data {
   font-family: Alliance, sans-serif;
-  font-size: 18pt;
-  line-height: 4.378531073446328vh;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
   font-weight: 200;
-  padding-top: 15pt;
+  padding-top: 1rem;
 }
 
 /* LOCAL */
-#local{
+#local {
   font-family: Alliance, sans-serif;
-  font-size: 18pt;
-  line-height: 4.378531073446328vh;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
   font-weight: 200;
-  padding-top: 15pt;
+  padding-top: 1rem;
+  text-transform: uppercase;
 }
 
 /* ETIQUETAS */
-#etiquetas{
+#etiquetas {
   font-family: Alliance, sans-serif;
   font-size: 1.2rem;
-  line-height: 4.378531073446328vh;
   font-weight: 200;
 }
 
 /* CATEGORIAS */
-#cats{
+#cats {
   font-family: Alliance, sans-serif;
   font-size: 1.2rem;
-  line-height: 4.378531073446328vh;
   font-weight: 200;
- 
 }
 
 /* OUTRAS CATEGORIAS */
-#outras{
+#outras {
   font-family: Alliance, sans-serif;
   font-size: 1.2rem;
-  line-height: 4.378531073446328vh;
+  line-height: 1.5rem;
+  width: 90%;
   font-weight: 200;
-  padding-top: 15pt;
- 
 }
 
 /*--------------------------------------------------------------*/
@@ -948,6 +945,14 @@ aside#archive{
   margin: 0 auto;
   padding: 1rem 0;
   max-width: 100%;
+}
+
+#post figcaption {
+  font-size: 1rem;
+  text-align: right;
+  margin-top: -0.7rem;
+  margin-bottom: 1rem;
+  font-weight: 200;
 }
 
 #media-item{
