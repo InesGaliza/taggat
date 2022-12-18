@@ -872,6 +872,7 @@ span {
   text-align: left;
 }
 
+/* CAIXA CATEGORIAS */
 .box2dbx {
   grid-column-start:1;
   grid-column-end:2 ;
@@ -883,6 +884,7 @@ span {
   text-align: left;
 }
 
+/* CAIXA OUTRAS ENTRADAS */
 .box3dbx {
   grid-column-start:2;
   grid-column-end:5 ;
@@ -974,6 +976,6 @@ z-index: 99;
 }
 
 .cronologia-hover {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }

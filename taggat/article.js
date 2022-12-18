@@ -62,18 +62,13 @@ function getSome() {
   })
   .then(function (dados) {
   console.log("o array original:", dados);
-  //REORGANIZAR O ARRAY PELO ANO (ACF.DATA)
-  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-  //https://bobbyhadz.com/blog/javascript-sort-array-of-objects-by-date-property
+  // REORGANIZAR O ARRAY PELO ANO (ACF.DATA)
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  // https://bobbyhadz.com/blog/javascript-sort-array-of-objects-by-date-property
   let rearranjedArr = dados.sort(
     (objA, objB) => Number(objA.acf.data) - Number(objB.acf.data),
   );
-  console.log("o array organizado:", rearranjedArr)
-
-  // CONSTROI OUTRAS ENTRADAS (FUNÇÃO)
-  for (let outras of rearranjedArr) {
-    buildOutras(outras);
-  }
+  console.log("o array organizado:", rearranjedArr);
   })
   .catch(function (error) {
     console.log(error);
@@ -82,10 +77,11 @@ function getSome() {
 /*------------------------------------------------------------------------------------------------------------------------------*/
   // OBTER O URL
   const queryString = window.location.search;
-  //console.log('inicio', queryString);
+  // console.log('inicio', queryString);
   const urlParams = new URLSearchParams(queryString);
   // APANHAR PARAMENTRO DO URL, AKA NUMERO DO POST
   const post = urlParams.get("post");
+  // console.log(post)
 
   // FETCH DE UM POST (CONSTRUIR ENDEREÇO DO JSON COM O PARÂMENTRO DO URL)
   let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=" + post;
@@ -119,10 +115,13 @@ function getSome() {
     for (let media of dados) {
       fetchFeaturedMedia(media.id, media.featured_media);
     }
+    // CONSTROI OUTRAS ENTRADAS (FUNÇÃO)
+    for (let outras of dados) {
+      buildOutras(outras);
+    }   
     // LOOP DE CATEGORIAS
     for (let cat of dados) {
       // DEPOIS DO ELEMENTO TER DADO SPAN, CORRER UM SEGUNDO FETCH
-      // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
       fetchCategory(cat.categories[0]);
     }
     for (let categorias of dados) {
@@ -135,15 +134,13 @@ function getSome() {
     }
     for (let tags of dados) {
       buildEtiquetas(tags);
-      //console.log('bulding tags');
+      // console.log('bulding tags');
     }
-    // LOOP DE OUTROS
-    for (let outrasEntradas of dados) {
-      // CORRE UM QUARTO FETCH
-      fetchTag(outrasEntradas.oe[0]);
-    }
-});
-}
+})
+  .catch(function (error) {
+    console.log(error);
+  })
+  }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // FUNÇÃO PARA CONSTRUIR OS TÍTULOS
@@ -158,7 +155,7 @@ function buildTitle(_title) {
   el.innerHTML = `<h1>${_title.title.rendered}</h1>`;
   // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#titulo").appendChild(el);
-  //console.log("built article", el);
+  // console.log("built article", el);
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -174,7 +171,7 @@ function buildPost(_mainpost) {
   elmainpost.innerHTML = `<p>${_mainpost.content.rendered}</p>`;
   // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#post").appendChild(elmainpost);
-  //console.log("built post", elmainpost);
+  // console.log("built post", elmainpost);
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -190,7 +187,7 @@ function buildData(_date) {
   eldate.innerHTML = `<p>${_date.acf.data}</p>`;
   // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#data").appendChild(eldate);
-  //console.log("built data", eldate);
+  // console.log("built data", eldate);
     }
   
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -206,13 +203,13 @@ function buildLocal(_local) {
   ellocal.innerHTML = `<p>${_local.acf.local}</p>`;
   // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#local").appendChild(ellocal);
-  //console.log("built local", ellocal);
+  // console.log("built local", ellocal);
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // FUNÇÃO PARA O FETCH DE ETIQUETAS
 function fetchTag(_etik_num) {
-  //console.log("fetching tags names");
+  // console.log("fetching tags names");
 
   // TEXT STRING PARA INSERIR O ELEMENTO(S) HTML
   let etiquetas_name = "";
@@ -227,7 +224,7 @@ function fetchTag(_etik_num) {
     .then(function (dados) {
       // DEFENIR UMA NOVA TEXT STRING PARA CONSTRUIR A CLASS C/ NÚM.
       let myClass = ".t" + _etik_num;
-      //console.log("my class", myClass);
+      // console.log("my class", myClass);
 
       // QUERYSELECTORALL NA CLASSE AFETADA NO DOM
       let elt = document.querySelectorAll(myClass);
@@ -235,7 +232,7 @@ function fetchTag(_etik_num) {
       // EM CADA UM DOS ELEMENTOS, MUDA O TEXT/HTML PELO NOME QUE O WORDPRESS DÁ PARA A ETIQUETA
       for (let elEtiquetas of elt) {
         elEtiquetas.innerHTML = dados.name;
-        //console.log(elEtiquetas.innerHTML)
+        // console.log(elEtiquetas.innerHTML)
       }
     })
     .catch(function (error) {
@@ -256,7 +253,7 @@ function buildEtiquetas(_tags) {
   elEtiquetas.innerHTML = `<span class= "categoria t${_tags.tags[0]}" >duh… what num?</span>`;
   // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#etiquetas").appendChild(elEtiquetas);
-  //console.log("built etiquetas", elEtiquetas);
+  // console.log("built etiquetas", elEtiquetas);
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -265,41 +262,46 @@ function buildOutras(_outras) {
   // CRIAR UM NOVO ELEMENTO > ARTIGO
   let elOutras = document.createElement("article");
   let myID = "id-" + _outras.id;
-  //console.log("outras", _outras);
-  //console.log("total artigos rel", _outras.acf.entradas_relacionadas.length);
+  // console.log("outras", _outras);
+  // console.log("total artigos rel", _outras.acf.entradas_relacionadas.length);
   elOutras.setAttribute("id", myID);
 
-  // use string/template literals to build the HTML object
-  elOutras.innerHTML = `<p id="outrasENTRIES" > ${_outras.title.rendered}</p>`;
+  // STRING/TEMPLTAE LITERALS PARA CONTRUIR O OBJETO HTML
+  elOutras.innerHTML = `<p id="outrasENTRIES"></p>`;
   document.querySelector(".box3dbx").appendChild(elOutras);
-  
 
-    for(let i = 0; i < _outras.acf.entradas_relacionadas.length; i++){
-      let newel = document.createElement('span');
-      let tid = "e-"+_outras.acf.entradas_relacionadas[i];
-      newel.setAttribute('id', tid);
-      // fetch de URL com o id (devolve um post unico)
-      // let h1el = post.title.rendered
-      // let urlel = post.url
+  for(let i = 0; i < _outras.acf.entradas_relacionadas.length; i++){
+    let newel = document.createElement('span');
+    let tid = _outras.acf.entradas_relacionadas[i];
+    newel.setAttribute('id', tid);
+    // console.log(newel.id);
+    // fetch de URL com o id (devolve um post unico)
+    let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=" + tid;
+    console.log(url);
 
-      newel.innerHTML = ` `
-
-      document.querySelector("#outrasENTRIES").appendChild(newel);
-    }
+    fetch(url)
+    .then(function (resposta) { 
+      return resposta.json();
+    })
+    .then(function (dados) {
+      console.log(dados);
+      for (let post of dados) {
+      console.log(post.title.rendered);
+      let h1el = post.title.rendered;
+      newel.innerHTML = `<a href="article.htm?post=${post.id}"><p>${post.title.rendered}</p></a>`
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
     
- 
-  
-                      
- //default nao foram acrescentadas entradas relacionadas quer acrescentar outras
-                        //para cada umas dessas entradas (for acf-entradas.length - for 
-                                                            //para cada umas das entradas fazer um fetch
-                        //                                     cada entrada relacionada. id
-                        //                                     e devolve o titulo e o link)
-                        // //devolve me o titulo e o link das entradas
-                        // querySelector - entry-${_outras.id}
-                        // substituir por cada umas das childs
 
-  // place the new element on the page
+    // let h1el = post.title.rendered
+    // let urlel = post.url
+    document.querySelector("#outrasENTRIES").appendChild(newel);
+  }
+                     
+  // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#outras").appendChild(elOutras);
   // console.log("built outras", elOutras);
 }
@@ -320,14 +322,14 @@ function buildMedia(_media) {
                        </figure>`;
   // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#post").appendChild(elMedia);
-  //console.log("built lil imgs", elMedia);
+  // console.log("built lil imgs", elMedia);
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // FUNÇÃO PARA O FETCH DAS CATEGORIAS
 
 function fetchCategory(_cat_num) {
-  //console.log("fetching categories names");
+  // console.log("fetching categories names");
 
   // TEXT STRING PARA INSERIR O ELEMENTO HTML
   let category_name = "";
@@ -344,7 +346,7 @@ function fetchCategory(_cat_num) {
     .then(function (dados) {
       // DEFENIR UMA NOVA TEXT STRING PARA CONSTRUIR A CLASS C/ NÚM.
       let myClass = ".c" + _cat_num;
-      //console.log("my class", myClass);
+      // console.log("my class", myClass);
 
       // QUERYSELECTORALL NA CLASSE AFETADA NO DOM
       let els = document.querySelectorAll(myClass);
@@ -373,19 +375,19 @@ function buildCategorias(_categorias) {
 
   // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#cats").appendChild(elcat);
-  //console.log("built cats", elcat);
+  // console.log("built cats", elcat);
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 // FUNÇÃO PARA FAZER FETCH DAS FOTOGRAFIAS E APPEND
 async function fetchFeaturedMedia(_id, _media) {
-  //console.log("fetching media");
-  //console.log("id", _id);
-  //console.log("media num", _media);
+  // console.log("fetching media");
+  // console.log("id", _id);
+  // console.log("media num", _media);
 
   let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/media/";
   url += _media;
-  //console.log("featured media fetch url", url);
+  // console.log("featured media fetch url", url);
 
   // VARÍAVEL PARA "ARMAZENAR" O URL
   let mySrc = "";
@@ -407,11 +409,11 @@ async function fetchFeaturedMedia(_id, _media) {
   // eg.: https://nit.fba.up.pt/dev/wp-content/uploads/2022/11/Museu-da-Imprensa-300x121.jpg
 
   mySrc = dados.media_details.sizes.full.source_url;
-  //console.log("featured media scr url", mySrc);
+  // console.log("featured media scr url", mySrc);
 
   let newel = document.createElement('img');
   newel.setAttribute('src', mySrc);
-  //console.log(newel);
+  // console.log(newel);
 
   document.querySelector("#post p").append(newel);
 }

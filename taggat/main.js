@@ -20,7 +20,7 @@ function inicio() {
 // MENU
 // ANIMAÇÃO DO MENU
 
-function menu() {
+function menu(){
   let hamMenu = document.querySelector(".linhasMenu");
   let menuAberto = document.querySelector('.itensMenu');
 
@@ -129,61 +129,62 @@ function construirArtigo(_post) {
                           <!-- </div> -->
   
                           <!-- <p>${_post.content.rendered}</p> -->`;
+  
+    // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
+    // $("article#id-393").addClass("go")
+    //console.log("o Artigo está constrído!", el);
+    // CRIAR OBJETOS SEM CONTEÚDO
+    let anotherBlank = le.cloneNode(true);
 
-  // COLOCAR O OBJETO CRIADO NO ARTIGO CRIADO
 
-  // $("article#id-393").addClass("go")
-  //console.log("o Artigo está constrído!", el);
-  // CRIAR OBJETOS SEM CONTEÚDO
-  let anotherBlank = le.cloneNode(true);
-
-
-  // QUADRICULA TOSCA > NECESSITA REVISÃO
-  // ADICIONAR E REMOVER BLANK SPOTS
-  if (_post.acf.data >= "1700" && _post.acf.data < "1799") {
-      document.querySelector("#NovoPost").appendChild(le);
-      document.querySelector("#NovoPost").appendChild(el);
-      document.querySelector("#NovoPost").appendChild(anotherBlank);
-  }
-  if (_post.acf.data >= "1800" && _post.acf.data < "1899") {
-      document.querySelector("#NovoPost").appendChild(le);
-      document.querySelector("#NovoPost").appendChild(anotherBlank);
-      document.querySelector("#NovoPost").appendChild(el);
-  }
-  if (_post.acf.data >= "1900" && _post.acf.data < "1909") {
-      document.querySelector("#NovoPost").appendChild(el);
-      document.querySelector("#NovoPost").appendChild(le);
-      document.querySelector("#NovoPost").appendChild(anotherBlank);
-  }
-  if (_post.acf.data >= "1910" && _post.acf.data < "1919") {
-      document.querySelector("#NovoPost").appendChild(el);
-      document.querySelector("#NovoPost").appendChild(le);
-      document.querySelector("#NovoPost").appendChild(anotherBlank);
-  }
-  if (_post.acf.data >= "1920" && _post.acf.data < "1929") {
-      document.querySelector("#NovoPost").appendChild(le);
-      document.querySelector("#NovoPost").appendChild(el);
-      document.querySelector("#NovoPost").appendChild(anotherBlank);
-  }
-  if (_post.acf.data >= "1930" && _post.acf.data < "1939") {
-      document.querySelector("#NovoPost").appendChild(el);
-      document.querySelector("#NovoPost").appendChild(le);
-      document.querySelector("#NovoPost").appendChild(anotherBlank);
-  }
-  if (_post.acf.data >= "1940" && _post.acf.data < "1949") {
-      document.querySelector("#NovoPost").appendChild(le);
-      document.querySelector("#NovoPost").appendChild(el);
-      document.querySelector("#NovoPost").appendChild(anotherBlank);
-  }
-  if (_post.acf.data >= "1950" && _post.acf.data < "1959") {
-      document.querySelector("#NovoPost").appendChild(el);
-      document.querySelector("#NovoPost").appendChild(le);
-      document.querySelector("#NovoPost").appendChild(anotherBlank);
-  }
-  if (_post.acf.data >= "1960" && _post.acf.data < "1969") {
-      document.querySelector("#NovoPost").appendChild(le);
-      document.querySelector("#NovoPost").appendChild(anotherBlank);}
-      if (_post.acf.data >= "1970" && _post.acf.data < "1979") {
+    // QUADRICULA TOSCA > NECESSITA REVISÃO
+    // ADICIONAR E REMOVER BLANK SPOTS
+    if (_post.acf.data >= "1700" && _post.acf.data < "1799") {
+        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data >= "1800" && _post.acf.data < "1899") {
+        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#NovoPost").appendChild(anotherBlank);
+        document.querySelector("#NovoPost").appendChild(el);
+    }
+    if (_post.acf.data >= "1900" && _post.acf.data < "1909") {
+        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data >= "1910" && _post.acf.data < "1919") {
+        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data >= "1920" && _post.acf.data < "1929") {
+        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data >= "1930" && _post.acf.data < "1939") {
+        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data >= "1940" && _post.acf.data < "1949") {
+        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data >= "1950" && _post.acf.data < "1959") {
+        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#NovoPost").appendChild(anotherBlank);
+    }
+    if (_post.acf.data >= "1960" && _post.acf.data < "1969") {
+        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#NovoPost").appendChild(anotherBlank);
+        document.querySelector("#NovoPost").appendChild(el);
+    }
+    if (_post.acf.data >= "1970" && _post.acf.data < "1979") {
         document.querySelector("#NovoPost").appendChild(le);
         document.querySelector("#NovoPost").appendChild(anotherBlank);
         document.querySelector("#NovoPost").appendChild(el);
@@ -259,7 +260,7 @@ function construirArtigo(_post) {
         var newPosition = trackLength * ((current) / $("#NovoPost").height())
         $(".vertical-line").css({ left: currPosition + newPosition + 'px' });
     });
-  }
+}
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
