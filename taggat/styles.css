@@ -873,7 +873,7 @@ aside#archive{
 /* ETIQUETAS */
 #etiquetas{
   font-family: Alliance, sans-serif;
-  font-size: 18pt;
+  font-size: 1.2rem;
   line-height: 4.378531073446328vh;
   font-weight: 200;
 }
@@ -881,7 +881,7 @@ aside#archive{
 /* CATEGORIAS */
 #cats{
   font-family: Alliance, sans-serif;
-  font-size: 18pt;
+  font-size: 1.2rem;
   line-height: 4.378531073446328vh;
   font-weight: 200;
  
@@ -890,7 +890,7 @@ aside#archive{
 /* OUTRAS CATEGORIAS */
 #outras{
   font-family: Alliance, sans-serif;
-  font-size: 18pt;
+  font-size: 1.2rem;
   line-height: 4.378531073446328vh;
   font-weight: 200;
   padding-top: 15pt;
@@ -955,7 +955,7 @@ aside#archive{
   font-family: Alliance, sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.2rem;
   width: 54vh;
   text-align: left;
   padding-bottom: 1rem;
