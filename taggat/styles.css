@@ -451,10 +451,25 @@ section#novoPost > article > a > h1, section#novoPost > article > span.data {
 }
 
 /* COLOCAÇÃO DA IMAGEM */
+section#novoPost > article > figure {
+  width: 25vw;
+  height: 25vw;
+  object-fit: cover;
+  overflow: hidden;
+  margin: auto;
+}
+
 section#novoPost > article > figure > img {
   width: 25vw;
   height: 25vw;
-  object-fit:cover;
+  object-fit: cover;
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+
+section#novoPost > article:hover > figure > img {
+  transform: scale(1.1,1.1);
 }
 
 /* SECÇÃO FETCH > HOVER */
