@@ -381,6 +381,7 @@ button:hover> .bi-arrow-left  {
 div#fixa {
   max-width: 98vw;
   height: 100vh;
+  border-bottom: 1px solid var(--black);
 }
    
 /* SECÇÃO FETCH */
@@ -398,9 +399,10 @@ section#novoPost > article {
   display: block;
   padding: 10% 0 5% 0;
   text-align: center;
-  border-top: .25px solid var(--black);
-  border-left: .5px solid var(--black);
-  border-right: 0;
+  border-top: 1px solid var(--black);
+  border-left: 0;
+  border-right: 2px solid var(--black);
+  border-bottom: 1px solid var(--black);
 }
 
 /* PROPRIEDADES DO ARTICLE SEM NADA */
@@ -687,22 +689,27 @@ section {
 
 
 /* ARCHIVE PAGE */
+/* LISTA DA PÁGINA DE ARQUIVO*/
 #list {
   font-family: Alliance;
   font-weight: 500;
 }
 
+/* IMAGEM ESCONDIDA */
 #list > article  > figure {
   display: none;
 }
 
+/* PROPRIEDADES DA IMAGEM */
 #list > article  >  figure > img {  
-  height: 21.2vw;
-  width: 21.2vw;
+  height: 20vw;
+  width: 20vw;
   object-fit: cover;
-  border: 20px solid #000; 
+  border: 2rem solid var(--black); 
+  border-top: 3rem solid var(--black);
 }
 
+/* GRELHA DE ORGANIZAÇÃO DO CONTEÚDO DENTRO DAS CAIXAS */
 #list > article {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
@@ -710,13 +717,15 @@ section {
   margin: 0rem auto;
   grid-column-gap: 30px;
   padding: 2vw 0;
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--black);
 }
 
+/* BORDA DO ARTICLE */
 #list > article:last-child{
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid var(--black);
 }
 
+/* PROPRIEDADES DA GRELHA */
 #list > article  > a {
   grid-column: 5/8;
   align-items: flex-start;
@@ -724,54 +733,49 @@ section {
   background: rgba(0, 128, 0, 0.1);
 }
 
+/* ETIQUETAS */
 .meta {
   grid-column: 8/10;
   float: right;
 }
 
+/* LISTA COM HOVER */
 #list  > article:hover {
-  background-color: #000!important;
+  background-color: var(--black)!important;
 }
 
 #list  > a {
-  background-color: rgb(240, 240, 240)
+  background-color: var(--white);
 }
   
 a:link {
-  color: #000;
-}
-    
-#list > article:hover > a > h1 {
-  background-color: #000!important;
-  color: #fff!important;
-
+  color: var(--black);
 }
 
+/* PROPIEDADES DAS ETIQUETAS */
 #list  > article > .meta > span:first-child {
+  cursor: default;
   color: #707070;
   border-radius: 111px;
-  padding: .4em 20px;
-  font-size: 10px;
+  padding: .4em 1.5em;
+  font-size: .8em;
   border: 1px solid var(--antwhite);
   background-color: var(--antwhite);
   font-weight: 700;
 }
 
-#list  > article:hover > a > h1 {
-  background-color: #000!important;
-  color: #fff!important;
-}
-
-#list  > article:hover > .meta > span:nth-child(2){
-  background-color: #000!important; 
-  color: #fff!important;
+/* PROPIEDADES DAS ETIQUETAS COM O ARTICLE HOVER */
+#list  > article:hover > .meta, #list  > article:hover > .meta > span:nth-child(2), #list > article:hover > a > h1{
+  background-color: var(--black)!important;
+  color: var(--white)!important;
 }
 
 #list  > article > .meta > span:nth-child(2) {
   float: right;
   margin-right: 3em;
 }
-      
+
+/* COLOÇÃO DAS ETIQUETAS EM UPPERCASE */
 span {
   text-transform: uppercase;
 }
@@ -783,26 +787,11 @@ aside{
   top: 50%;
 }
 
+/* POSIÇÃO DOS FILTROS */
 aside#archive{
   position: absolute;
   top: 15%;
   right: -2em;
-}
-
-#list  > article:hover > .meta {
-  background-color: #000!important;
-  color: #fff!important;
-}
-
-span {
-  text-transform: uppercase;
-}
-
-#nit {
-  width: 4em;
-  height: auto;
-  position: relative;
-  left: 3rem;
 }
 
 /* FIM DA ARCHIVE PAGE */
@@ -815,13 +804,13 @@ span {
 
 
 /* ARTICLE PAGE */
-
+/* HEADER */
 .separator {
   height: 5px;
   margin-top: 60vh;
 }
 
-/*Data e local, colunas*/
+/* DATA, LOCAL E COLUNAS */
 .column {
   float: left;
   width: 30%;
@@ -829,6 +818,7 @@ span {
   height: 24.5vh;
 }
 
+/* TÍTULO DO ARTICLE */
 #titulo {
   display: inline-block;
   cursor: pointer;
@@ -841,6 +831,7 @@ span {
   padding-top: 5rem;
 }
 
+/* GRELHA COM OS CONTENTORES */
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -849,6 +840,7 @@ span {
   height: 24.576271186440678vh;
 }
 
+/* CONTENTOR NA GRELHA */
 .grid-item {
   font-family: Alliance, sans-serif;
   font-style: normal;
@@ -860,6 +852,7 @@ span {
   text-align: left;
 }
 
+/* DATA */
 #data{
   font-family: Alliance, sans-serif;
   font-size: 18pt;
@@ -868,6 +861,7 @@ span {
   padding-top: 15pt;
 }
 
+/* LOCAL */
 #local{
   font-family: Alliance, sans-serif;
   font-size: 18pt;
@@ -876,13 +870,15 @@ span {
   padding-top: 15pt;
 }
 
+/* ETIQUETAS */
 #etiquetas{
   font-family: Alliance, sans-serif;
   font-size: 18pt;
   line-height: 4.378531073446328vh;
   font-weight: 200;
- 
 }
+
+/* CATEGORIAS */
 #cats{
   font-family: Alliance, sans-serif;
   font-size: 18pt;
@@ -891,6 +887,7 @@ span {
  
 }
 
+/* OUTRAS CATEGORIAS */
 #outras{
   font-family: Alliance, sans-serif;
   font-size: 18pt;
@@ -900,62 +897,12 @@ span {
  
 }
 
-.wrapperDbx {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 100px;
-}
-
-.titDBX{
-  font-family: Alliance, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  width: 54vh;
-  text-align: left;
-  padding-bottom: 1rem;
-}
-
-
-.box1dbx {
-  grid-column-start:1;
-  grid-column-end:2 ;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  padding-left: 6vw;
-  padding-top: 1vh;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  text-align: left;
-}
-
-.box2dbx {
-  grid-column-start:1;
-  grid-column-end:2 ;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  padding-left: 6vw;
-  padding-top: 1vh;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  text-align: left;
-}
-
-.box3dbx {
-  grid-column-start:2;
-  grid-column-end:5 ;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  padding-left: 6vw;
-  padding-top: 1vh;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  text-align: left;
-}
-
-/*Artigo em si, post*/
+/*--------------------------------------------------------------*/
+/*ARTIGO || BODY DO POST*/
 .bodyarticle {
   margin-left: 20vw;
   margin-right: 20vw;
   margin-top: 10vh;
-  /* padding-bottom: 17.937853107344633vh; */
 
   width: 66%;
 
@@ -967,9 +914,9 @@ span {
   line-height: 1.9rem;
 }
 
+/* PROPRIEDADES DO ARTIGO */
 #post {
   vertical-align: middle;
-  /* display: table-cell */
 }
 
 #post p {
@@ -994,3 +941,58 @@ span {
   padding-bottom: 1rem;
 }
 
+/*--------------------------------------------------------------*/
+/* DEPOIS DO ARTIGO*/
+/* GRELHA NO FUNDO DA PÁGINA */
+.wrapperDbx {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 100px;
+}
+
+/* TÍTULOS || ETIQUETAS, CATEGORIAS OU OUTRAS ENTRADAS */
+.titDBX{
+  font-family: Alliance, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  width: 54vh;
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+/* CAIXA ETIQUETAS */
+.box1dbx {
+  grid-column-start:1;
+  grid-column-end:2 ;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  padding-left: 6vw;
+  padding-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+}
+
+/* CAIXA CATEGORIAS */
+.box2dbx {
+  grid-column-start:1;
+  grid-column-end:2 ;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding-left: 6vw;
+  padding-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+}
+
+/* CAIXA OUTRAS ENTRADAS */
+.box3dbx {
+  grid-column-start:2;
+  grid-column-end:5 ;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  padding-left: 6vw;
+  padding-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+}
