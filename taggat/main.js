@@ -56,7 +56,7 @@ function menu(){
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
 
-//FUNÇÃO PARA O FETCH
+// FUNÇÃO PARA O FETCH
 function vaiBuscar() {
     // DECLARAR O URL DO WORDPRESS
     let urlBase = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?categories=13";
@@ -75,7 +75,7 @@ function vaiBuscar() {
     );
     console.log("o array organizado:", rearranjedArr);
 
-    // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
+    // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONSTROI UM ARTIGO (FUNÇÃO)
     for (let post of rearranjedArr) {
         construirArtigo(post);
     }

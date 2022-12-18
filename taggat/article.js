@@ -1,19 +1,20 @@
-// use DOM load event listener to wait for content on page
+// CORRE A FUNÇÃO (O QUE O JS ESTÁ A FAZER), DEPOIS DO CONTEÚDO SER CARREGADO > EVENT LISTENER "LOAD"
 addEventListener("load", inicio);
 
 function inicio() {
   console.log("ready when you are!");
-  // os fetches todos
+
+  // FUNÇÃO PARA FAZER O FETCH  
   getSome();
-
-  // animação do menu
+  // AMINAÇÃO DO MENU
   menu();
-
 }
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------*/
 
 // MENU
 // ANIMAÇÃO DO MENU
-
 function menu(){
   let hamMenu = document.querySelector(".linhasMenu");
   let menuAberto = document.querySelector('.itensMenu');
@@ -47,286 +48,242 @@ function menu(){
   });
 };
 
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA O FETCH
 function getSome() {
-// this gets the URL address bar
-const queryString = window.location.search;
-
-
-const urlParams = new URLSearchParams(queryString);
-
-
-//apanhar parametro do url, aka numero do post.
-const post = urlParams.get("post");
-
-
-// Fetch de um post (construir a edenreço do JSON com o parâmetro da URL )
-let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=" + post;
-
-
-
-//fetch de imagens
-let imagens= "https://nit.fba.up.pt/dev/wp-json/wp/v2/media/";
-
-
-fetch(url)
+  // FETCH DE TODOS OS OBJETOS
+  // DECLARAR O URL DO WORDPRESS
+  let urlBase = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?categories=13";
+  // 1ª RONDA DE FETCH
+  fetch(urlBase)
   .then(function (resposta) {
     return resposta.json();
   })
   .then(function (dados) {
-    // não esquecer que devolve um array (só com 1 post)
+  console.log("o array original:", dados);
+  //REORGANIZAR O ARRAY PELO ANO (ACF.DATA)
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+  //https://bobbyhadz.com/blog/javascript-sort-array-of-objects-by-date-property
+  let rearranjedArr = dados.sort(
+    (objA, objB) => Number(objA.acf.data) - Number(objB.acf.data),
+  );
+  console.log("o array organizado:", rearranjedArr)
+
+  // CONSTROI OUTRAS ENTRADAS (FUNÇÃO)
+  for (let outras of rearranjedArr) {
+    buildOutras(outras);
+  }
+  })
+  .catch(function (error) {
+    console.log(error);
+})
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+  // OBTER O URL
+  const queryString = window.location.search;
+  //console.log('inicio', queryString);
+  const urlParams = new URLSearchParams(queryString);
+  // APANHAR PARAMENTRO DO URL, AKA NUMERO DO POST
+  const post = urlParams.get("post");
+
+  // FETCH DE UM POST (CONSTRUIR ENDEREÇO DO JSON COM O PARÂMENTRO DO URL)
+  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?include=" + post;
+  //FETCH DE IMAGENS
+  let imagens= "https://nit.fba.up.pt/dev/wp-json/wp/v2/media/";
+
+  // FETCH DE UM OBJETO
+  fetch(url)
+  .then(function (resposta) {
+    return resposta.json();
+  })
+  .then(function (dados) {
+    // DEVOLVE UM ARRAY (SÓ COM 1 POST)!!
+    // CONSTROI UM ARTIGO (FUNÇÃO)
     for (let mainpost of dados) {
       buildPost(mainpost);
     }
-  for (let title of dados) {
-    buildTitle(title);
-  }
- 
-  for (let date of dados) {
-    buildData(date);
-  }
-
-  
-  for (let local of dados) {
-    buildLocal(local);
-  }
-
-
- for (let outras of dados) {
-  buildOutras(outras);
-   }
-
-//loop de categorias
-  for (let cat of dados) {
-    // after the element span is on the page, run a second fetch (<-- because it may take some time to run)
-    // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
-    fetchCategory(cat.categories[0]);
-  }
-
-
-
-  for (let categorias of dados) {
-    buildCategorias(categorias);
-  }
-
-
-
-
-    //loop de etiquetas
-    for (let etik of dados) {
-      // after the element span is on the page, run a second fetch (<-- because it may take some time to run)
-      // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
-      fetchTag(etik.tags[0]);
+    // CONSTROI TITULO (FUNÇÃO)
+    for (let title of dados) {
+      buildTitle(title);
     }
-
-    
-
-
-      
-  for (let tags of dados) {
-
-    buildEtiquetas(tags);
-    console.log('bulding tags');
-  }
-
-
-
-
-
-  //mini fotos
+    // CONSTROI A DATA (FUNÇÃO)
+    for (let date of dados) {
+      buildData(date);
+    }
+    // CONSTROI O LOCAL (FUNÇÃO)
+    for (let local of dados) {
+      buildLocal(local);
+    }
+    // FETCH FOTOGRFAIAS
     for (let media of dados) {
       fetchFeaturedMedia(media.id, media.featured_media);
     }
-
-
-
-      //loop de outras
-      for (let outrasEntradas of dados) {
-        // after the element span is on the page, run a second fetch (<-- because it may take some time to run)
-        // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
-        fetchTag(outrasEntradas.oe[0]);
-      }
-  
-
-
-
+    // LOOP DE CATEGORIAS
+    for (let cat of dados) {
+      // DEPOIS DO ELEMENTO TER DADO SPAN, CORRER UM SEGUNDO FETCH
+      // and replace the contents of the spans with the specific classes with their corresponding names (or just use an if…)
+      fetchCategory(cat.categories[0]);
+    }
+    for (let categorias of dados) {
+      buildCategorias(categorias);
+    }
+    // LOOP DE ETIQUETAS
+    for (let etik of dados) {
+      // CORRER UM TERCEIRO FETCH
+      fetchTag(etik.tags[0]);
+    }
+    for (let tags of dados) {
+      buildEtiquetas(tags);
+      //console.log('bulding tags');
+    }
+    // LOOP DE OUTROS
+    for (let outrasEntradas of dados) {
+      // CORRE UM QUARTO FETCH
+      fetchTag(outrasEntradas.oe[0]);
+    }
 });
-  
-
 }
 
-
-
-
-
-  // funcao titulo 
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA CONSTRUIR OS TÍTULOS
 function buildTitle(_title) {
-  // create a new element
+  // CRIAR UM NOVO ELEMENTO > ARTIGO
   let el = document.createElement("article");
   let myID = "id-" + _title.id;
 
   el.setAttribute("id", myID);
 
-  // use string/template literals to build the HTML object
-  el.innerHTML = `<h1>${_title.title.rendered}</h1>
-
-                        `;
-
-  // place the new element on the page
+  // STRING/TEMPLTAE LITERALS PARA CONTRUIR O OBJETO HTML
+  el.innerHTML = `<h1>${_title.title.rendered}</h1>`;
+  // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#titulo").appendChild(el);
-  
-  console.log("built article", el);
+  //console.log("built article", el);
 }
 
-
-
-
-
-
-  // funcao post 
-
-  function buildPost(_mainpost) {
-    // create a new element
-    let elmainpost = document.createElement("article");
-    let myID = "id-" + _mainpost.id;
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA CONSTRUIR O POST
+function buildPost(_mainpost) {
+  // CRIAR UM NOVO ELEMENTO > ARTIGO
+  let elmainpost = document.createElement("article");
+  let myID = "id-" + _mainpost.id;
   
-    elmainpost.setAttribute("id", myID);
+  elmainpost.setAttribute("id", myID);
   
-    // use string/template literals to build the HTML object
-    elmainpost.innerHTML = `
+  // STRING/TEMPLTAE LITERALS PARA CONTRUIR O OBJETO HTML
+  elmainpost.innerHTML = `<p>${_mainpost.content.rendered}</p>`;
+  // COLOCAR O NOVO ELEMENTO NA PÁGINA
+  document.querySelector("#post").appendChild(elmainpost);
+  //console.log("built post", elmainpost);
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA CONSTRUIR A DATA
+function buildData(_date) {
+  // CRIAR UM NOVO ELEMENTO > ARTIGO
+  let eldate = document.createElement("article");
+  let myID = "id-" + _date.id;
     
-   
-
-                    <p>${_mainpost.content.rendered}</p>
-
-
+  eldate.setAttribute("id", myID);
     
-    
-    `;
-  
-    // place the new element on the page
-    document.querySelector("#post").appendChild(elmainpost);
-    
-    console.log("built post", elmainpost);
-  }
-
-
-
-
-
-
-    // funcao data 
-
-    function buildData(_date) {
-      // create a new element
-      let eldate = document.createElement("article");
-      let myID = "id-" + _date.id;
-    
-      eldate.setAttribute("id", myID);
-    
-      // use string/template literals to build the HTML object
-      eldate.innerHTML = `<p>${_date.acf.data}</p>
-      
-      
-      `;
-    
-      // place the new element on the page
-      document.querySelector("#data").appendChild(eldate);
-      
-      console.log("built data", eldate);
+  // STRING/TEMPLTAE LITERALS PARA CONTRUIR O OBJETO HTML
+  eldate.innerHTML = `<p>${_date.acf.data}</p>`;
+  // COLOCAR O NOVO ELEMENTO NA PÁGINA
+  document.querySelector("#data").appendChild(eldate);
+  //console.log("built data", eldate);
     }
   
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA CONSTRUIR O LOCAL
+function buildLocal(_local) {
+  // CRIAR UM NOVO ELEMENTO > ARTIGO
+  let ellocal = document.createElement("article");
+  let myID = "id-" + _local.id;
+    
+  ellocal.setAttribute("id", myID);
+    
+  // STRING/TEMPLTAE LITERALS PARA CONTRUIR O OBJETO HTML
+  ellocal.innerHTML = `<p>${_local.acf.local}</p>`;
+  // COLOCAR O NOVO ELEMENTO NA PÁGINA
+  document.querySelector("#local").appendChild(ellocal);
+  //console.log("built local", ellocal);
+}
 
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA O FETCH DE ETIQUETAS
+function fetchTag(_etik_num) {
+  //console.log("fetching tags names");
 
-    // funcao local 
+  // TEXT STRING PARA INSERIR O ELEMENTO(S) HTML
+  let etiquetas_name = "";
+  // BASE URL PARA FETCH AS TAGS NAMES
+  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/";
+  url += _etik_num;
 
-    function buildLocal(_local) {
-      // create a new element
-      let ellocal = document.createElement("article");
-      let myID = "id-" + _local.id;
-    
-      ellocal.setAttribute("id", myID);
-    
-      // use string/template literals to build the HTML object
-      ellocal.innerHTML = `<p>${_local.acf.local}</p>
-    
-    
+  fetch(url)
+    .then(function (resposta) {
+      return resposta.json();
+    })
+    .then(function (dados) {
+      // DEFENIR UMA NOVA TEXT STRING PARA CONSTRUIR A CLASS C/ NÚM.
+      let myClass = ".t" + _etik_num;
+      //console.log("my class", myClass);
+
+      // QUERYSELECTORALL NA CLASSE AFETADA NO DOM
+      let elt = document.querySelectorAll(myClass);
+
+      // EM CADA UM DOS ELEMENTOS, MUDA O TEXT/HTML PELO NOME QUE O WORDPRESS DÁ PARA A ETIQUETA
+      for (let elEtiquetas of elt) {
+        elEtiquetas.innerHTML = dados.name;
+        //console.log(elEtiquetas.innerHTML)
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA CONSTRUIR AS ETIQUETAS
+function buildEtiquetas(_tags) {
+  // CRIAR UM NOVO ELEMENTO > ARTIGO
+  let elEtiquetas = document.createElement("article");
+  let myID = "id-" + _tags.id;
       
-                            
-      
-                            `;
+  elEtiquetas.setAttribute("id", myID);
     
-      // place the new element on the page
-      document.querySelector("#local").appendChild(ellocal);
-      
-      console.log("built local", ellocal);
-    }
+  // STRING/TEMPLTAE LITERALS PARA CONTRUIR O OBJETO HTML
+  elEtiquetas.innerHTML = `<span class= "categoria t${_tags.tags[0]}" >duh… what num?</span>`;
+  // COLOCAR O NOVO ELEMENTO NA PÁGINA
+  document.querySelector("#etiquetas").appendChild(elEtiquetas);
+  //console.log("built etiquetas", elEtiquetas);
+}
 
-
-
-
-
-    function buildEtiquetas(_tags) {
-
-
-      // create a new element
-      let elEtiquetas = document.createElement("article");
-      
-      let myID = "id-" + _tags.id;
-      
-    
-      elEtiquetas.setAttribute("id", myID);
-    
-     
-      elEtiquetas.innerHTML = `
-      <span class= "categoria t${_tags.tags[0]}" >duh… what num?</span>
-      
-                            `;
-    
-      // place the new element on the page
-      document.querySelector("#etiquetas").appendChild(elEtiquetas);
-      
-      console.log("built etiquetas", elEtiquetas);
-    }
-
-
-
-
-
-
-  // funcao outras entradas
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA CONSTRUIR OUTRAS ENTRADAS
 function buildOutras(_outras) {
-  // create a new element
+  // CRIAR UM NOVO ELEMENTO > ARTIGO
   let elOutras = document.createElement("article");
   let myID = "id-" + _outras.id;
-
-  console.log("outras", _outras);
-
-  console.log("total artigos rel", _outras.acf.entradas_relacionadas.length);
-
+  //console.log("outras", _outras);
+  //console.log("total artigos rel", _outras.acf.entradas_relacionadas.length);
   elOutras.setAttribute("id", myID);
 
   // use string/template literals to build the HTML object
-  elOutras.innerHTML = `
-
-  <p id="outrasENTRIES" > ${_outras.acf.entradas_relacionadas}</p>  `;
+  elOutras.innerHTML = `<p id="outrasENTRIES" > ${_outras.title.rendered}</p>`;
   document.querySelector(".box3dbx").appendChild(elOutras);
   
 
     for(let i = 0; i < _outras.acf.entradas_relacionadas.length; i++){
       let newel = document.createElement('span');
-
       let tid = "e-"+_outras.acf.entradas_relacionadas[i];
       newel.setAttribute('id', tid);
-
       // fetch de URL com o id (devolve um post unico)
-      //let h1el = post.title.rendered
+      // let h1el = post.title.rendered
       // let urlel = post.url
 
       newel.innerHTML = ` `
-      
+
       document.querySelector("#outrasENTRIES").appendChild(newel);
     }
     
@@ -344,168 +301,55 @@ function buildOutras(_outras) {
 
   // place the new element on the page
   document.querySelector("#outras").appendChild(elOutras);
-  
-  console.log("built outras", elOutras);
+  // console.log("built outras", elOutras);
 }
 
-
-//funçao mini fotos
-
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA CONSTRUIR O LOCAL
 function buildMedia(_media) {
-  // create a new element
+  // CRIAR UM NOVO ELEMENTO > ARTIGO
   let elMedia = document.createElement("article");
   let myID = "id-" + _media.id;
 
   elMedia.setAttribute("id", myID);
 
-  // use string/template literals to build the HTML object
-  elMedia.innerHTML = `
-
-  <figure >
-  <img src="">
-  <figcaption>Caption of image</figcaption>
-  </figure>
-  
-                        `;
-
-  // place the new element on the page
+  // STRING/TEMPLTAE LITERALS PARA CONTRUIR O OBJETO HTML
+  elMedia.innerHTML = `<figure >
+                          <img src="">
+                          <figcaption>Caption of image</figcaption>
+                       </figure>`;
+  // COLOCAR O NOVO ELEMENTO NA PÁGINA
   document.querySelector("#post").appendChild(elMedia);
-  
-  console.log("built lil imgs", elMedia);
+  //console.log("built lil imgs", elMedia);
 }
 
-
-
-
-
-//etiquetas fetch  ---------------------------------
-
-function fetchTag(_etik_num) {
-  console.log("fetching tags names");
-
-  // this will be the text string name to insert in the HTML span element(s)
-  let etiquetas_name = "";
-
-  // this is the base URL to fetch the tags names
-  let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/tags/";
-
-
-  url += _etik_num;
-
-
-  fetch(url)
-    .then(function (resposta) {
-      return resposta.json();
-    })
-    .then(function (dados) {
-      // define a new text string to build the class name with the number
-      let myClass = ".t" + _etik_num;
-
-      //console.log("my class", myClass);
-
-      // grab all elements with that class in the DOM (<-- querySelector all it's an array, remember?)
-      // you could also just grab the last one from the array… better method!
-      let elt = document.querySelectorAll(myClass);
-
-      // in each one of the elements
-      // change the inner text/html for the name provided by wordpress for that specific category number
-      // remember to always inspect the JSON object to find out what property you need…
-      for (let elEtiquetas of elt) {
-        elEtiquetas.innerHTML = dados.name;
-      }
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//TUDO DAs cATEGORIAS E FETCH---------------------------------------------
-
-
-
-
-
-
-//funcao categorias
-
-function buildCategorias(_categorias) {
-  // create a new element
-  let elcat = document.createElement("article");
-  let myID = "id-" + _categorias.id;
-
-  elcat.setAttribute("id", myID);
-
-  // use string/template literals to build the HTML object
-  elcat.innerHTML = `
-
-  <span class="categoria c${_categorias.categories[0]}">duh… what num?</span>
-  
-                        
-  
-                        `;
-
-  // place the new element on the page
-  document.querySelector("#cats").appendChild(elcat);
-  
-  console.log("built cats", elcat);
-}
-
-
-
-
-
-
-// CATEGORIAS FETCH --------------------------------
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA O FETCH DAS CATEGORIAS
 
 function fetchCategory(_cat_num) {
-  console.log("fetching categories names");
+  //console.log("fetching categories names");
 
-  // this will be the text string name to insert in the HTML span element(s)
+  // TEXT STRING PARA INSERIR O ELEMENTO HTML
   let category_name = "";
-
-  // this is the base URL to fetch the category names
+  // URL BASE PARA FAZER FETCH AO NOMES DAS CATEGORIAS
   let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/categories/";
-
-  // add the category number
-  // the final url should be something like this
+  // ADICIONAR O NÚMERO DA CATEGORA > O URL FINAL SERÁ ALGO DO GÉNERO...
   // https://nit.fba.up.pt/dev/wp-json/wp/v2/categories/14
   url += _cat_num;
 
-
   fetch(url)
     .then(function (resposta) {
       return resposta.json();
     })
     .then(function (dados) {
-      // define a new text string to build the class name with the number
+      // DEFENIR UMA NOVA TEXT STRING PARA CONSTRUIR A CLASS C/ NÚM.
       let myClass = ".c" + _cat_num;
-
       //console.log("my class", myClass);
 
-      // grab all elements with that class in the DOM (<-- querySelector all it's an array, remember?)
-      // you could also just grab the last one from the array… better method!
+      // QUERYSELECTORALL NA CLASSE AFETADA NO DOM
       let els = document.querySelectorAll(myClass);
 
-      // in each one of the elements
-      // change the inner text/html for the name provided by wordpress for that specific category number
-      // remember to always inspect the JSON object to find out what property you need…
+      // EM CADA UM DOS ELEMENTOS, MUDA O TEXT/HTML PELO NOME QUE O WORDPRESS DÁ PARA A ETIQUETA
       for (let elcat of els) {
         elcat.innerHTML = dados.name;
       }
@@ -515,67 +359,59 @@ function fetchCategory(_cat_num) {
     });
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA O CONSTRUIR DAS CATEGORIAS
+function buildCategorias(_categorias) {
+  // CRIAR UM NOVO ELEMENTO > ARTIGO
+  let elcat = document.createElement("article");
+  let myID = "id-" + _categorias.id;
 
+  elcat.setAttribute("id", myID);
 
+  // STRING/TEMPLTAE LITERALS PARA CONTRUIR O OBJETO HTML
+  elcat.innerHTML = `<span class="categoria c${_categorias.categories[0]}">duh… what num?</span>`;
 
+  // COLOCAR O NOVO ELEMENTO NA PÁGINA
+  document.querySelector("#cats").appendChild(elcat);
+  //console.log("built cats", elcat);
+}
 
-//MEDIA____________________________________________________FOTOS
-
-
-
-
+/*------------------------------------------------------------------------------------------------------------------------------*/
+// FUNÇÃO PARA FAZER FETCH DAS FOTOGRAFIAS E APPEND
 async function fetchFeaturedMedia(_id, _media) {
-  console.log("fetching media");
-  // console.log("id", _id);
-  // console.log("media num", _media);
+  //console.log("fetching media");
+  //console.log("id", _id);
+  //console.log("media num", _media);
 
-  // fetch method is similar to previous
   let url = "https://nit.fba.up.pt/dev/wp-json/wp/v2/media/";
   url += _media;
-  // console.log("featured media fetch url", url);
+  //console.log("featured media fetch url", url);
 
-  // we will use this to store the URL  when it arrives
+  // VARÍAVEL PARA "ARMAZENAR" O URL
   let mySrc = "";
 
-  // first difference from "normal" fetch
-  // either const or let will store the response…
-  // only after "waiting" for it to arrive
-  // it means that all the code "halts and waits" for this before proceeeding
+  // ARMAZENAR A RESPOSTA NA ESPERA DA CHEGADA DO URL
   const resposta = await fetch(url);
-
-  // check for errors (URL not OK)
+  // VERIFICAR ERROS (URL NÃO FUNCIONAL)
   if (!resposta.ok) {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
-
-  // if a promise is sent, get the data "after waiting for it to arrive" into a new JSON variable/object
+  // TRANSFORMAR OS DADOS "AFTER WAITING FOR IT TO ARRIVE" INTO A NEW JSON OBJECT
   const dados = await resposta.json();
 
-  //   <!-- inspect the JSON object in the browser to find out the necessary data -->
+  // inspect the JSON object in the browser to find out the necessary data
   // eg.: https://nit.fba.up.pt/dev/wp-json/wp/v2/media/404
-
   // using dados.guid.rendered will return the full-size image src url
-  // e.g.: https://nit.fba.up.pt/dev/wp-content/uploads/2022/11/Museu-da-Imprensa.jpg
-
+  // eg.: https://nit.fba.up.pt/dev/wp-content/uploads/2022/11/Museu-da-Imprensa.jpg
   // using dados.media_details.sizes.thumbnail.source_url will return predefined smaller sizes
-  // eg. https://nit.fba.up.pt/dev/wp-content/uploads/2022/11/Museu-da-Imprensa-300x121.jpg
+  // eg.: https://nit.fba.up.pt/dev/wp-content/uploads/2022/11/Museu-da-Imprensa-300x121.jpg
 
   mySrc = dados.media_details.sizes.full.source_url;
-  console.log("featured media scr url", mySrc);
+  //console.log("featured media scr url", mySrc);
 
   let newel = document.createElement('img');
   newel.setAttribute('src', mySrc);
+  //console.log(newel);
 
   document.querySelector("#post p").append(newel);
-  // get the article > figure > img and set the src
-  // let myID = "#id-" + _id;
-  // let myEl = document.querySelector(myID);
-  // myEl.children.item(0).children.item(0).setAttribute("src", mySrc);
 }
-
-
-
-
-
-
-
