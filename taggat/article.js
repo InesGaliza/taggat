@@ -277,6 +277,7 @@ function buildOutras(_outras) {
       // let urlel = post.url
 
       newel.innerHTML = ` `
+      console.log(newel)
 
       document.querySelector("#outrasENTRIES").appendChild(newel);
     }
