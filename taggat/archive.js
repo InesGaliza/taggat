@@ -68,7 +68,15 @@ function vaiBuscar() {
     })
 
     .then(function (dados) {
-    console.log(dados);
+      console.log("o array original:", dados);
+      //REORGANIZAR O ARRAY PELO ANO (ACF.DATA)
+      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+      //https://bobbyhadz.com/blog/javascript-sort-array-of-objects-by-date-property
+      let rearranjedArr = dados.sort(
+        (objA, objB) => Number(objA.acf.data) - Number(objB.acf.data),
+      );
+      console.log("o array organizado:", rearranjedArr);
+    
     
     // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
     for (let post of dados) {
@@ -354,44 +362,5 @@ function botaoHover() {
               $(this).addClass("seta");
           })
       })
-  })
-}
-
-
-   
-//FUNÇÃO PARA O FETCH
-function vaiBuscar() {
-  // DECLARAR O URL DO WORDPRESS
-  let urlBase = "https://nit.fba.up.pt/dev/wp-json/wp/v2/posts?categories=13";
-  // 1ª RONDA DE FETCH
-  fetch(urlBase)
-  .then(function (resposta) {
-    return resposta.json();
-  })
-  .then(function (dados) {
-  console.log("o array original:", dados);
-  //REORGANIZAR O ARRAY PELO ANO (ACF.DATA)
-  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
-  //https://bobbyhadz.com/blog/javascript-sort-array-of-objects-by-date-property
-  let rearranjedArr = dados.sort(
-    (objA, objB) => Number(objA.acf.data) - Number(objB.acf.data),
-  );
-  console.log("o array organizado:", rearranjedArr);
-
-  // PARA CADA ENTRADA DO WORDPRESS (CADA OBJETO DO ARRAY) CONTROI UM ARTIGO (FUNÇÃO)
-  for (let post of rearranjedArr) {
-      construirArtigo(post);
-  }
-  // DEPOIS DA CONSTRUÇÃO DO ARTIGO, PARA CADA ENTRADA DO WORDPRESS, CORRE UM SEGUNDO FETCH (FUNÇÃO)
-  for (let post of rearranjedArr) {
-      fetchCategoria(post.categories[0]);
-  }
-  // DEPOIS, CORRER UM TERCEIRO FETCH
-  for (let post of rearranjedArr) {
-    fetchImagens(post.id, post.featured_media);
-  }
-  })
-  .catch(function (error) {
-      console.log(error);
   })
 }
