@@ -68,12 +68,7 @@ function getSome() {
   let rearranjedArr = dados.sort(
     (objA, objB) => Number(objA.acf.data) - Number(objB.acf.data),
   );
-  console.log("o array organizado:", rearranjedArr)
-
-  // CONSTROI OUTRAS ENTRADAS (FUNÇÃO)
-  for (let outras of rearranjedArr) {
-    buildOutras(outras);
-  }
+  console.log("o array organizado:", rearranjedArr);
   })
   .catch(function (error) {
     console.log(error);
@@ -119,6 +114,10 @@ function getSome() {
     for (let media of dados) {
       fetchFeaturedMedia(media.id, media.featured_media);
     }
+    // CONSTROI OUTRAS ENTRADAS (FUNÇÃO)
+    for (let outras of dados) {
+      buildOutras(outras);
+    }   
     // LOOP DE CATEGORIAS
     for (let cat of dados) {
       // DEPOIS DO ELEMENTO TER DADO SPAN, CORRER UM SEGUNDO FETCH
@@ -137,12 +136,7 @@ function getSome() {
       buildEtiquetas(tags);
       //console.log('bulding tags');
     }
-    // LOOP DE OUTROS
-    for (let outrasEntradas of dados) {
-      // CORRE UM QUARTO FETCH
-      fetchTag(outrasEntradas.oe[0]);
-    }
-});
+})
 }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
@@ -270,7 +264,7 @@ function buildOutras(_outras) {
   elOutras.setAttribute("id", myID);
 
   // use string/template literals to build the HTML object
-  elOutras.innerHTML = `<p id="outrasENTRIES" > ${_outras.title.rendered}</p>`;
+  elOutras.innerHTML = `<p id="outrasENTRIES"> ${_outras.acf.entradas_relacionadas}</p>`;
   document.querySelector(".box3dbx").appendChild(elOutras);
   
 
