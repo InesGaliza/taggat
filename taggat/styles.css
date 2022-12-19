@@ -850,6 +850,58 @@ span {
  
 }
 
+.wrapperDbx {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 100px;
+}
+
+.titDBX{
+  font-family: Alliance, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  width: 54vh;
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+
+.box1dbx {
+  grid-column-start:1;
+  grid-column-end:2 ;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  padding-left: 6vw;
+  padding-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+}
+
+/* CAIXA CATEGORIAS */
+.box2dbx {
+  grid-column-start:1;
+  grid-column-end:2 ;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding-left: 6vw;
+  padding-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+}
+
+/* CAIXA OUTRAS ENTRADAS */
+.box3dbx {
+  grid-column-start:2;
+  grid-column-end:5 ;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  padding-left: 6vw;
+  padding-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: left;
+}
+
 /*--------------------------------------------------------------*/
 /*ARTIGO || BODY DO POST*/
 .bodyarticle {
