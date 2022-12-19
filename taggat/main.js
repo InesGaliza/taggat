@@ -140,77 +140,77 @@ function construirArtigo(_post) {
     // QUADRICULA TOSCA > NECESSITA REVISÃO
     // ADICIONAR E REMOVER BLANK SPOTS
     if (_post.acf.data >= "1700" && _post.acf.data < "1799") {
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(el);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data >= "1800" && _post.acf.data < "1899") {
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
-        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(el);
     }
     if (_post.acf.data >= "1900" && _post.acf.data < "1909") {
-        document.querySelector("#NovoPost").appendChild(el);
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data >= "1910" && _post.acf.data < "1919") {
-        document.querySelector("#NovoPost").appendChild(el);
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data >= "1920" && _post.acf.data < "1929") {
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(el);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data >= "1930" && _post.acf.data < "1939") {
-        document.querySelector("#NovoPost").appendChild(el);
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data >= "1940" && _post.acf.data < "1949") {
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(el);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data >= "1950" && _post.acf.data < "1959") {
-        document.querySelector("#NovoPost").appendChild(el);
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
     }
     if (_post.acf.data >= "1960" && _post.acf.data < "1969") {
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
-        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(el);
     }
     if (_post.acf.data >= "1970" && _post.acf.data < "1979") {
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
-        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(el);
     }
     if (_post.acf.data >= "1980" && _post.acf.data < "1989") {
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
-        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(el);
     }
     if (_post.acf.data >= "1990" && _post.acf.data < "1999") {
-        document.querySelector("#NovoPost").appendChild(le);
-        document.querySelector("#NovoPost").appendChild(anotherBlank);
-        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(anotherBlank);
+        document.querySelector("#novoPost").appendChild(el);
     }
     if (_post.acf.data >= "2000") {
-        document.querySelector("#NovoPost").appendChild(el);
+        document.querySelector("#novoPost").appendChild(el);
     }
     if (_post.acf.data >= "2018") {
-        document.querySelector("#NovoPost").appendChild(le);
+        document.querySelector("#novoPost").appendChild(le);
     }
 
-    $(".vertical-line").css("height", $("#NovoPost").height())
+    $(".vertical-line").css("height", $("#novoPost").height())
     let currPosition = $(".vertical-line").position().left;
     let trackLength = $(window).width();
     $(window).scroll(function(event) {
-        for (let article of $("#NovoPost article")) {
+        for (let article of $("#novoPost article")) {
             let $article = $(article);
             if ($article.attr("class") != "blank" && ($article.offset().top - $(window).scrollTop()) < 300) {
                 $("#cronologia #1700").removeClass("cronologia-hover");
@@ -257,7 +257,7 @@ function construirArtigo(_post) {
         }
 
         let current = $(window).scrollTop();
-        let newPosition = trackLength * ((current - 300) / $("#NovoPost").height())
+        let newPosition = trackLength * ((current - 300) / $("#novoPost").height())
         $(".vertical-line").css({ left: currPosition + newPosition + 'px' });
     });
 }
