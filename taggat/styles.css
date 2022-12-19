@@ -797,37 +797,34 @@ span {
   font-family: Alliance, sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 25pt;
+  font-size: 1.7rem;
   padding-left: 6vw;
   padding-top: 1vh;
   border: 1px solid rgba(0, 0, 0, 0.8);
   text-align: left;
 }
 
-#data{
+/* DATA */
+#data {
   font-family: Alliance, sans-serif;
-  font-size: 18pt;
-  line-height: 4.378531073446328vh;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
   font-weight: 200;
-  padding-top: 15pt;
+  padding-top: 1rem;
 }
 
-#local{
+/* LOCAL */
+#local {
   font-family: Alliance, sans-serif;
-  font-size: 18pt;
-  line-height: 4.378531073446328vh;
+  font-size: 1.5rem;
+  line-height: 1.9rem;
   font-weight: 200;
-  padding-top: 15pt;
+  padding-top: 1rem;
+  text-transform: uppercase;
 }
 
-#etiquetas{
-  font-family: Alliance, sans-serif;
-  font-size: 18pt;
-  line-height: 4.378531073446328vh;
-  font-weight: 200;
- 
-}
-#cats{
+/* ETIQUETAS */
+#etiquetas {
   font-family: Alliance, sans-serif;
   font-size: 18pt;
   line-height: 4.378531073446328vh;
@@ -835,7 +832,16 @@ span {
  
 }
 
-#outras{
+/* CATEGORIAS */
+#cats {
+  font-family: Alliance, sans-serif;
+  font-size: 18pt;
+  line-height: 4.378531073446328vh;
+  font-weight: 200;
+}
+
+/* OUTRAS CATEGORIAS */
+#outras {
   font-family: Alliance, sans-serif;
   font-size: 18pt;
   line-height: 4.378531073446328vh;
@@ -844,59 +850,8 @@ span {
  
 }
 
-.wrapperDbx {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 100px;
-}
-
-.titDBX{
-  font-family: Alliance, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  width: 54vh;
-  text-align: left;
-  padding-bottom: 1rem;
-}
-
-
-.box1dbx {
-  grid-column-start:1;
-  grid-column-end:2 ;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  padding-left: 6vw;
-  padding-top: 1vh;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  text-align: left;
-}
-
-/* CAIXA CATEGORIAS */
-.box2dbx {
-  grid-column-start:1;
-  grid-column-end:2 ;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  padding-left: 6vw;
-  padding-top: 1vh;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  text-align: left;
-}
-
-/* CAIXA OUTRAS ENTRADAS */
-.box3dbx {
-  grid-column-start:2;
-  grid-column-end:5 ;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  padding-left: 6vw;
-  padding-top: 1vh;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  text-align: left;
-}
-
-/*Artigo em si, post*/
+/*--------------------------------------------------------------*/
+/*ARTIGO || BODY DO POST*/
 .bodyarticle {
   margin-left: 20vw;
   margin-right: 20vw;
@@ -932,6 +887,14 @@ span {
   margin: 0 auto;
   padding: 1rem 0;
   max-width: 100%;
+}
+
+#post figcaption {
+  font-size: 1rem;
+  text-align: right;
+  margin-top: -0.7rem;
+  margin-bottom: 1rem;
+  font-weight: 200;
 }
 
 #media-item{

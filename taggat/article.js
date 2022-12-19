@@ -294,10 +294,6 @@ function buildOutras(_outras) {
     .catch(function (error) {
       console.log(error);
     })
-    
-
-    // let h1el = post.title.rendered
-    // let urlel = post.url
     document.querySelector("#outrasENTRIES").appendChild(newel);
   }
                      
