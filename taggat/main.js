@@ -179,17 +179,17 @@ function construirArtigo(_post) {
         document.querySelector("#novoPost").appendChild(le);
         document.querySelector("#novoPost").appendChild(anotherBlank);
     }
-    if (_post.acf.data >= "1960" && _post.acf.data < "1969") {
+    if (_post.acf.data >= "1960" && _post.acf.data <= "1969") {
         document.querySelector("#novoPost").appendChild(le);
         document.querySelector("#novoPost").appendChild(anotherBlank);
         document.querySelector("#novoPost").appendChild(el);
     }
-    if (_post.acf.data >= "1970" && _post.acf.data < "1979") {
+    if (_post.acf.data >= "1970" && _post.acf.data <= "1979") {
         document.querySelector("#novoPost").appendChild(le);
         document.querySelector("#novoPost").appendChild(anotherBlank);
         document.querySelector("#novoPost").appendChild(el);
     }
-    if (_post.acf.data >= "1980" && _post.acf.data < "1989") {
+    if (_post.acf.data >= "1980" && _post.acf.data <= "1989") {
         document.querySelector("#novoPost").appendChild(le);
         document.querySelector("#novoPost").appendChild(anotherBlank);
         document.querySelector("#novoPost").appendChild(el);
@@ -360,6 +360,7 @@ function criarCategoras() {
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
       e.target = e.nomeClass.slice(7);
       // console.log(e.target);
+      $(".vertical-line").css("height", $("#novoPost").height())
     }
 
     // GET UM
