@@ -207,11 +207,11 @@ function construirArtigo(_post) {
     }
 
     $(".vertical-line").css("height", $("#NovoPost").height())
-    var currPosition = $(".vertical-line").position().left;
-    var trackLength = $(window).width();
+    let currPosition = $(".vertical-line").position().left;
+    let trackLength = $(window).width();
     $(window).scroll(function(event) {
         for (let article of $("#NovoPost article")) {
-            var $article = $(article);
+            let $article = $(article);
             if ($article.attr("class") != "blank" && ($article.offset().top - $(window).scrollTop()) < 200) {
                 $("#cronologia #1700").removeClass("cronologia-hover");
                 $("#cronologia #1800").removeClass("cronologia-hover");
@@ -256,8 +256,8 @@ function construirArtigo(_post) {
             }
         }
 
-        var current = $(window).scrollTop();
-        var newPosition = trackLength * ((current) / $("#NovoPost").height())
+        let current = $(window).scrollTop();
+        let newPosition = trackLength * ((current - 300) / $("#NovoPost").height())
         $(".vertical-line").css({ left: currPosition + newPosition + 'px' });
     });
 }
