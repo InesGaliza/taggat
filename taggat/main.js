@@ -212,7 +212,7 @@ function construirArtigo(_post) {
     $(window).scroll(function(event) {
         for (let article of $("#NovoPost article")) {
             let $article = $(article);
-            if ($article.attr("class") != "blank" && ($article.offset().top - $(window).scrollTop()) < 200) {
+            if ($article.attr("class") != "blank" && ($article.offset().top - $(window).scrollTop()) < 300) {
                 $("#cronologia #1700").removeClass("cronologia-hover");
                 $("#cronologia #1800").removeClass("cronologia-hover");
                 $("#cronologia #1900").removeClass("cronologia-hover");
